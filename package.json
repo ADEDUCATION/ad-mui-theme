@@ -1,0 +1,45 @@
+{
+  "name": "ad-mui-theme-package",
+  "version": "0.0.1",
+  "description": "Package for transform ADE design token in mui theme",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "author": "AD Education",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ADEDUCATION/ad-mui-theme"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./lib/index.js",
+        "types": "./lib/index.d.ts"
+      }
+    }
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p ./configs/tsconfig.esm.json && cp -r ./src/fonts ./lib/"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.10.6",
+    "@mui/x-data-grid": "^6.0.0",
+    "@mui/x-date-pickers": "^6.4.0",
+    "tsx": "^3.12.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.0",
+    "typescript": "^5.1.3"
+  }
+}
