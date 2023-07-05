@@ -258,18 +258,18 @@ export const layout = ({ palette, typography }: Props): OverridesStyleRules => (
             borderColor: palette?.primary.main + ' !important',
           },
           '& .form-control': {
-            width: '100%',
+            width: '100% !important',
             minHeight: '44px',
             color: palette?.grey[300],
             fontWeight: 700,
             fontFamily: 'Causten',
             border: 'none',
             '&.invalid-number': {
-              border: 'none',
-              background: 'none',
+              border: 'none !important',
+              background: 'none !important',
               '&:focus': {
-                border: 'none',
-                background: 'none',
+                border: 'none !important',
+                background: 'none !important',
               },
             },
             '&:disabled': {
