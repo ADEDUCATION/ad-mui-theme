@@ -7,13 +7,13 @@ This new theme is designed to have different mode (ade, esd, esp, eac...)
 ### With `yarn`
 
 ```bash
-$ yarn add @1ouiss/mui-theme-package @mui/material @emotion/react @emotion/styled
+$ yarn add ad-mui-theme-package @mui/material @emotion/react @emotion/styled
 ```
 
 ### With `npm`
 
 ```bash
-$ npm install @1ouiss/mui-theme-package @mui/material @emotion/react @emotion/styled
+$ npm install ad-mui-theme-package @mui/material @emotion/react @emotion/styled
 ```
 
 ## How to use it
@@ -23,7 +23,7 @@ $ npm install @1ouiss/mui-theme-package @mui/material @emotion/react @emotion/st
 To use the theme you need to import the provider and wrap your app with it.
 
 ```tsx
-import { CustomThemeProvider } from "@1ouiss/mui-theme-package";
+import { CustomThemeProvider } from "ad-mui-theme-package";
 
 const App = () => {
   return (
@@ -148,4 +148,20 @@ const CustomInputPhone = ({ ...rest }: PhoneInputProps) => {
 };
 
 export default CustomInputPhone;
+```
+
+## Custom IconButton
+
+If you want to use custom IconButton you need to import `IconButton` from `@mui/material` and add `className` to the component. You can use `action`, `delete`, `grey`, `error`, `success`, `outlined`, `secondary` and `primary` className.
+
+```tsx
+import { IconButton } from "@mui/material";
+
+const MyComponent = () => {
+  return (
+    <IconButton className="action">
+      <Icon />
+    </IconButton>
+  );
+};
 ```
