@@ -203,8 +203,12 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
           },
         },
         "& .MuiInputAdornment-root": {
+          "& .MuiButtonBase-root": {
+            padding: "10px",
+          },
           "& .MuiSvgIcon-root": {
             color: palette?.grey[500],
+            marginRight: "-1px"
           },
         }
       },
@@ -235,6 +239,11 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
         color: palette?.grey[500],
         "& .MuiRadio-root": {
           color: palette?.grey[500],
+          "&.Mui-disabled": {
+            "& + .MuiTypography-root": {
+              color: palette?.grey[600],
+            },
+          },
           "&.Mui-checked": {
             color: palette?.primary.main,
             "& + .MuiTypography-root": {
