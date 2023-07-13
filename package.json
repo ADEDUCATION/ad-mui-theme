@@ -1,6 +1,6 @@
 {
   "name": "ad-mui-theme-package",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "Package for transform ADE design token in mui theme",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
