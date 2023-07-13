@@ -178,6 +178,12 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
         color: palette && palette.grey[300],
         fontWeight: typography?.subtitleMedium.fontWeight,
         height: 44,
+        '& input': {
+          fontSize: typography?.subtitleMedium.fontSize,
+        },
+        '& select': {
+          fontSize: typography?.subtitleMedium.fontSize,
+        },
         "& .MuiOutlinedInput-notchedOutline": {
           borderColor: palette?.grey[700] + " !important",
         },
@@ -187,6 +193,9 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
           },
         },
         '&.Mui-disabled input': {
+          WebkitTextFillColor: palette?.grey[700],
+        },
+        '&.Mui-disabled select': {
           WebkitTextFillColor: palette?.grey[700],
         },
         "&.Mui-disabled": {
@@ -205,11 +214,27 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
         "& .MuiInputAdornment-root": {
           "& .MuiButtonBase-root": {
             padding: "10px",
+            "& .MuiSvgIcon-root": {
+              color: palette?.grey[500],
+              marginRight: "-1px"
+            },
           },
-          "& .MuiSvgIcon-root": {
-            color: palette?.grey[500],
-            marginRight: "-1px"
+          "&.info": {
+            color: palette?.color1.main,
+            borderRadius: 50,
+            backgroundColor: palette?.color1.contrastText,
+            width: 18,
+            height: 18,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            cursor: 'pointer',
+            '& .MuiSvgIcon-root': {
+              color: palette?.color1.main + " !important",
+              marginRight: "-1px",
+            },
           },
+
         }
       },
     },
