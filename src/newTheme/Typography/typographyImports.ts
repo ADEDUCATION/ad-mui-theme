@@ -1,8 +1,9 @@
-import CaustenBold from '../../fonts/Causten-Bold.otf'
-import CaustenLight from '../../fonts/Causten-Light.otf'
-import CaustenMedium from '../../fonts/Causten-Medium.otf'
-import CaustenRegular from '../../fonts/Causten-Regular.otf'
-import CaustenSemiBold from '../../fonts/Causten-SemiBold.otf'
+import CaustenBlack from '../../fonts/causten-black-webfont.woff2'
+import CaustenBold from '../../fonts/causten-bold-webfont.woff2'
+import CaustenLight from '../../fonts/causten-light-webfont.woff2'
+import CaustenMedium from '../../fonts/causten-medium-webfont.woff2'
+import CaustenRegular from '../../fonts/causten-regular-webfont.woff2'
+import CaustenSemiBold from '../../fonts/causten-semibold-webfont.woff2'
 
 const typographyImports = `
 @font-face {
