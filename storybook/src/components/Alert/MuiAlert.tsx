@@ -1,61 +1,43 @@
-import { OpenInNew } from "@mui/icons-material";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Close } from "@mui/icons-material";
+import { Alert, AlertTitle, Button } from "@mui/material";
+import { useEffect } from "react";
 
 export type MuiAlertProps = {
-  part: any;
-  type:
-    | "success"
-    | "error"
-    | "warning"
-    | "info"
-    | "primary"
-    | "secondary"
-    | "color1"
-    | "color2"
-    | "color3"
-    | "color4";
+  type: "error" | "warning" | "info" | "primary" | "secondary";
 };
 
-const MuiAlert = ({ part, type }: MuiAlertProps) => {
+const AlertMui = ({ type }: MuiAlertProps) => {
+  let icon = null;
+
+  useEffect(() => {
+    if (type === "error") {
+      icon = <Close />;
+    }
+  }, [type]);
+
   return (
-    <Box
+    <Alert
       sx={{
+        width: "100%",
+        backgroundColor: `${type}.main`,
+        color: "#fff",
         display: "flex",
-        bgcolor: `${type}.main`,
-        p: 1,
-        borderRadius: 1,
-        gap: 2,
-        width: "fit-content",
+        alignItems: "center",
+        justifyContent: "center",
       }}
+      //   severity="error"
+      variant="filled"
+      action={
+        <Button size="medium" variant="text" color="inherit">
+          UNDO
+        </Button>
+      }
+      icon={icon}
     >
-      <Box
-        sx={{
-          display: "flex",
-          bgcolor: "#fff",
-          width: 40,
-          height: 40,
-          borderRadius: 1,
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Typography sx={{ fontSize: "25px" }}>🔍</Typography>
-      </Box>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Typography variant="subtitleBold" color={`${type}.contrastText`}>
-          {part.infos.title}
-        </Typography>
-        <Typography variant="bodyLight" color={`${type}.contrastText`}>
-          {part.infos.content}
-        </Typography>
-      </Box>
-      <a href={part.infos.link} rel="noreferrer" target="_blank">
-        <IconButton sx={{ color: `${type}.contrastText` }}>
-          <OpenInNew />
-        </IconButton>
-      </a>
-    </Box>
+      <AlertTitle>Error</AlertTitle>
+      This is an error alert — <strong>check it out!</strong>
+    </Alert>
   );
 };
 
-export default MuiAlert;
+export default AlertMui;

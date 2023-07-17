@@ -1,23 +1,13 @@
-import type { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react";
 
-import MuiAlert, { MuiAlertProps } from "./MuiAlert";
+import AlertMui, { MuiAlertProps } from "./MuiAlert";
 
 export default {
-  title: "Components/MuiAlert",
-  component: MuiAlert,
-} as Meta<typeof MuiAlert>;
+  title: "Components/Alert",
+  component: AlertMui,
+  args: {
+    type: "error",
+  },
+} as Meta<typeof AlertMui>;
 
-export const Default = ({ part, ...props }: MuiAlertProps) => {
-  return (
-    <MuiAlert
-      part={{
-        infos: {
-          title: "title",
-          content: "content",
-          link: "link",
-        },
-      }}
-      {...props}
-    />
-  );
-};
+export const Default = (props: MuiAlertProps) => <AlertMui {...props} />;

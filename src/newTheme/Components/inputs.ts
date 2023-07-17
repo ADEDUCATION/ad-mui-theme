@@ -30,12 +30,13 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
               ownerState.variant === "contained"
                 ? palette && palette[ownerState.color as MergeSubObjects].light
                 : ownerState.variant === "text" &&
-                  palette &&
-                  palette[ownerState.color as MergeSubObjects].A20,
+                  ownerState.color === "inherit" ? "inherit" :
+                  palette && palette[ownerState.color as MergeSubObjects].A20,
             color:
               ownerState.variant === "text" &&
-              palette &&
-              palette[ownerState.color as MergeSubObjects].light,
+              palette && 
+              ownerState.color === "inherit" ? "inherit" :
+                  palette && palette[ownerState.color as MergeSubObjects].light,
             boxShadow: "none",
           },
         };
