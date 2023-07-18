@@ -1,13 +1,16 @@
 import { Meta } from "@storybook/react";
 
-import AlertMui, { MuiAlertProps } from "./MuiAlert";
+import { MuiAlertProps, AlertMui } from "./MuiAlert";
 
 export default {
   title: "Components/Alert",
   component: AlertMui,
   args: {
-    type: "error",
+    title: "This is an error alert — check it out!",
+    content: "This is an error alert — check it out!",
   },
 } as Meta<typeof AlertMui>;
+
+console.log(typeof AlertMui);
 
 export const Default = (props: MuiAlertProps) => <AlertMui {...props} />;

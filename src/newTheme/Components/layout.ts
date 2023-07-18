@@ -1,6 +1,7 @@
 import { OverridesStyleRules } from '@mui/material/styles/overrides';
 
 import { Props } from './components';
+import { alpha } from '@mui/material';
 
 export const layout = ({ palette, typography }: Props): OverridesStyleRules => ({
   MuiDataGrid: {
@@ -373,6 +374,33 @@ export const layout = ({ palette, typography }: Props): OverridesStyleRules => (
         marginTop: 10,
         marginBottom: 10,
         width: '80%',
+      },
+    },
+  },
+  MuiAlert: {
+    styleOverrides: {
+      root: {
+        borderRadius: '4px',
+        padding: '6px 16px',
+        '& .MuiAlertTitle-root': {
+          fontWeight: typography?.h6.fontWeight,
+          fontSize: typography?.h6.fontSize,
+          marginBottom: 0
+        },
+        '& .MuiButton-root': {
+          '&:hover': {
+            backgroundColor: palette?.background.paper && alpha(palette?.background.paper, 0.2),
+          },
+        },
+        '& .MuiIconButton-root': {
+          '&:hover': {
+            backgroundColor: palette?.background.paper && alpha(palette?.background.paper, 0.2),
+          },
+          '& .MuiSvgIcon-root': {
+            width: "20px",
+            height: "20px",
+          }
+        }
       },
     },
   },
