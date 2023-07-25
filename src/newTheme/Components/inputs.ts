@@ -27,16 +27,16 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
           textTransform: "inherit",
           "&:hover": {
             backgroundColor:
-              ownerState.variant === "contained"
-                ? palette && palette[ownerState.color as MergeSubObjects].light
-                : ownerState.variant === "text" &&
-                  ownerState.color === "inherit" ? "inherit" :
-                  palette && palette[ownerState.color as MergeSubObjects].A20,
-            color:
-              ownerState.variant === "text" &&
-              palette && 
-              ownerState.color === "inherit" ? "inherit" :
-                  palette && palette[ownerState.color as MergeSubObjects].light,
+            ownerState.variant === "contained"
+              ? palette && palette[ownerState.color as MergeSubObjects].light
+              : ownerState.variant === "text" &&
+                palette &&
+                palette[ownerState.color as MergeSubObjects].A20,
+          color:
+            ownerState.variant === "text" &&
+            palette &&
+            palette[ownerState.color as MergeSubObjects].light,
+
             boxShadow: "none",
           },
         };

@@ -48,7 +48,18 @@ export const AlertMui = ({
         variant="filled"
         action={
           action === "button" ? (
-            <Button size="medium" variant="text" color="inherit">
+            <Button
+              size="medium"
+              variant="text"
+              sx={{
+                color: "inherit",
+                textTransform: "inherit",
+                "&:hover": {
+                  backgroundColor: "inherit",
+                  color: "inherit",
+                },
+              }}
+            >
               UNDO
             </Button>
           ) : (

@@ -404,4 +404,48 @@ export const layout = ({ palette, typography }: Props): OverridesStyleRules => (
       },
     },
   },
+  MuiDialog: {
+    styleOverrides: {
+      root:{
+          '& .MuiStepper-root': {
+              gap: '0.5rem',
+              height: '40px',
+              '& .MuiStep-root': {
+                padding: 0,
+                '& .MuiStepLabel-root': {
+                  flexDirection: 'row-reverse',
+                  '& .Mui-active': {
+                    '& .MuiSvgIcon-root': {
+                      marginLeft: '0.5rem',
+                      color: palette?.background.paper,
+                      '& .MuiStepIcon-text': {
+                        fill: palette?.grey[400],
+                      },
+                    },
+                  },
+                  '& .Mui-completed': {
+                    color: palette?.background.paper,
+                    '& .': {
+                      color: palette?.primaryBase[300],
+                    },
+                  },
+                  '& .MuiStepIcon-text': {
+                    fontWeight: '900',
+                    dominantBaseline: 'central',
+                    fontSize: '14px',
+                  },
+                  '& .MuiTypography-root': {
+                    width: 'max-content',
+                  },
+                },
+                '& .MuiStepLabel-iconContainer': {
+                  paddingRight: 0,
+                  color: 'red',
+                },
+              },
+
+        },
+      }
+    }
+  }
 });
