@@ -8,7 +8,7 @@ export default {
   title: "Components/Chip",
   component: MuiChip,
   args: {
-    label: "Chip",
+    label: "AD Education",
     color: "primary",
     variant: "filled",
     size: "medium",
