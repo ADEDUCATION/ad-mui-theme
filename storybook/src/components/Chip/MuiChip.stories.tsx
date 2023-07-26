@@ -18,9 +18,13 @@ export default {
 
 export const Default = (props: MuiChipProps) => <MuiChip {...props} />;
 
-export const Deletable = (props: MuiChipProps) => <MuiChip {...props} onDelete={() => {}} />;
+export const Deletable = (props: MuiChipProps) => (
+  <MuiChip {...props} onDelete={() => {}} />
+);
 
-export const StartIcon = (props: MuiChipProps) => <MuiChip {...props} icon={<CheckCircle />} />;
+export const StartIcon = (props: MuiChipProps) => (
+  <MuiChip {...props} icon={<CheckCircle />} />
+);
 
 export const AvatarChip = (props: MuiChipProps) => (
   <MuiChip {...props} avatar={<Avatar>L</Avatar>} />

@@ -41,14 +41,14 @@ export const globalTypes = {
     name: "Theme",
     title: "Theme",
     description: "Theme for your components",
-    defaultValue: "ade",
+    defaultValue: "ADE",
     toolbar: {
       icon: "globe",
       dynamicTitle: true,
       items: [
         { value: "ADE", left: "☀️", title: "ADE" },
         { value: "ESP", left: "🌙", title: "ESP" },
-        { value: "ADEDARK", left: "🌙", title: "ADE Dark" },
+        // { value: "ADEDARK", left: "🌙", title: "ADE Dark" },
       ],
     },
   },

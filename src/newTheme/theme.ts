@@ -53,6 +53,9 @@ declare module '@mui/material/Chip' {
     color8: true;
     color9: true;
   }
+  interface ChipPropsSizeOverrides {
+    large: true;
+  }
 }
 
 declare module '@mui/material/IconButton' {

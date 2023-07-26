@@ -40,6 +40,15 @@ const dataDisplay = ({ palette, typography }: Props) => ({
         },
       },
     },
+    variants: [
+      {
+        props: { size: 'large' },
+        style: {
+          '& .MuiChip-label': {
+          }
+        }
+      }
+    ],
   },
 });
 
