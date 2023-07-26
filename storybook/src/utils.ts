@@ -21,5 +21,5 @@ export type MuiOmits =
   | "PopperProps"
   | "PopperComponent"
   | "onClose"
-  | "onOpen"
-  | "";
+  | "deleteIcon"
+  | "sx";
