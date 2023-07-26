@@ -1,32 +1,37 @@
-import { Box, Button, ButtonProps as MuiButtonProps } from "@mui/material";
-import { Add, Delete } from "@mui/icons-material";
+import { Button, ButtonProps as MuiButtonProps } from "@mui/material";
+import { Add, Check, Delete } from "@mui/icons-material";
 import { MuiOmits } from "../../utils";
 
 type ButtonBaseProps = MuiButtonProps;
 
 export interface ButtonProps extends Omit<ButtonBaseProps, MuiOmits> {
   label: string;
-  endIcon?: "delete" | "add"; // Définition des valeurs possibles pour endIcon
+  startIcon?: "none" | "check" | "add";
+  endIcon?: "none" | "delete" | "add";
 }
 
-// interface Color extends ButtonBasePropsColors
-
-export const MuiButton = ({ label, endIcon, ...rest }: ButtonProps) => {
+export const MuiButton = ({ label, endIcon, startIcon, ...rest }: ButtonProps) => {
   return (
-    <>
-      <Button endIcon={endIcon && getEndIcon(endIcon)} {...rest}>
-        {label}
-      </Button>
-    </>
+    <Button
+      endIcon={endIcon && getIcon(endIcon)}
+      startIcon={startIcon && getIcon(startIcon)}
+      {...rest}
+    >
+      {label}
+    </Button>
   );
 };
 
-const getEndIcon = (endIcon: "delete" | "add") => {
-  switch (endIcon) {
+const getIcon = (icon: "delete" | "add" | "check" | "none") => {
+  switch (icon) {
     case "delete":
       return <Delete />;
     case "add":
       return <Add />;
+    case "check":
+      return <Check />;
+    case "none":
+      return null;
     default:
       return null;
   }

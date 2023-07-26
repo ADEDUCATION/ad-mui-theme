@@ -22,4 +22,11 @@ export type MuiOmits =
   | "PopperComponent"
   | "onClose"
   | "deleteIcon"
-  | "sx";
+  | "sx"
+  | "fullWidth"
+  | "centerRipple"
+  | "disableRipple"
+  | "disableTouchRipple"
+  | "focusRipple"
+  | "disableFocusRipple"
+  | "disableElevation";

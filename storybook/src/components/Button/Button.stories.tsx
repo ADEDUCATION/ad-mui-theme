@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 
 import { MuiButton } from "./MuiButton";
 
@@ -6,12 +6,30 @@ export default {
   title: "Components/Button",
   component: MuiButton,
   args: {
-    label: "Design token",
-    disabled: false,
-    fullWidth: false,
+    label: "AD Education",
     color: "primary",
-    size: "medium",
     variant: "contained",
+    size: "medium",
+    disabled: false,
+    startIcon: "none",
+    endIcon: "none",
+  },
+  argTypes: {
+    disabled: {
+      table: {
+        defaultValue: { summary: "false" },
+      },
+    },
+    startIcon: {
+      table: {
+        defaultValue: { summary: "none" },
+      },
+    },
+    endIcon: {
+      table: {
+        defaultValue: { summary: "none" },
+      },
+    },
   },
 } as Meta<typeof MuiButton>;
 
