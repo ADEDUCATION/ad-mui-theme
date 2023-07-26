@@ -1,4 +1,9 @@
-import { Button, ButtonGroup, ButtonGroupProps } from "@mui/material";
+import { Button, ButtonGroup, ButtonGroupProps as MuiButtonGroupProps } from "@mui/material";
+import { MuiOmits } from "../../utils";
+
+type ButtonBaseProps = MuiButtonGroupProps;
+
+export interface ButtonGroupProps extends Omit<ButtonBaseProps, MuiOmits> {}
 
 const MuiButtonGroup = ({ ...rest }: ButtonGroupProps) => {
   return (

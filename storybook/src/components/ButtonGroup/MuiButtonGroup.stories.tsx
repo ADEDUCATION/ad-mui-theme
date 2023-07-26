@@ -6,8 +6,13 @@ import { ButtonGroupProps } from "@mui/material";
 export default {
   title: "Components/ButtonGroup",
   component: MuiButtonGroup,
+  args: {
+    color: "primary",
+    variant: "contained",
+    size: "medium",
+    disabled: false,
+    orientation: "horizontal",
+  },
 } as Meta<typeof MuiButtonGroup>;
 
-export const Default = (props: ButtonGroupProps) => (
-  <MuiButtonGroup {...props} />
-);
+export const Default = (props: ButtonGroupProps) => <MuiButtonGroup {...props} />;

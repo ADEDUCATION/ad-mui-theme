@@ -29,4 +29,5 @@ export type MuiOmits =
   | "disableTouchRipple"
   | "focusRipple"
   | "disableFocusRipple"
-  | "disableElevation";
+  | "disableElevation"
+  | "children";
