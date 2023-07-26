@@ -69,7 +69,9 @@ declare module '@mui/material/IconButton' {
     color7: true;
     color8: true;
     color9: true;
-    grey: true;
+    actionable:true;
+    outlined:true;
+    delete:true;
   }
 }
 

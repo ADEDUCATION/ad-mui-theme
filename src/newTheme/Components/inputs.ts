@@ -82,19 +82,12 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
             height: '18px',
           },
         },
-        '&.secondary': {
-          backgroundColor: palette?.secondaryBase[900] + ' !important',
-          '& .MuiSvgIcon-root': {
-            color: palette?.secondaryBase[300] + ' !important',
-          },
-          '&:hover': {
-            backgroundColor: palette?.primary.light + ' !important',
-            '& .MuiSvgIcon-root': {
-              color: palette?.background.default + ' !important',
-            },
-          },
-        },
-        '&.primary': {
+      },
+    },
+    variants: [
+      {
+        props: { color: "primary" },
+        style: {
           backgroundColor: palette?.grey[900] + ' !important',
           '& .MuiSvgIcon-root': {
             color: palette?.grey[500] + ' !important',
@@ -108,16 +101,37 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
               color: palette?.primary.contrastText + ' !important',
             },
           },
-        },
-        '&.grey': {
+        }
+      },
+      {
+        props: { color: "secondary" },
+        style: {
+          backgroundColor: palette?.secondaryBase[900] + ' !important',
+          '& .MuiSvgIcon-root': {
+            color: palette?.secondaryBase[300] + ' !important',
+          },
+          '&:hover': {
+            backgroundColor: palette?.primary.light + ' !important',
+            '& .MuiSvgIcon-root': {
+              color: palette?.background.default + ' !important',
+            },
+          },
+        }
+      },
+      {
+        props: { color: "default" },
+        style: {
           '& .MuiSvgIcon-root': {
             color: palette?.grey[300] + ' !important',
           },
           '&:hover': {
             backgroundColor: palette?.grey[800] + ' !important',
           },
-        },
-        '&.action': {
+        }
+      },
+      {
+        props: { color: "actionable" },
+        style: {
           '& .MuiSvgIcon-root': {
             color: palette?.grey[300] + ' !important',
           },
@@ -127,8 +141,11 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
               color: palette?.primary.light + ' !important',
             },
           },
-        },
-        '&.outlined': {
+        }
+      },
+      {
+        props: { color: "outlined" },
+        style: {
           border: '1px solid ' + palette?.background.paper + ' !important',
           '& .MuiSvgIcon-root': {
             color: palette?.background.paper + ' !important',
@@ -139,29 +156,38 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
               color: palette?.color1.contrastText + ' !important',
             },
           },
-        },
-        '&.error': {
+        }
+      },
+      {
+        props: { color: "error" },
+        style: {
           backgroundColor: palette?.error.main + ' !important',
           '& .MuiSvgIcon-root': {
             color: palette?.error.contrastText + ' !important',
           },
-        },
-        '&.success': {
+        }
+      },
+      {
+        props: { color: "success" },
+        style: {
           backgroundColor: palette?.success.main + ' !important',
           '& .MuiSvgIcon-root': {
             color: palette?.success.contrastText + ' !important',
           },
-        },
-        '&.delete': {
+        }
+      },
+      {
+        props: { color: "delete" },
+        style: {
           '&:hover': {
             backgroundColor: palette?.error.A10 + ' !important',
             '& .MuiSvgIcon-root': {
               color: palette?.error.main + ' !important',
             },
           },
-        },
+        }
       },
-    },
+    ]
   },
   MuiFab: {
     styleOverrides: {
