@@ -18,7 +18,7 @@
     "@mui/material": "^5.10.6",
     "@mui/x-data-grid": "^6.0.0",
     "@mui/x-date-pickers": "^6.4.0",
-    "ad-mui-theme-package": "/Users/louisbouet/Desktop/DEV/PRO/ad-mui-theme",
+    "ad-mui-theme-package": "^0.0.12",
     "dayjs": "^1.11.8",
     "lottie-react": "^2.4.0",
     "react": "^18.2.0",
