@@ -75,6 +75,16 @@ declare module '@mui/material/IconButton' {
   }
 }
 
+declare module '@mui/material/Alert' {
+  interface AlertPropsColorOverrides {
+    error: true;
+    warning: true;
+    info: true;
+    primary: true;
+    secondary: true;
+  }
+}
+
 export const newTheme = (mode: keyof typeof tokens) => {
   const customPalette = createNewPalette(mode);
   const customTypography = createNewTypography({ mode, palette: customPalette });

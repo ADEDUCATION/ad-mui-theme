@@ -11,6 +11,4 @@ export default {
   },
 } as Meta<typeof AlertMui>;
 
-console.log(typeof AlertMui);
-
 export const Default = (props: MuiAlertProps) => <AlertMui {...props} />;

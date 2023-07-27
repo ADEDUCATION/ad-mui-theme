@@ -1,15 +1,18 @@
 import type { Meta } from "@storybook/react";
 
-import MuiAlert, { MuiAlertProps } from "./MuiAlert";
+import Information, { MuiAlertProps } from "./MuiAlert";
 
 export default {
-  title: "Components/MuiAlert",
-  component: MuiAlert,
-} as Meta<typeof MuiAlert>;
+  title: "Components/Information",
+  component: Information,
+  args: {
+    type: "color1",
+  },
+} as Meta<typeof Information>;
 
 export const Default = ({ part, ...props }: MuiAlertProps) => {
   return (
-    <MuiAlert
+    <Information
       part={{
         infos: {
           title: "title",
