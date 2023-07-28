@@ -1,8 +1,9 @@
 import { InputLabel, TextField, TextFieldProps } from "@mui/material";
 
 import Label from "../Label";
+import { MuiOmits } from "../../utils";
 
-const CustomTextInput = ({ ...rest }: TextFieldProps) => {
+const CustomTextInput = ({ ...rest }: Omit<TextFieldProps, MuiOmits>) => {
   const field = {
     label: "Titre(s) RNCP rattaché(s)",
     id: "cfa_rncp",

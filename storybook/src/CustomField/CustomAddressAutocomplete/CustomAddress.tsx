@@ -1,12 +1,7 @@
-import {
-  Autocomplete,
-  AutocompleteProps,
-  InputLabel,
-  TextField,
-} from "@mui/material";
+import { Autocomplete, InputLabel, TextField } from "@mui/material";
 import Label from "../Label";
 
-const CustomAddress = ({ ...rest }: AutocompleteProps) => {
+const CustomAddress = ({ ...rest }: typeof Autocomplete) => {
   const field = {
     label: "Adresse",
     id: "address",

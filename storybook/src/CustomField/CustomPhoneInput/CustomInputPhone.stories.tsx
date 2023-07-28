@@ -8,4 +8,6 @@ export default {
   component: CustomInputPhone,
 } as Meta<typeof CustomInputPhone>;
 
-export const Default = (props: any) => <CustomInputPhone {...props} />;
+export const Default = (props: PhoneInputProps) => (
+  <CustomInputPhone {...props} />
+);

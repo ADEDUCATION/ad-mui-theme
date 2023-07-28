@@ -8,8 +8,9 @@ import {
 } from "@mui/material";
 
 import Label from "../Label";
+import { MuiOmits } from "../../utils";
 
-const CustomDurationInput = ({ ...rest }: TextFieldProps) => {
+const CustomDurationInput = ({ ...rest }: Omit<TextFieldProps, MuiOmits>) => {
   const field = {
     label: "Durée de la formation",
     id: "academic_hours",

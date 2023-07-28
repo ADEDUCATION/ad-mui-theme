@@ -2,8 +2,11 @@ import { PatternFormat, PatternFormatProps } from "react-number-format";
 
 import { InputLabel, TextField, TextFieldProps } from "@mui/material";
 import Label from "../Label";
+import { MuiOmits } from "../../utils";
 
-const CustomCompanyCodeInput = ({ ...rest }: PatternFormatProps) => {
+const CustomCompanyCodeInput = ({
+  ...rest
+}: Omit<PatternFormatProps, MuiOmits>) => {
   const field = {
     label: "Numéro Siret",
     id: "cfa_siret",
