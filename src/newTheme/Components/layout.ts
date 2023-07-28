@@ -101,9 +101,6 @@ export const layout = ({ palette, typography }: Props): OverridesStyleRules => (
           },
         },
         '& .Mui-error': {
-          // backgroundColor: `rgb(126,10,15, ${
-          //   palette?.mode === "dark" ? 0 : 0.1
-          // })`,
           color: palette?.error.main,
         },
         '& .MuiDataGrid-overlay': {

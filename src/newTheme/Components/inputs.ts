@@ -286,7 +286,6 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
   MuiSelect: {
     styleOverrides: {
       root: {
-        // minHeight: 60,
         "& .MuiSelect-root": {
           color: palette?.grey[500],
         },
@@ -302,11 +301,6 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
         "& .MuiOutlinedInput-notchedOutline": {
           borderColor: palette?.grey[500],
         },
-        // "&.Mui-disabled": {
-        //   "& .MuiOutlinedInput-notchedOutline": {
-        //     borderColor: palette?.grey[800] + "!important",
-        //   },
-        // },
       },
     },
   },
@@ -349,9 +343,7 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
           {
             color: palette?.primary.main,
           },
-        // "&:hover .MuiFormLabel-root": {
-        //   color: palette?.primary.main,
-        // },
+
         "& .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg": {
           color: palette?.grey[400],
         },

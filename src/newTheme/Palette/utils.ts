@@ -1,4 +1,4 @@
-import { SimplePaletteColorOptions } from "@mui/material";
+import { Color, SimplePaletteColorOptions } from "@mui/material";
 import { tokens } from "../theme";
 import { ColorPartial, TypeBackground } from '@mui/material/styles/createPalette';
 
@@ -31,9 +31,13 @@ type PaletteCustom = {
   };
 };
 
+type OmitColor = "A100" | "A200" | "A400" | "A700" | 50
+
+type ColorOffset = Omit<Color, OmitColor>
+
 type PaletteOffset = {
   [key in keyof typeof tokens]: {
-    [color in keyof (typeof tokens)[key]["tonalOffset"]]: ColorPartial;
+    [color in keyof (typeof tokens)[key]["tonalOffset"]]: ColorOffset
   };
 };
 
@@ -53,7 +57,7 @@ type CombinedPalette = {
       | keyof (typeof tokens)[key]["palette"]
       | keyof (typeof tokens)[key]["customPalette"]]: NewColor;
   } & {
-    [color in keyof (typeof tokens)[key]["tonalOffset"]]: ColorPartial;
+    [color in keyof (typeof tokens)[key]["tonalOffset"]]: ColorOffset;
   } & {
     [color in keyof (typeof tokens)[key]["paletteBackground"]]: BackgroundType;
   }

@@ -23,7 +23,6 @@ const globals = ({ palette, typography }: Props) => ({
             paddingBottom: 0,
             "& .MuiAutocomplete-option": {
               backgroundColor: "transparent",
-              // color: palette.grey[900],
               transition: "background-color 0.2s ease-in-out",
               padding: 0,
               '&[aria-selected="true"]': {
@@ -57,8 +56,6 @@ const globals = ({ palette, typography }: Props) => ({
         backgroundColor: palette?.grey[300],
         color: palette?.grey[900],
         fontSize: '0.75rem',
-        // fontStyle: 'italic',
-        // fontWeight: 200,
       },
       arrow: {
         color: palette?.grey[300],
