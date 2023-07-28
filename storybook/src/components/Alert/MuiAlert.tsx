@@ -11,8 +11,9 @@ import WarningIcon from "@mui/icons-material/Warning";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Close } from "@mui/icons-material";
+import { MuiOmits } from "../../utils";
 
-export interface MuiAlertProps extends AlertProps {
+export interface MuiAlertProps extends Omit<AlertProps, MuiOmits> {
   title: string;
   type: "error" | "warning" | "info" | "primary" | "secondary";
   action: "icon" | "button";

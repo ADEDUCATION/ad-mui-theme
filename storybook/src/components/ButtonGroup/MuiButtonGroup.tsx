@@ -1,6 +1,7 @@
 import { Button, ButtonGroup, ButtonGroupProps } from "@mui/material";
+import { MuiOmits } from "../../utils";
 
-const MuiButtonGroup = ({ ...rest }: ButtonGroupProps) => {
+const MuiButtonGroup = ({ ...rest }: Omit<ButtonGroupProps, MuiOmits>) => {
   return (
     <ButtonGroup variant="contained" {...rest}>
       <Button>One</Button>

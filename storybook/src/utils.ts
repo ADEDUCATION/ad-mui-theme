@@ -22,4 +22,7 @@ export type MuiOmits =
   | "PopperComponent"
   | "onClose"
   | "onOpen"
+  | "sx"
+  | "anchorOrigin"
+  | "deleteIcon"
   | "";

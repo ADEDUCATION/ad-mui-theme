@@ -14,6 +14,11 @@ export default {
     variant: "filled",
     onDelete: undefined,
   },
+  parameters: {
+    controls: {
+      exclude: ["onDelete", "avatar", "icon"],
+    },
+  },
 } as Meta<typeof MuiChip>;
 
 export const Default = (props: MuiChipProps) => <MuiChip {...props} />;
