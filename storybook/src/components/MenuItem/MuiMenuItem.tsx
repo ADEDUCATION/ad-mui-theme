@@ -1,12 +1,12 @@
 import { LoginOutlined, PersonPinCircleOutlined } from "@mui/icons-material";
-import { Button, Menu, MenuItem, MenuProps } from "@mui/material";
+import { Button, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
 
 const MuiMenuItem = () => {
   const [anchorEl, setAnchorEl] = useState<any>(false);
   return (
     <>
-      <Button onClick={(e) => setAnchorEl(!anchorEl)}>Open menu</Button>
+      <Button onClick={() => setAnchorEl(!anchorEl)}>Open menu</Button>
       <Menu
         id="user-menu"
         open={anchorEl}

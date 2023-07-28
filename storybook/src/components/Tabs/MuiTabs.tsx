@@ -52,6 +52,7 @@ const MuiTabs = () => {
       <Tabs
         value={tabValue}
         onChange={(e, val) => {
+          console.log(e);
           const value = val as string;
           setTabValue(value);
         }}

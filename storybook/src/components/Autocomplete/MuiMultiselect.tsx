@@ -1,6 +1,5 @@
 import {
   Autocomplete,
-  AutocompleteProps,
   Checkbox,
   InputLabel,
   TextField,
@@ -37,6 +36,7 @@ const MuiMultiselect = () => {
         getOptionLabel={(option) => `${option.label}`}
         renderInput={(params) => <TextField {...params} variant="outlined" />}
         onChange={(e, value) => {
+          console.log(e);
           setSelectedCities(value);
         }}
         disableCloseOnSelect

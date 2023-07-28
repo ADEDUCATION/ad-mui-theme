@@ -1,8 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-
 import {
   Chip,
-  FormControl,
   FormHelperText,
   InputLabel,
   MenuItem,
@@ -39,13 +36,11 @@ const CustomMultiselectInput = ({ ...rest }: SelectProps) => {
         renderValue={(selected) => {
           return (
             <div style={{ margin: 3 }}>
-              {/* {(selected as unknown as string[]).map((selectedValue) => ( */}
               <Chip
                 key={`${field.id}`}
                 label={field.list?.find((el) => el.id === selected)?.label}
                 sx={{ m: 1 }}
               />
-              {/* ))} */}
             </div>
           );
         }}

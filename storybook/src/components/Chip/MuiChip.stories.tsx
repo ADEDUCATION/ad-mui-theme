@@ -1,8 +1,8 @@
 import type { Meta } from "@storybook/react";
 
 import { MuiChip, MuiChipProps } from "./MuiChip";
-import { ChipProps, Avatar } from "@mui/material";
-import { Check, CheckCircle } from "@mui/icons-material";
+import { Avatar } from "@mui/material";
+import { CheckCircle } from "@mui/icons-material";
 
 export default {
   title: "Components/Chip",

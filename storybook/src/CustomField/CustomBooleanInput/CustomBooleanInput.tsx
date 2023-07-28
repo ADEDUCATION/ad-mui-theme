@@ -1,10 +1,8 @@
 import {
   Checkbox,
-  CheckboxProps,
   FormControlLabel,
   FormControlLabelProps,
   FormGroup,
-  FormGroupProps,
 } from "@mui/material";
 
 import Label from "../Label";

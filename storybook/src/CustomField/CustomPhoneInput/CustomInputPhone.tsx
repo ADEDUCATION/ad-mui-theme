@@ -4,7 +4,6 @@ import PhoneInput, { PhoneInputProps } from "react-phone-input-2";
 import fr from "react-phone-input-2/lang/fr.json";
 import "react-phone-input-2/lib/style.css";
 import { useState } from "react";
-import { PHONE_COUNTRIES } from "../utils";
 
 const CustomInputPhone = ({ ...rest }: PhoneInputProps) => {
   const field = {
@@ -31,6 +30,7 @@ const CustomInputPhone = ({ ...rest }: PhoneInputProps) => {
           inputProps={{
             name: field.id,
           }}
+          onChange={(phone) => setValue(phone)}
           inputClass="invalid-number"
           placeholder="ex : +33 6 44 55 66 77"
           inputStyle={{}}
