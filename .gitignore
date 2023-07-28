@@ -133,4 +133,6 @@ dist
 
 lib/
 
+storybook-static/
+
 *.DS_Store
