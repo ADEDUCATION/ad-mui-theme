@@ -182,3 +182,11 @@ $ yarn
 # Start storybook
 $ yarn storybook
 ```
+
+## Exported Types
+
+| Name                        | Type                                                                                                                                                                                                             |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **MergeSubObjects**         | `primary` / `secondary` / `success` / `warning` / `error` / `info`                                                                                                                                               |
+| **SubObjectsCustomPalette** | `color1` / `color2` / `color3` / `color4` / `color5` / `color6` / `color7` / `color8` / `color9`                                                                                                                 |
+| **AllColor**                | `primary` / `secondary` / `success` / `warning` / `error` / `info` / `color1` / `color2` / `color3` / `color4` / `color5` / `color6` / `color7` / `color8` / `color9` / `grey` / `primaryBase` / `secondaryBase` |
