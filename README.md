@@ -165,3 +165,20 @@ const MyComponent = () => {
   );
 };
 ```
+
+## Troubleshooting
+
+If you have an error with `string-width` dependency you need to follow this steps:
+
+```bash
+# Clean yarn cache
+$ yarn cache clean --all
+$ cd storybook
+# Remove node_modules folder and yarn.lock file
+$ rm -rf node_modules
+$ rm yarn.lock
+# Install dependencies
+$ yarn
+# Start storybook
+$ yarn storybook
+```
