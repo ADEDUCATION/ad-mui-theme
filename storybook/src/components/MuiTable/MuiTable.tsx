@@ -1,4 +1,3 @@
-import { Tab, Tabs } from "@mui/material";
 import {
   DataGrid,
   DataGridProps,
@@ -9,7 +8,6 @@ import {
   GridToolbar,
   GridValidRowModel,
 } from "@mui/x-data-grid";
-import { useEffect, useState } from "react";
 
 export const MuiTable = ({
   columns,

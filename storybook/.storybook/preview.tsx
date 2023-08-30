@@ -48,7 +48,6 @@ export const globalTypes = {
       items: [
         { value: "ADE", left: "☀️", title: "ADE" },
         { value: "ESP", left: "🌙", title: "ESP" },
-        // { value: "ADEDARK", left: "🌙", title: "ADE Dark" },
       ],
     },
   },

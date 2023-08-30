@@ -12,9 +12,6 @@
       "moduleResolution": "node",
       "types": ["node", "@mui/material"],
       "jsx": "react-jsx",
-      // "paths": {
-      //   "@/*": ["src/*"]
-      // },
       "resolveJsonModule": true,
     },
     "include": ["../src/**/*", "typings.d.ts", "src/fonts/**/*"],

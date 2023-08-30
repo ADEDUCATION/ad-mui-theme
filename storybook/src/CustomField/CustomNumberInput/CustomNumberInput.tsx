@@ -3,8 +3,9 @@ import { NumericFormat, NumericFormatProps } from "react-number-format";
 import { InputAdornment, InputLabel, TextField } from "@mui/material";
 
 import Label from "../Label";
+import { MuiOmits } from "../../utils";
 
-const CustomNumberInput = ({ ...rest }: NumericFormatProps) => {
+const CustomNumberInput = ({ ...rest }: Omit<NumericFormatProps, MuiOmits>) => {
   const field: IFieldStructure = {
     label: "Montant",
     id: "cfa_montant",

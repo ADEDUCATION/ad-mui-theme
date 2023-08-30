@@ -4,6 +4,7 @@ import { useState } from "react";
 const MuiSlider = () => {
   const [selectedProgress, setSelectedProgress] = useState<number[]>([0, 100]);
   const handleChange = (event: Event, newValue: number | number[]) => {
+    console.log(event);
     setSelectedProgress(newValue as number[]);
   };
   return (

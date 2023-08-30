@@ -287,7 +287,6 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
   MuiSelect: {
     styleOverrides: {
       root: {
-        // minHeight: 60,
         "& .MuiSelect-root": {
           color: palette?.grey[500],
         },
@@ -303,11 +302,6 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
         "& .MuiOutlinedInput-notchedOutline": {
           borderColor: palette?.grey[500],
         },
-        // "&.Mui-disabled": {
-        //   "& .MuiOutlinedInput-notchedOutline": {
-        //     borderColor: palette?.grey[800] + "!important",
-        //   },
-        // },
       },
     },
   },
@@ -342,6 +336,7 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
             },
           },
         },
+<<<<<<< HEAD
         "&:hover .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg": {
           color: palette?.primary.main,
         },
@@ -351,6 +346,17 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
         // "&:hover .MuiFormLabel-root": {
         //   color: palette?.primary.main,
         // },
+=======
+        "&:hover .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg":
+          {
+            color: palette?.primary.main,
+          },
+        "&:active .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg":
+          {
+            color: palette?.primary.main,
+          },
+
+>>>>>>> 46ad2a765c1280ccc8ab3ddade8b39a62cf84733
         "& .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg": {
           color: palette?.grey[400],
         },

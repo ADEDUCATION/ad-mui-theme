@@ -21,6 +21,7 @@ export type MuiOmits =
   | "PopperProps"
   | "PopperComponent"
   | "onClose"
+<<<<<<< HEAD
   | "deleteIcon"
   | "sx"
   | "fullWidth"
@@ -31,3 +32,20 @@ export type MuiOmits =
   | "disableFocusRipple"
   | "disableElevation"
   | "children";
+=======
+  | "onOpen"
+  | "sx"
+  | "anchorOrigin"
+  | "deleteIcon"
+  | "hiddenLabel"
+  | "onFocus"
+  | "onBlur"
+  | "onKeyDown"
+  | "onMouseUp"
+  | "renderText"
+  | "getInputRef"
+  | "onValueChange"
+  | "isAllowed"
+  | "mask"
+  | "";
+>>>>>>> 46ad2a765c1280ccc8ab3ddade8b39a62cf84733

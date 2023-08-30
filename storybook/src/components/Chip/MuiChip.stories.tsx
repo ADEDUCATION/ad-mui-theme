@@ -19,7 +19,11 @@ export default {
   },
   parameters: {
     controls: {
+<<<<<<< HEAD
       exclude: ["onDelete", "skipFocusWhenDisabled", "icon", "avatar"],
+=======
+      exclude: ["onDelete", "avatar", "icon"],
+>>>>>>> 46ad2a765c1280ccc8ab3ddade8b39a62cf84733
     },
   },
 } as Meta<typeof MuiChip>;

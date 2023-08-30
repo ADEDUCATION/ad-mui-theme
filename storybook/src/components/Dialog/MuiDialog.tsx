@@ -5,7 +5,6 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogProps,
   Step,
   StepLabel,
   Stepper,
@@ -87,7 +86,7 @@ const MuiDialog = ({
           </Stepper>
         }
       />
-      <DialogContent>Dialog Content</DialogContent>
+      <DialogContent>{children}</DialogContent>
       <DialogActions>
         <Button color="info" onClick={() => setActiveStep(activeStep - 1)}>
           Annuler

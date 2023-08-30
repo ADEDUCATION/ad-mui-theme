@@ -1,13 +1,12 @@
 import { Breadcrumbs, Link, Typography } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { useState } from "react";
 
 const MuiBreadcrumbs = () => {
-  const [path, setPath] = useState([
+  const path = [
     { name: "Home", href: "/" },
     { name: "Components", href: "/components" },
     { name: "Breadcrumbs" },
-  ]);
+  ];
   return (
     <Breadcrumbs
       separator={
