@@ -1,7 +1,9 @@
 import { SimplePaletteColorOptions } from "@mui/material";
 import { tokens } from "../theme";
-import { ColorPartial, TypeBackground } from '@mui/material/styles/createPalette';
-
+import {
+  ColorPartial,
+  TypeBackground,
+} from "@mui/material/styles/createPalette";
 
 type SubObjectKeys = keyof Palette;
 
@@ -12,11 +14,15 @@ type SubObjectsCustomPalette = keyof PaletteCustom[SubObjectKeys];
 
 type SubObjectsTonalOffset = keyof PaletteOffset[SubObjectKeys];
 
-type AllColor = MergeSubObjects | SubObjectsCustomPalette | SubObjectsTonalOffset;
+type AllColor =
+  | MergeSubObjects
+  | SubObjectsCustomPalette
+  | SubObjectsTonalOffset;
 
 type NewColor = {
   A10?: string;
   A20?: string;
+  base?: string;
 } & SimplePaletteColorOptions;
 
 type Palette = {
@@ -56,16 +62,14 @@ type CombinedPalette = {
     [color in keyof (typeof tokens)[key]["tonalOffset"]]: ColorPartial;
   } & {
     [color in keyof (typeof tokens)[key]["paletteBackground"]]: BackgroundType;
-  }
-  & {
+  } & {
     action: {
       active?: string;
       hover?: string;
       selected?: string;
       disabled?: string;
     };
-  }
-  ;
+  };
 };
 
 export type {

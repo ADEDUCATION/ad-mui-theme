@@ -28,7 +28,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p ./configs/tsconfig.esm.json && cp -r ./src/fonts ./lib/"
+    "build": "tsc -p ./configs/tsconfig.esm.json"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",

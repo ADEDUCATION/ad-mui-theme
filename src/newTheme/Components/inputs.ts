@@ -3,7 +3,11 @@ import { Props } from "./components";
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
 import { MergeSubObjects } from "../Palette/utils";
 
-const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
+const inputs = ({
+  palette,
+  typography,
+  shape,
+}: Props): OverridesStyleRules => ({
   MuiFormLabel: {
     styleOverrides: {
       root: {
@@ -11,7 +15,7 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
         "&.user-modify": {
           fontSize: typography?.bodyBold.fontSize,
           fontWeight: typography?.bodyBold.fontWeight,
-        }
+        },
       },
     },
   },
@@ -27,15 +31,15 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
           textTransform: "inherit",
           "&:hover": {
             backgroundColor:
-            ownerState.variant === "contained"
-              ? palette && palette[ownerState.color as MergeSubObjects].light
-              : ownerState.variant === "text" &&
-                palette &&
-                palette[ownerState.color as MergeSubObjects].A20,
-          color:
-            ownerState.variant === "text" &&
-            palette &&
-            palette[ownerState.color as MergeSubObjects].light,
+              ownerState.variant === "contained"
+                ? palette && palette[ownerState.color as MergeSubObjects].light
+                : ownerState.variant === "text" &&
+                  palette &&
+                  palette[ownerState.color as MergeSubObjects].A20,
+            color:
+              ownerState.variant === "text" &&
+              palette &&
+              palette[ownerState.color as MergeSubObjects].light,
 
             boxShadow: "none",
           },
@@ -68,18 +72,18 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
   MuiIconButton: {
     styleOverrides: {
       root: {
-        '&.MuiIconButton-sizeSmall': {
-          padding: '6px',
-          '& .MuiSvgIcon-root': {
-            width: '16px',
-            height: '16px',
+        "&.MuiIconButton-sizeSmall": {
+          padding: "6px",
+          "& .MuiSvgIcon-root": {
+            width: "16px",
+            height: "16px",
           },
         },
-        '&.MuiIconButton-sizeMedium': {
-          padding: '8px',
-          '& .MuiSvgIcon-root': {
-            width: '18px',
-            height: '18px',
+        "&.MuiIconButton-sizeMedium": {
+          padding: "8px",
+          "& .MuiSvgIcon-root": {
+            width: "18px",
+            height: "18px",
           },
         },
       },
@@ -88,106 +92,106 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
       {
         props: { color: "primary" },
         style: {
-          backgroundColor: palette?.grey[900] + ' !important',
-          '& .MuiSvgIcon-root': {
-            color: palette?.grey[500] + ' !important',
+          backgroundColor: palette?.grey[900] + " !important",
+          "& .MuiSvgIcon-root": {
+            color: palette?.grey[500] + " !important",
           },
-          '&:hover': {
-            backgroundColor: palette?.primary.light + ' !important',
-            '& .MuiSvgIcon-root': {
-              color: palette?.primary.contrastText + ' !important',
+          "&:hover": {
+            backgroundColor: palette?.primary.light + " !important",
+            "& .MuiSvgIcon-root": {
+              color: palette?.primary.contrastText + " !important",
             },
-            '& .MuiCircularProgress-root': {
-              color: palette?.primary.contrastText + ' !important',
+            "& .MuiCircularProgress-root": {
+              color: palette?.primary.contrastText + " !important",
             },
           },
-        }
+        },
       },
       {
         props: { color: "secondary" },
         style: {
-          backgroundColor: palette?.secondaryBase[900] + ' !important',
-          '& .MuiSvgIcon-root': {
-            color: palette?.secondaryBase[300] + ' !important',
+          backgroundColor: palette?.secondaryBase[900] + " !important",
+          "& .MuiSvgIcon-root": {
+            color: palette?.secondaryBase[300] + " !important",
           },
-          '&:hover': {
-            backgroundColor: palette?.primary.light + ' !important',
-            '& .MuiSvgIcon-root': {
-              color: palette?.background.default + ' !important',
+          "&:hover": {
+            backgroundColor: palette?.primary.light + " !important",
+            "& .MuiSvgIcon-root": {
+              color: palette?.background.default + " !important",
             },
           },
-        }
+        },
       },
       {
         props: { color: "default" },
         style: {
-          '& .MuiSvgIcon-root': {
-            color: palette?.grey[300] + ' !important',
+          "& .MuiSvgIcon-root": {
+            color: palette?.grey[300] + " !important",
           },
-          '&:hover': {
-            backgroundColor: palette?.grey[800] + ' !important',
+          "&:hover": {
+            backgroundColor: palette?.grey[800] + " !important",
           },
-        }
+        },
       },
       {
         props: { color: "actionable" },
         style: {
-          '& .MuiSvgIcon-root': {
-            color: palette?.grey[300] + ' !important',
+          "& .MuiSvgIcon-root": {
+            color: palette?.grey[300] + " !important",
           },
-          '&:hover': {
-            backgroundColor: palette?.primary.A10 + ' !important',
-            '& .MuiSvgIcon-root': {
-              color: palette?.primary.light + ' !important',
+          "&:hover": {
+            backgroundColor: palette?.primary.A10 + " !important",
+            "& .MuiSvgIcon-root": {
+              color: palette?.primary.light + " !important",
             },
           },
-        }
+        },
       },
       {
         props: { color: "outlined" },
         style: {
-          border: '1px solid ' + palette?.background.paper + ' !important',
-          '& .MuiSvgIcon-root': {
-            color: palette?.background.paper + ' !important',
+          border: "1px solid " + palette?.background.paper + " !important",
+          "& .MuiSvgIcon-root": {
+            color: palette?.background.paper + " !important",
           },
-          '&:hover': {
-            backgroundColor: palette?.background.paper + ' !important',
-            '& .MuiSvgIcon-root': {
-              color: palette?.color1.contrastText + ' !important',
+          "&:hover": {
+            backgroundColor: palette?.background.paper + " !important",
+            "& .MuiSvgIcon-root": {
+              color: palette?.color1.contrastText + " !important",
             },
           },
-        }
+        },
       },
       {
         props: { color: "error" },
         style: {
-          backgroundColor: palette?.error.main + ' !important',
-          '& .MuiSvgIcon-root': {
-            color: palette?.error.contrastText + ' !important',
+          backgroundColor: palette?.error.main + " !important",
+          "& .MuiSvgIcon-root": {
+            color: palette?.error.contrastText + " !important",
           },
-        }
+        },
       },
       {
         props: { color: "success" },
         style: {
-          backgroundColor: palette?.success.main + ' !important',
-          '& .MuiSvgIcon-root': {
-            color: palette?.success.contrastText + ' !important',
+          backgroundColor: palette?.success.main + " !important",
+          "& .MuiSvgIcon-root": {
+            color: palette?.success.contrastText + " !important",
           },
-        }
+        },
       },
       {
         props: { color: "delete" },
         style: {
-          '&:hover': {
-            backgroundColor: palette?.error.A10 + ' !important',
-            '& .MuiSvgIcon-root': {
-              color: palette?.error.main + ' !important',
+          "&:hover": {
+            backgroundColor: palette?.error.A10 + " !important",
+            "& .MuiSvgIcon-root": {
+              color: palette?.error.main + " !important",
             },
           },
-        }
+        },
       },
-    ]
+    ],
   },
   MuiFab: {
     styleOverrides: {
@@ -205,10 +209,10 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
         color: palette && palette.grey[300],
         fontWeight: typography?.subtitleMedium.fontWeight,
         height: 44,
-        '& input': {
+        "& input": {
           fontSize: typography?.subtitleMedium.fontSize,
         },
-        '& select': {
+        "& select": {
           fontSize: typography?.subtitleMedium.fontSize,
         },
         "& .MuiOutlinedInput-notchedOutline": {
@@ -219,10 +223,10 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
             borderColor: palette?.primary.main + " !important",
           },
         },
-        '&.Mui-disabled input': {
+        "&.Mui-disabled input": {
           WebkitTextFillColor: palette?.grey[700],
         },
-        '&.Mui-disabled select': {
+        "&.Mui-disabled select": {
           WebkitTextFillColor: palette?.grey[700],
         },
         "&.Mui-disabled": {
@@ -243,7 +247,7 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
             padding: "10px",
             "& .MuiSvgIcon-root": {
               color: palette?.grey[500],
-              marginRight: "-1px"
+              marginRight: "-1px",
             },
           },
           "&.info": {
@@ -252,17 +256,16 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
             backgroundColor: palette?.color1.contrastText,
             width: 18,
             height: 18,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            cursor: 'pointer',
-            '& .MuiSvgIcon-root': {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "pointer",
+            "& .MuiSvgIcon-root": {
               color: palette?.color1.main + " !important",
               marginRight: "-1px",
             },
           },
-
-        }
+        },
       },
     },
   },
@@ -354,9 +357,9 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
               "& .MuiSvgIcon-root": {
                 width: 24,
                 height: 24,
-              }
+              },
             },
-          }
+          },
         },
         "&:hover": {
           "& .MuiFormControl-root": {
@@ -378,9 +381,10 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
         // "&:hover .MuiFormLabel-root": {
         //   color: palette?.primary.main,
         // },
-        "& .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg": {
-          color: palette?.grey[400],
-        },
+        "& .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg":
+          {
+            color: palette?.grey[400],
+          },
         "& .MuiAutocomplete-popupIndicatorOpen": {
           color: palette?.primary.main,
         },
@@ -405,7 +409,7 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
     defaultProps: {
       disableElevation: true,
     },
-  }
+  },
 });
 
 export default inputs;
