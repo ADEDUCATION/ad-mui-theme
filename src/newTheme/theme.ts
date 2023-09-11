@@ -9,20 +9,13 @@ import components from "./Components/components";
 import createNewPalette from "./Palette/createPalette";
 import { CombinedPalette } from "./Palette/utils";
 import createNewTypography from "./Typography/createTypography";
+import createNewShape from "./Shape/createShape";
+import { Shape } from "./Shape/utils";
 
 export const tokens = {
   esp: themeTokens.themes.esp,
   ade: themeTokens.themes.ade,
 };
-
-export interface BorderRadius {
-  borderRadius: number;
-  buttonRadius: number;
-  inputRadius: number;
-  smallRadius: number;
-  mediumRadius: number;
-  largeRadius: number;
-}
 
 declare module "@mui/material/styles" {
   interface Theme {
@@ -30,9 +23,10 @@ declare module "@mui/material/styles" {
     esd: PaletteOptions;
     adeDark: PaletteOptions;
     palette: CombinedPalette[keyof typeof tokens];
-    shape: BorderRadius;
+    shape: Shape[keyof typeof tokens];
   }
 }
+
 declare module "@mui/material/Button" {
   interface ButtonPropsColorOverrides {
     color1: true;
@@ -87,26 +81,6 @@ declare module "@mui/material/IconButton" {
   }
 }
 
-const createNewShape = (mode: keyof typeof tokens) => {
-  if (tokens[mode]) {
-    const borderRadius = tokens[mode].shape.borderRadius;
-    const buttonRadius = tokens[mode].shape.buttonRadius;
-    const inputRadius = tokens[mode].shape.inputRadius;
-    const smallRadius = tokens[mode].shape.largeRadius;
-    const mediumRadius = tokens[mode].shape.mediumRadius;
-    const largeRadius = tokens[mode].shape.smallRadius;
-
-    return {
-      borderRadius,
-      buttonRadius,
-      inputRadius,
-      smallRadius,
-      mediumRadius,
-      largeRadius,
-    };
-  }
-};
-
 export const newTheme = (mode: keyof typeof tokens) => {
   const customPalette = createNewPalette(mode);
   const customTypography = createNewTypography({
@@ -130,6 +104,7 @@ export const newTheme = (mode: keyof typeof tokens) => {
       components: components({
         palette: customPalette,
         typography: customTypography,
+        shape: customShape,
       }),
       shape: customShape,
     },

@@ -3,7 +3,11 @@ import { Props } from "./components";
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
 import { MergeSubObjects } from "../Palette/utils";
 
-const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
+const inputs = ({
+  palette,
+  typography,
+  shape,
+}: Props): OverridesStyleRules => ({
   MuiFormLabel: {
     styleOverrides: {
       root: {
@@ -11,7 +15,7 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
         "&.user-modify": {
           fontSize: typography?.bodyBold.fontSize,
           fontWeight: typography?.bodyBold.fontWeight,
-        }
+        },
       },
     },
   },
@@ -27,15 +31,15 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
           textTransform: "inherit",
           "&:hover": {
             backgroundColor:
-            ownerState.variant === "contained"
-              ? palette && palette[ownerState.color as MergeSubObjects].light
-              : ownerState.variant === "text" &&
-                palette &&
-                palette[ownerState.color as MergeSubObjects].A20,
-          color:
-            ownerState.variant === "text" &&
-            palette &&
-            palette[ownerState.color as MergeSubObjects].light,
+              ownerState.variant === "contained"
+                ? palette && palette[ownerState.color as MergeSubObjects].light
+                : ownerState.variant === "text" &&
+                  palette &&
+                  palette[ownerState.color as MergeSubObjects].A20,
+            color:
+              ownerState.variant === "text" &&
+              palette &&
+              palette[ownerState.color as MergeSubObjects].light,
 
             boxShadow: "none",
           },
@@ -68,95 +72,95 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
   MuiIconButton: {
     styleOverrides: {
       root: {
-        '&.MuiIconButton-sizeSmall': {
-          padding: '6px',
-          '& .MuiSvgIcon-root': {
-            width: '16px',
-            height: '16px',
+        "&.MuiIconButton-sizeSmall": {
+          padding: "6px",
+          "& .MuiSvgIcon-root": {
+            width: "16px",
+            height: "16px",
           },
         },
-        '&.MuiIconButton-sizeMedium': {
-          padding: '8px',
-          '& .MuiSvgIcon-root': {
-            width: '18px',
-            height: '18px',
+        "&.MuiIconButton-sizeMedium": {
+          padding: "8px",
+          "& .MuiSvgIcon-root": {
+            width: "18px",
+            height: "18px",
           },
         },
-        '&.secondary': {
-          backgroundColor: palette?.secondaryBase[900] + ' !important',
-          '& .MuiSvgIcon-root': {
-            color: palette?.secondaryBase[300] + ' !important',
+        "&.secondary": {
+          backgroundColor: palette?.secondaryBase[900] + " !important",
+          "& .MuiSvgIcon-root": {
+            color: palette?.secondaryBase[300] + " !important",
           },
-          '&:hover': {
-            backgroundColor: palette?.primary.light + ' !important',
-            '& .MuiSvgIcon-root': {
-              color: palette?.background.default + ' !important',
+          "&:hover": {
+            backgroundColor: palette?.primary.light + " !important",
+            "& .MuiSvgIcon-root": {
+              color: palette?.background.default + " !important",
             },
           },
         },
-        '&.primary': {
-          backgroundColor: palette?.grey[900] + ' !important',
-          '& .MuiSvgIcon-root': {
-            color: palette?.grey[500] + ' !important',
+        "&.primary": {
+          backgroundColor: palette?.grey[900] + " !important",
+          "& .MuiSvgIcon-root": {
+            color: palette?.grey[500] + " !important",
           },
-          '&:hover': {
-            backgroundColor: palette?.primary.light + ' !important',
-            '& .MuiSvgIcon-root': {
-              color: palette?.primary.contrastText + ' !important',
+          "&:hover": {
+            backgroundColor: palette?.primary.light + " !important",
+            "& .MuiSvgIcon-root": {
+              color: palette?.primary.contrastText + " !important",
             },
-            '& .MuiCircularProgress-root': {
-              color: palette?.primary.contrastText + ' !important',
-            },
-          },
-        },
-        '&.grey': {
-          '& .MuiSvgIcon-root': {
-            color: palette?.grey[300] + ' !important',
-          },
-          '&:hover': {
-            backgroundColor: palette?.grey[800] + ' !important',
-          },
-        },
-        '&.action': {
-          '& .MuiSvgIcon-root': {
-            color: palette?.grey[300] + ' !important',
-          },
-          '&:hover': {
-            backgroundColor: palette?.primary.A10 + ' !important',
-            '& .MuiSvgIcon-root': {
-              color: palette?.primary.light + ' !important',
+            "& .MuiCircularProgress-root": {
+              color: palette?.primary.contrastText + " !important",
             },
           },
         },
-        '&.outlined': {
-          border: '1px solid ' + palette?.background.paper + ' !important',
-          '& .MuiSvgIcon-root': {
-            color: palette?.background.paper + ' !important',
+        "&.grey": {
+          "& .MuiSvgIcon-root": {
+            color: palette?.grey[300] + " !important",
           },
-          '&:hover': {
-            backgroundColor: palette?.background.paper + ' !important',
-            '& .MuiSvgIcon-root': {
-              color: palette?.color1.contrastText + ' !important',
+          "&:hover": {
+            backgroundColor: palette?.grey[800] + " !important",
+          },
+        },
+        "&.action": {
+          "& .MuiSvgIcon-root": {
+            color: palette?.grey[300] + " !important",
+          },
+          "&:hover": {
+            backgroundColor: palette?.primary.A10 + " !important",
+            "& .MuiSvgIcon-root": {
+              color: palette?.primary.light + " !important",
             },
           },
         },
-        '&.error': {
-          backgroundColor: palette?.error.main + ' !important',
-          '& .MuiSvgIcon-root': {
-            color: palette?.error.contrastText + ' !important',
+        "&.outlined": {
+          border: "1px solid " + palette?.background.paper + " !important",
+          "& .MuiSvgIcon-root": {
+            color: palette?.background.paper + " !important",
+          },
+          "&:hover": {
+            backgroundColor: palette?.background.paper + " !important",
+            "& .MuiSvgIcon-root": {
+              color: palette?.color1.contrastText + " !important",
+            },
           },
         },
-        '&.success': {
-          backgroundColor: palette?.success.main + ' !important',
-          '& .MuiSvgIcon-root': {
-            color: palette?.success.contrastText + ' !important',
+        "&.error": {
+          backgroundColor: palette?.error.main + " !important",
+          "& .MuiSvgIcon-root": {
+            color: palette?.error.contrastText + " !important",
           },
         },
-        '&.delete': {
-          '&:hover': {
-            backgroundColor: palette?.error.A10 + ' !important',
-            '& .MuiSvgIcon-root': {
-              color: palette?.error.main + ' !important',
+        "&.success": {
+          backgroundColor: palette?.success.main + " !important",
+          "& .MuiSvgIcon-root": {
+            color: palette?.success.contrastText + " !important",
+          },
+        },
+        "&.delete": {
+          "&:hover": {
+            backgroundColor: palette?.error.A10 + " !important",
+            "& .MuiSvgIcon-root": {
+              color: palette?.error.main + " !important",
             },
           },
         },
@@ -179,10 +183,10 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
         color: palette && palette.grey[300],
         fontWeight: typography?.subtitleMedium.fontWeight,
         height: 44,
-        '& input': {
+        "& input": {
           fontSize: typography?.subtitleMedium.fontSize,
         },
-        '& select': {
+        "& select": {
           fontSize: typography?.subtitleMedium.fontSize,
         },
         "& .MuiOutlinedInput-notchedOutline": {
@@ -193,10 +197,10 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
             borderColor: palette?.primary.main + " !important",
           },
         },
-        '&.Mui-disabled input': {
+        "&.Mui-disabled input": {
           WebkitTextFillColor: palette?.grey[700],
         },
-        '&.Mui-disabled select': {
+        "&.Mui-disabled select": {
           WebkitTextFillColor: palette?.grey[700],
         },
         "&.Mui-disabled": {
@@ -217,7 +221,7 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
             padding: "10px",
             "& .MuiSvgIcon-root": {
               color: palette?.grey[500],
-              marginRight: "-1px"
+              marginRight: "-1px",
             },
           },
           "&.info": {
@@ -226,17 +230,16 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
             backgroundColor: palette?.color1.contrastText,
             width: 18,
             height: 18,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            cursor: 'pointer',
-            '& .MuiSvgIcon-root': {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "pointer",
+            "& .MuiSvgIcon-root": {
               color: palette?.color1.main + " !important",
               marginRight: "-1px",
             },
           },
-
-        }
+        },
       },
     },
   },
@@ -328,9 +331,9 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
               "& .MuiSvgIcon-root": {
                 width: 24,
                 height: 24,
-              }
+              },
             },
-          }
+          },
         },
         "&:hover": {
           "& .MuiFormControl-root": {
@@ -352,9 +355,10 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
         // "&:hover .MuiFormLabel-root": {
         //   color: palette?.primary.main,
         // },
-        "& .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg": {
-          color: palette?.grey[400],
-        },
+        "& .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg":
+          {
+            color: palette?.grey[400],
+          },
         "& .MuiAutocomplete-popupIndicatorOpen": {
           color: palette?.primary.main,
         },
@@ -379,7 +383,7 @@ const inputs = ({ palette, typography }: Props): OverridesStyleRules => ({
     defaultProps: {
       disableElevation: true,
     },
-  }
+  },
 });
 
 export default inputs;
