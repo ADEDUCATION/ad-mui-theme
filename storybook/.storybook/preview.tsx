@@ -63,4 +63,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  docs: {
+    page: "Docs",
+  },
 };
