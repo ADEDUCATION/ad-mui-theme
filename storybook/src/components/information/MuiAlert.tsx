@@ -16,7 +16,7 @@ export type MuiAlertProps = {
     | "color4";
 };
 
-const MuiAlert = ({ part, type }: MuiAlertProps) => {
+const Information = ({ part, type }: MuiAlertProps) => {
   return (
     <Box
       sx={{
@@ -26,6 +26,12 @@ const MuiAlert = ({ part, type }: MuiAlertProps) => {
         borderRadius: 1,
         gap: 2,
         width: "fit-content",
+        "& a": {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        },
       }}
     >
       <Box
@@ -41,7 +47,13 @@ const MuiAlert = ({ part, type }: MuiAlertProps) => {
       >
         <Typography sx={{ fontSize: "25px" }}>🔍</Typography>
       </Box>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <Typography variant="subtitleBold" color={`${type}.contrastText`}>
           {part.infos.title}
         </Typography>
@@ -58,4 +70,4 @@ const MuiAlert = ({ part, type }: MuiAlertProps) => {
   );
 };
 
-export default MuiAlert;
+export default Information;

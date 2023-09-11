@@ -1,47 +1,55 @@
-import { PaletteOptions, createTheme } from '@mui/material';
-import { frFR as coreFrFR } from '@mui/material/locale';
-import { frFR as gridfrFR } from '@mui/x-data-grid';
-import { frFR } from '@mui/x-date-pickers';
-import { frFR as pickersfrFR } from '@mui/x-date-pickers';
+import { PaletteOptions, createTheme } from "@mui/material";
+import { frFR as coreFrFR } from "@mui/material/locale";
+import { frFR as gridfrFR } from "@mui/x-data-grid";
+import { frFR } from "@mui/x-date-pickers";
+import { frFR as pickersfrFR } from "@mui/x-date-pickers";
 
-import themeTokens from '../tokens/tokens.json';
-import components from './Components/components';
-import createNewPalette from './Palette/createPalette';
-import { CombinedPalette } from './Palette/utils';
-import createNewTypography from './Typography/createTypography';
+import themeTokens from "../tokens/tokens.json";
+import components from "./Components/components";
+import createNewPalette from "./Palette/createPalette";
+import { CombinedPalette } from "./Palette/utils";
+import createNewTypography from "./Typography/createTypography";
+import createNewShape from "./Shape/createShape";
+import { Shape } from "./Shape/utils";
 
 export const tokens = {
   esp: themeTokens.themes.esp,
   ade: themeTokens.themes.ade,
 };
 
-declare module '@mui/material/styles' {
+declare module "@mui/material/styles" {
   interface Theme {
     ade: PaletteOptions;
     esd: PaletteOptions;
     adeDark: PaletteOptions;
     palette: CombinedPalette[keyof typeof tokens];
+    shape: Shape[keyof typeof tokens];
   }
 }
-declare module '@mui/material/Button' {
+
+declare module "@mui/material/Button" {
   interface ButtonPropsColorOverrides {
     color1: true;
     color3: true;
   }
 }
 
-declare module '@mui/material/Typography' {
+declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     subtitleBold: true;
+    subtitleSemiBold: true;
     subtitleMedium: true;
+    subtitleRegular: true;
     subtitleLight: true;
     bodyBold: true;
+    bodySemiBold: true;
     bodyMedium: true;
+    bodyRegular: true;
     bodyLight: true;
   }
 }
 
-declare module '@mui/material/Chip' {
+declare module "@mui/material/Chip" {
   interface ChipPropsColorOverrides {
     color1: true;
     color2: true;
@@ -58,7 +66,7 @@ declare module '@mui/material/Chip' {
   }
 }
 
-declare module '@mui/material/IconButton' {
+declare module "@mui/material/IconButton" {
   interface IconButtonPropsColorOverrides {
     color1: true;
     color2: true;
@@ -69,13 +77,29 @@ declare module '@mui/material/IconButton' {
     color7: true;
     color8: true;
     color9: true;
-    grey: true;
+    actionable:true;
+    outlined:true;
+    delete:true;
+  }
+}
+
+declare module '@mui/material/Alert' {
+  interface AlertPropsColorOverrides {
+    error: true;
+    warning: true;
+    info: true;
+    primary: true;
+    secondary: true;
   }
 }
 
 export const newTheme = (mode: keyof typeof tokens) => {
   const customPalette = createNewPalette(mode);
-  const customTypography = createNewTypography({ mode, palette: customPalette });
+  const customTypography = createNewTypography({
+    mode,
+    palette: customPalette,
+  });
+  const customShape = createNewShape(mode);
 
   return createTheme(
     {
@@ -92,12 +116,13 @@ export const newTheme = (mode: keyof typeof tokens) => {
       components: components({
         palette: customPalette,
         typography: customTypography,
-        
+        shape: customShape,
       }),
+      shape: customShape,
     },
     gridfrFR,
     frFR,
     pickersfrFR,
-    coreFrFR,
+    coreFrFR
   );
 };
