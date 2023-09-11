@@ -1,6 +1,6 @@
-import { CombinedPalette, SubObjectKeys } from '../Palette/utils';
-import { tokens } from '../theme';
-import { SubObjectTypography, TypographyMerge } from './utils';
+import { CombinedPalette, SubObjectKeys } from "../Palette/utils";
+import { tokens } from "../theme";
+import { SubObjectTypography, TypographyMerge } from "./utils";
 
 export type Props = {
   palette: CombinedPalette[SubObjectKeys] | undefined;
@@ -29,7 +29,14 @@ const createNewTypography = ({ mode, palette }: Props) => {
           [variant]: {
             ...typography[variant],
             [key]: value,
-            color: ['subtitleMedium', 'subtitleLight', 'bodyMedium', 'bodyLight'].includes(variant)
+            color: [
+              "subtitleMedium",
+              "subtitleRegular",
+              "subtitleLight",
+              "bodyMedium",
+              "bodyRegular",
+              "bodyLight",
+            ].includes(variant)
               ? palette?.grey[300]
               : palette?.grey[100],
           },
