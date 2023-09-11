@@ -1,6 +1,6 @@
 {
   "name": "ad-mui-theme-package",
-  "version": "0.0.12",
+  "version": "0.0.16",
   "description": "Package for transform ADE design token in mui theme",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -28,7 +28,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p ./configs/tsconfig.esm.json && cp -r ./src/fonts ./lib/"
+    "build": "tsc -p ./configs/tsconfig.esm.json"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
