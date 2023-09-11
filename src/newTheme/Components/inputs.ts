@@ -96,12 +96,18 @@ const inputs = ({
           "& .MuiSvgIcon-root": {
             color: palette?.grey[500] + " !important",
           },
+          "& .tabler-icon": {
+            color: palette?.grey[500] + " !important",
+          },
           "&:hover": {
             backgroundColor: palette?.primary.light + " !important",
             "& .MuiSvgIcon-root": {
               color: palette?.primary.contrastText + " !important",
             },
             "& .MuiCircularProgress-root": {
+              color: palette?.primary.contrastText + " !important",
+            },
+            "& .tabler-icon": {
               color: palette?.primary.contrastText + " !important",
             },
           },
@@ -114,9 +120,15 @@ const inputs = ({
           "& .MuiSvgIcon-root": {
             color: palette?.secondaryBase[300] + " !important",
           },
+          "& .tabler-icon": {
+            color: palette?.secondaryBase[300] + " !important",
+          },
           "&:hover": {
             backgroundColor: palette?.primary.light + " !important",
             "& .MuiSvgIcon-root": {
+              color: palette?.background.default + " !important",
+            },
+            "& .tabler-icon": {
               color: palette?.background.default + " !important",
             },
           },
@@ -126,6 +138,9 @@ const inputs = ({
         props: { color: "default" },
         style: {
           "& .MuiSvgIcon-root": {
+            color: palette?.grey[300] + " !important",
+          },
+          "& .tabler-icon": {
             color: palette?.grey[300] + " !important",
           },
           "&:hover": {
@@ -139,9 +154,15 @@ const inputs = ({
           "& .MuiSvgIcon-root": {
             color: palette?.grey[300] + " !important",
           },
+          "& .tabler-icon": {
+            color: palette?.grey[300] + " !important",
+          },
           "&:hover": {
             backgroundColor: palette?.primary.A10 + " !important",
             "& .MuiSvgIcon-root": {
+              color: palette?.primary.light + " !important",
+            },
+            "& .tabler-icon": {
               color: palette?.primary.light + " !important",
             },
           },
@@ -154,9 +175,15 @@ const inputs = ({
           "& .MuiSvgIcon-root": {
             color: palette?.background.paper + " !important",
           },
+          "& .tabler-icon": {
+            color: palette?.background.paper + " !important",
+          },
           "&:hover": {
             backgroundColor: palette?.background.paper + " !important",
             "& .MuiSvgIcon-root": {
+              color: palette?.color1.contrastText + " !important",
+            },
+            "& .tabler-icon": {
               color: palette?.color1.contrastText + " !important",
             },
           },
@@ -169,6 +196,9 @@ const inputs = ({
           "& .MuiSvgIcon-root": {
             color: palette?.error.contrastText + " !important",
           },
+          "& .tabler-icon": {
+            color: palette?.error.contrastText + " !important",
+          },
         },
       },
       {
@@ -176,6 +206,9 @@ const inputs = ({
         style: {
           backgroundColor: palette?.success.main + " !important",
           "& .MuiSvgIcon-root": {
+            color: palette?.success.contrastText + " !important",
+          },
+          "& .tabler-icon": {
             color: palette?.success.contrastText + " !important",
           },
         },
@@ -186,6 +219,9 @@ const inputs = ({
           "&:hover": {
             backgroundColor: palette?.error.A10 + " !important",
             "& .MuiSvgIcon-root": {
+              color: palette?.error.main + " !important",
+            },
+            "& .tabler-icon": {
               color: palette?.error.main + " !important",
             },
           },
@@ -241,11 +277,18 @@ const inputs = ({
           "& .MuiSvgIcon-root": {
             color: palette?.primary.main + " !important",
           },
+          "& .tabler-icon": {
+            color: palette?.primary.main + " !important",
+          },
         },
         "& .MuiInputAdornment-root": {
           "& .MuiButtonBase-root": {
             padding: "10px",
             "& .MuiSvgIcon-root": {
+              color: palette?.grey[500],
+              marginRight: "-1px",
+            },
+            "& .tabler-icon": {
               color: palette?.grey[500],
               marginRight: "-1px",
             },
@@ -261,6 +304,10 @@ const inputs = ({
             alignItems: "center",
             cursor: "pointer",
             "& .MuiSvgIcon-root": {
+              color: palette?.color1.main + " !important",
+              marginRight: "-1px",
+            },
+            "& .tabler-icon": {
               color: palette?.color1.main + " !important",
               marginRight: "-1px",
             },
@@ -320,6 +367,9 @@ const inputs = ({
           color: palette?.grey[500],
         },
         "& .MuiSvgIcon-root": {
+          color: palette?.grey[500] + " !important",
+        },
+        "& .tabler-icon": {
           color: palette?.grey[500] + " !important",
         },
         "& .MuiSelect-icon": {
