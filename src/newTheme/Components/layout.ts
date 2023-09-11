@@ -6,7 +6,7 @@ import { alpha } from "@mui/material";
 export const layout = ({
   palette,
   typography,
-  shape,
+  borderRadius,
 }: Props): OverridesStyleRules => ({
   MuiDataGrid: {
     defaultProps: {
