@@ -3,22 +3,9 @@ import { MuiOmits } from "../../utils";
 
 export interface MuiIconButtonProps extends Omit<IconButtonProps, MuiOmits> {
   label: any;
-  cssClass:
-    | "primary"
-    | "grey"
-    | "action"
-    | "outlined"
-    | "error"
-    | "success"
-    | "secondary"
-    | "delete";
 }
 
-export const MuiIconButton = ({
-  label,
-  cssClass,
-  ...rest
-}: MuiIconButtonProps) => (
+export const MuiIconButton = ({ label, ...rest }: MuiIconButtonProps) => (
   <>
     <Paper
       elevation={0}
@@ -27,9 +14,7 @@ export const MuiIconButton = ({
         padding: "30px",
       }}
     >
-      <IconButton className={cssClass} {...rest}>
-        {label}
-      </IconButton>
+      <IconButton {...rest}>{label}</IconButton>
     </Paper>
   </>
 );

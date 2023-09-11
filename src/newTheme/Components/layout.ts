@@ -384,6 +384,10 @@ export const layout = ({
   MuiAlert: {
     styleOverrides: {
       root: {
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         borderRadius: "4px",
         padding: "6px 16px",
         "& .MuiAlertTitle-root": {
@@ -411,6 +415,68 @@ export const layout = ({
         },
       },
     },
+    variants: [
+      {
+        props: { color: "success" },
+        style: {
+          backgroundColor: palette?.success.main,
+          color: palette?.success.contrastText,
+          "& .MuiAlert-icon": {
+            color: palette?.success.contrastText,
+          },
+        },
+      },
+      {
+        props: { color: "info" },
+        style: {
+          backgroundColor: palette?.info.main,
+          color: palette?.info.contrastText,
+          "& .MuiAlert-icon": {
+            color: palette?.info.contrastText,
+          },
+        },
+      },
+      {
+        props: { color: "warning" },
+        style: {
+          backgroundColor: palette?.warning.main,
+          color: palette?.warning.contrastText,
+          "& .MuiAlert-icon": {
+            color: palette?.warning.contrastText,
+          },
+        },
+      },
+      {
+        props: { color: "error" },
+        style: {
+          backgroundColor: palette?.error.main,
+          color: palette?.error.contrastText,
+          "& .MuiAlert-icon": {
+            color: palette?.error.contrastText,
+          },
+        },
+      },
+      {
+        props: { color: "primary" },
+        style: {
+          backgroundColor: palette?.primary.main,
+          color: palette?.primary.contrastText,
+          "& .MuiAlert-icon": {
+            color: palette?.primary.contrastText,
+          },
+        },
+      },
+      {
+        props: { color: "secondary" },
+        style: {
+          backgroundColor: palette?.secondary.main,
+          color: palette?.secondary.contrastText,
+          "& .MuiAlert-icon": {
+            color: palette?.secondary.contrastText,
+          },
+        },
+      },
+    ],
   },
   MuiDialog: {
     styleOverrides: {

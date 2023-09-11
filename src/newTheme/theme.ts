@@ -77,7 +77,19 @@ declare module "@mui/material/IconButton" {
     color7: true;
     color8: true;
     color9: true;
-    grey: true;
+    actionable:true;
+    outlined:true;
+    delete:true;
+  }
+}
+
+declare module '@mui/material/Alert' {
+  interface AlertPropsColorOverrides {
+    error: true;
+    warning: true;
+    info: true;
+    primary: true;
+    secondary: true;
   }
 }
 
