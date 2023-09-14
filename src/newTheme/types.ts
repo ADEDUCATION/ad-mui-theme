@@ -1,5 +1,3 @@
-enum Themes {
-    ADE = "ade",
-    ESP = "esp",
-    ADEDark = "adeDark",
-}
+import { tokens } from "./theme";
+
+export type AvailableSchoolTheme = keyof typeof tokens;
