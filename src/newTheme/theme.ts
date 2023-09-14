@@ -1,4 +1,4 @@
-import { PaletteOptions, createTheme } from "@mui/material";
+import { PaletteOptions, ThemeOptions, createTheme } from "@mui/material";
 import { frFR as coreFrFR } from "@mui/material/locale";
 import { frFR as gridfrFR } from "@mui/x-data-grid";
 import { frFR } from "@mui/x-date-pickers";
@@ -11,6 +11,8 @@ import { CombinedPalette } from "./Palette/utils";
 import createNewTypography from "./Typography/createTypography";
 import createNewShape from "./Shape/createShape";
 import { Shape } from "./Shape/utils";
+import createNewGap from "./Gap/createGap";
+import { Gap } from "./Gap/utils";
 
 export const tokens = {
   esp: themeTokens.themes.esp,
@@ -25,6 +27,11 @@ declare module "@mui/material/styles" {
     palette: CombinedPalette[keyof typeof tokens];
     shape: Shape[keyof typeof tokens];
   }
+}
+
+interface CustomThemeOptions extends ThemeOptions {
+  gap: Gap[keyof typeof tokens];
+  borderRadius: Shape[keyof typeof tokens];
 }
 
 declare module "@mui/material/Button" {
@@ -77,13 +84,13 @@ declare module "@mui/material/IconButton" {
     color7: true;
     color8: true;
     color9: true;
-    actionable:true;
-    outlined:true;
-    delete:true;
+    actionable: true;
+    outlined: true;
+    delete: true;
   }
 }
 
-declare module '@mui/material/Alert' {
+declare module "@mui/material/Alert" {
   interface AlertPropsColorOverrides {
     error: true;
     warning: true;
@@ -100,6 +107,7 @@ export const newTheme = (mode: keyof typeof tokens) => {
     palette: customPalette,
   });
   const customShape = createNewShape(mode);
+  const customGap = createNewGap(mode);
 
   return createTheme(
     {
@@ -116,10 +124,12 @@ export const newTheme = (mode: keyof typeof tokens) => {
       components: components({
         palette: customPalette,
         typography: customTypography,
-        shape: customShape,
+        borderRadius: customShape,
+        gap: customGap,
       }),
-      shape: customShape,
-    },
+      gap: customGap,
+      borderRadius: customShape,
+    } as CustomThemeOptions,
     gridfrFR,
     frFR,
     pickersfrFR,

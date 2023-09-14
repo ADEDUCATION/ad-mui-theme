@@ -6,7 +6,7 @@ import { MergeSubObjects } from "../Palette/utils";
 const inputs = ({
   palette,
   typography,
-  shape,
+  borderRadius,
 }: Props): OverridesStyleRules => ({
   MuiFormLabel: {
     styleOverrides: {

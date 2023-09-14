@@ -55,13 +55,16 @@ export const globalTypes = {
 };
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: "^on[A-Z].*", disable: true },
   controls: {
     expanded: true, // Adds the description and default columns
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  interactions: {
+    disable: true,
   },
   docs: {
     page: "Docs",
