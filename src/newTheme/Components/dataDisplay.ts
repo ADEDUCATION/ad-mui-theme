@@ -55,6 +55,11 @@ const dataDisplay = ({ palette, typography }: Props) => ({
             height: "18px",
             marginLeft: "3px",
           },
+          "& .tabler-icon": {
+            width: "18px",
+            height: "18px",
+            marginLeft: "3px",
+          },
           "& .MuiChip-deleteIcon": {
             width: "18px",
             height: "18px",
@@ -82,6 +87,11 @@ const dataDisplay = ({ palette, typography }: Props) => ({
             marginLeft: "3px",
           },
           "& .MuiSvgIcon-root": {
+            width: "21px",
+            height: "21px",
+            marginLeft: "3px",
+          },
+          "& .tabler-icon": {
             width: "21px",
             height: "21px",
             marginLeft: "3px",
