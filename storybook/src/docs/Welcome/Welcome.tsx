@@ -156,6 +156,7 @@ const Welcome = () => {
                   <Stack direction="row" gap={theme.gap[key] + "px"}>
                     {Array.from(Array(3).keys()).map((i) => (
                       <Box
+                        key={i}
                         sx={{
                           backgroundColor: theme.palette.background.paper,
                           width: 50,

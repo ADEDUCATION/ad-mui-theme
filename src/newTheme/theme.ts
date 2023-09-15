@@ -1,4 +1,4 @@
-import { PaletteOptions, ThemeOptions, createTheme } from "@mui/material";
+import { ThemeOptions, createTheme } from "@mui/material";
 import { frFR as coreFrFR } from "@mui/material/locale";
 import { frFR as gridfrFR } from "@mui/x-data-grid";
 import { frFR } from "@mui/x-date-pickers";

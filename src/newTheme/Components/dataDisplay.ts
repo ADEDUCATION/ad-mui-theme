@@ -1,5 +1,3 @@
-import { ChipProps } from "@mui/material";
-
 import { Props } from "./components";
 
 const dataDisplay = ({ palette, typography }: Props) => ({
