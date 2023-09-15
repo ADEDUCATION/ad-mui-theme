@@ -1,6 +1,5 @@
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
 
-// import typographyImports from "../Typography/typographyImports";
 import dataDisplay from "./dataDisplay";
 import globals from "./globals";
 import inputs from "./inputs";

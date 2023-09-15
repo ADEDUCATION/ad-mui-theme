@@ -6,8 +6,6 @@ import {
 } from "@mui/material/styles/createPalette";
 import { AvailableSchoolTheme } from "../types";
 
-// type SubObjectKeys = keyof Palette;
-
 // Fusion des sous-objets en un seul type
 type MergeSubObjects = keyof Palette[AvailableSchoolTheme];
 

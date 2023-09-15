@@ -7,8 +7,6 @@ type Shape = {
   };
 };
 
-// type SubObjectKeysShape = keyof Shape;
-
 type SubObjectShape = keyof Shape[AvailableSchoolTheme];
 
 export type { Shape, SubObjectShape };

@@ -22,11 +22,9 @@ export const tokens = {
 
 declare module "@mui/material/styles" {
   interface Theme {
-    ade: PaletteOptions;
-    esd: PaletteOptions;
-    adeDark: PaletteOptions;
     palette: CombinedPalette[keyof typeof tokens];
-    shape: Shape[keyof typeof tokens];
+    gap: Gap[keyof typeof tokens];
+    borderRadius: Shape[keyof typeof tokens];
   }
 }
 
@@ -115,8 +113,6 @@ export const newTheme = (mode: keyof typeof tokens) => {
       palette: {
         ...customPalette,
         action: {
-          // active: customPalette?.primary.main,
-          // hover: customPalette?.primary.main,
           disabled: customPalette?.grey[600],
           disabledBackground: customPalette?.grey[900],
         },

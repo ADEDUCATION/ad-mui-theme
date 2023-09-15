@@ -7,8 +7,6 @@ type Gap = {
   };
 };
 
-// type SubObjectKeysGap = keyof Gap;
-
 type SubObjectGap = keyof Gap[AvailableSchoolTheme];
 
 export type { Gap, SubObjectGap };

@@ -23,14 +23,6 @@ type FontFamily = {
   };
 };
 
-// type SubObjectKeysTypography = keyof Typography;
-
 type SubObjectTypography = keyof Typography[AvailableSchoolTheme];
 
-export type {
-  Typography,
-  TypographyMerge,
-  FontFamily,
-  // SubObjectKeysTypography,
-  SubObjectTypography,
-};
+export type { Typography, TypographyMerge, FontFamily, SubObjectTypography };
