@@ -17,6 +17,7 @@ import { Gap } from "./Gap/utils";
 export const tokens = {
   esp: themeTokens.themes.esp,
   ade: themeTokens.themes.ade,
+  esd: themeTokens.themes.esd,
 };
 
 declare module "@mui/material/styles" {
