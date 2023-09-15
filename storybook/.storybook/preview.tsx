@@ -8,7 +8,8 @@ import CustomThemeProvider from "../../src/newTheme/Provider";
 const Theme = {
   ADE: "ade",
   ESP: "esp",
-  ADEDARK: "adeDark",
+  // ADEDARK: "adeDark",
+  ESD: "esd",
 };
 
 export const withMuiTheme = (Story, context) => {
@@ -48,6 +49,7 @@ export const globalTypes = {
       items: [
         { value: "ADE", left: "☀️", title: "ADE" },
         { value: "ESP", left: "🌙", title: "ESP" },
+        { value: "ESD", left: "🎓", title: "ESD" },
         // { value: "ADEDARK", left: "🌙", title: "ADE Dark" },
       ],
     },
