@@ -1,15 +1,15 @@
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
 
-import { CombinedPalette } from "../Palette/utils";
 // import typographyImports from "../Typography/typographyImports";
-import { TypographyMerge } from "../Typography/utils";
 import dataDisplay from "./dataDisplay";
 import globals from "./globals";
 import inputs from "./inputs";
 import { layout } from "./layout";
-import { Shape } from "../Shape/utils";
 import { Gap } from "../Gap/utils";
 import { AvailableSchoolTheme } from "../types";
+import { Shape } from "../Shape/utils";
+import { TypographyMerge } from "../Typography/utils";
+import { CombinedPalette } from "../Palette/utils";
 
 export type Props = {
   palette: CombinedPalette[AvailableSchoolTheme] | undefined;
