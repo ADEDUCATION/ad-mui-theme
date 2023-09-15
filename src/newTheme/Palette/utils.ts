@@ -4,15 +4,16 @@ import {
   ColorPartial,
   TypeBackground,
 } from "@mui/material/styles/createPalette";
+import { AvailableSchoolTheme } from "../types";
 
-type SubObjectKeys = keyof Palette;
+// type SubObjectKeys = keyof Palette;
 
 // Fusion des sous-objets en un seul type
-type MergeSubObjects = keyof Palette[SubObjectKeys];
+type MergeSubObjects = keyof Palette[AvailableSchoolTheme];
 
-type SubObjectsCustomPalette = keyof PaletteCustom[SubObjectKeys];
+type SubObjectsCustomPalette = keyof PaletteCustom[AvailableSchoolTheme];
 
-type SubObjectsTonalOffset = keyof PaletteOffset[SubObjectKeys];
+type SubObjectsTonalOffset = keyof PaletteOffset[AvailableSchoolTheme];
 
 type AllColor =
   | MergeSubObjects
@@ -74,7 +75,6 @@ type CombinedPalette = {
 
 export type {
   CombinedPalette,
-  SubObjectKeys,
   SubObjectsTonalOffset,
   SubObjectsCustomPalette,
   MergeSubObjects,

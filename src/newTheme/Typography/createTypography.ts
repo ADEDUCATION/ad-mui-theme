@@ -1,9 +1,10 @@
-import { CombinedPalette, SubObjectKeys } from "../Palette/utils";
+import { CombinedPalette } from "../Palette/utils";
 import { tokens } from "../theme";
+import { AvailableSchoolTheme } from "../types";
 import { SubObjectTypography, TypographyMerge } from "./utils";
 
 export type Props = {
-  palette: CombinedPalette[SubObjectKeys] | undefined;
+  palette: CombinedPalette[AvailableSchoolTheme] | undefined;
   mode: keyof typeof tokens;
 };
 const createNewTypography = ({ mode, palette }: Props) => {

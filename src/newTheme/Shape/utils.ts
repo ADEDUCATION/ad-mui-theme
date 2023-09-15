@@ -1,4 +1,5 @@
 import { tokens } from "../theme";
+import { AvailableSchoolTheme } from "../types";
 
 type Shape = {
   [key in keyof typeof tokens]: {
@@ -6,8 +7,8 @@ type Shape = {
   };
 };
 
-type SubObjectKeysShape = keyof Shape;
+// type SubObjectKeysShape = keyof Shape;
 
-type SubObjectShape = keyof Shape[SubObjectKeysShape];
+type SubObjectShape = keyof Shape[AvailableSchoolTheme];
 
-export type { Shape, SubObjectKeysShape, SubObjectShape };
+export type { Shape, SubObjectShape };

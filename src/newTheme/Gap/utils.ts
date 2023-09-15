@@ -1,4 +1,5 @@
 import { tokens } from "../theme";
+import { AvailableSchoolTheme } from "../types";
 
 type Gap = {
   [key in keyof typeof tokens]: {
@@ -6,8 +7,8 @@ type Gap = {
   };
 };
 
-type SubObjectKeysGap = keyof Gap;
+// type SubObjectKeysGap = keyof Gap;
 
-type SubObjectGap = keyof Gap[SubObjectKeysGap];
+type SubObjectGap = keyof Gap[AvailableSchoolTheme];
 
-export type { Gap, SubObjectKeysGap, SubObjectGap };
+export type { Gap, SubObjectGap };
