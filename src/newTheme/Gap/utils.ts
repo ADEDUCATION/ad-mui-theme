@@ -1,12 +1,12 @@
 import { tokens } from "../theme";
-import { AvailableSchoolTheme } from "../types";
+import { SchoolThemes } from "../types";
 
 type Gap = {
-  [key in AvailableSchoolTheme]: {
+  [key in SchoolThemes]: {
     [gap in keyof (typeof tokens)[key]["gap"]]: number;
   };
 };
 
-type GapProperty = keyof Gap[AvailableSchoolTheme];
+type GapProperty = keyof Gap[SchoolThemes];
 
 export type { Gap, GapProperty };

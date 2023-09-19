@@ -13,7 +13,7 @@ import createNewShape from "./Shape/createShape";
 import { Shape } from "./Shape/utils";
 import createNewGap from "./Gap/createGap";
 import { Gap } from "./Gap/utils";
-import { AvailableSchoolTheme } from "./types";
+import { SchoolThemes } from "./types";
 
 export const tokens = {
   esp: themeTokens.themes.esp,
@@ -23,15 +23,15 @@ export const tokens = {
 
 declare module "@mui/material/styles" {
   interface Theme {
-    palette: CombinedPalette[AvailableSchoolTheme];
-    gap: Gap[AvailableSchoolTheme];
-    borderRadius: Shape[AvailableSchoolTheme];
+    palette: CombinedPalette[SchoolThemes];
+    gap: Gap[SchoolThemes];
+    borderRadius: Shape[SchoolThemes];
   }
 }
 
 interface CustomThemeOptions extends ThemeOptions {
-  gap: Gap[AvailableSchoolTheme];
-  borderRadius: Shape[AvailableSchoolTheme];
+  gap: Gap[SchoolThemes];
+  borderRadius: Shape[SchoolThemes];
 }
 
 declare module "@mui/material/Button" {
@@ -100,7 +100,7 @@ declare module "@mui/material/Alert" {
   }
 }
 
-export const newTheme = (mode: AvailableSchoolTheme) => {
+export const newTheme = (mode: SchoolThemes) => {
   const customPalette = createNewPalette(mode);
   const customTypography = createNewTypography({
     mode,

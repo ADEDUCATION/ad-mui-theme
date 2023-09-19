@@ -1,5 +1,5 @@
 import { tokens } from "../theme";
-import { AvailableSchoolTheme } from "../types";
+import { SchoolThemes } from "../types";
 import {
   CombinedPalette,
   MuiColors,
@@ -8,7 +8,7 @@ import {
   TonalColors,
 } from "./utils";
 
-const createNewPalette = (mode: AvailableSchoolTheme) => {
+const createNewPalette = (mode: SchoolThemes) => {
   if (tokens[mode]) {
     let mainPalette = {} as CombinedPalette[typeof mode];
 

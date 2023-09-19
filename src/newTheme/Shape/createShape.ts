@@ -1,8 +1,8 @@
 import { tokens } from "../theme";
-import { AvailableSchoolTheme } from "../types";
+import { SchoolThemes } from "../types";
 import { Shape } from "./utils";
 
-const createNewShape = (mode: AvailableSchoolTheme) => {
+const createNewShape = (mode: SchoolThemes) => {
   if (tokens[mode]) {
     let shape = {} as Shape[typeof mode];
 

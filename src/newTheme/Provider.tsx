@@ -4,11 +4,11 @@ import { ThemeProvider } from "@mui/material";
 // import useTheme from '@/store/theme';
 
 import { newTheme, tokens } from "./theme";
-import { AvailableSchoolTheme } from "./types";
+import { SchoolThemes } from "./types";
 
 type CustomThemeProviderProps = {
   children: JSX.Element;
-  mode: AvailableSchoolTheme;
+  mode: SchoolThemes;
 };
 // declare module "@mui/material/styles" {
 //   interface Theme {

@@ -1,12 +1,12 @@
 import { tokens } from "../theme";
-import { AvailableSchoolTheme } from "../types";
+import { SchoolThemes } from "../types";
 
 type Shape = {
-  [key in AvailableSchoolTheme]: {
+  [key in SchoolThemes]: {
     [shape in keyof (typeof tokens)[key]["shape"]]: number;
   };
 };
 
-type ShapeProperty = keyof Shape[AvailableSchoolTheme];
+type ShapeProperty = keyof Shape[SchoolThemes];
 
 export type { Shape, ShapeProperty };

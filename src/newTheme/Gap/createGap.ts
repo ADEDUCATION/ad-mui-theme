@@ -1,8 +1,8 @@
 import { tokens } from "../theme";
-import { AvailableSchoolTheme } from "../types";
+import { SchoolThemes } from "../types";
 import { Gap } from "./utils";
 
-const createNewGap = (mode: AvailableSchoolTheme) => {
+const createNewGap = (mode: SchoolThemes) => {
   if (tokens[mode]) {
     let gap = {} as Gap[typeof mode];
 

@@ -5,16 +5,16 @@ import globals from "./globals";
 import inputs from "./inputs";
 import { layout } from "./layout";
 import { Gap } from "../Gap/utils";
-import { AvailableSchoolTheme } from "../types";
+import { SchoolThemes } from "../types";
 import { Shape } from "../Shape/utils";
 import { TypographyMerge } from "../Typography/utils";
 import { CombinedPalette } from "../Palette/utils";
 
 export type Props = {
-  palette: CombinedPalette[AvailableSchoolTheme] | undefined;
-  typography: TypographyMerge[AvailableSchoolTheme] | undefined;
-  borderRadius: Shape[AvailableSchoolTheme] | undefined;
-  gap: Gap[AvailableSchoolTheme] | undefined;
+  palette: CombinedPalette[SchoolThemes] | undefined;
+  typography: TypographyMerge[SchoolThemes] | undefined;
+  borderRadius: Shape[SchoolThemes] | undefined;
+  gap: Gap[SchoolThemes] | undefined;
 };
 
 const components = ({

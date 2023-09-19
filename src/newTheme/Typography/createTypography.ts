@@ -1,11 +1,11 @@
 import { CombinedPalette } from "../Palette/utils";
 import { tokens } from "../theme";
-import { AvailableSchoolTheme } from "../types";
+import { SchoolThemes } from "../types";
 import { TypographyVariants, TypographyMerge } from "./utils";
 
 export type Props = {
-  palette: CombinedPalette[AvailableSchoolTheme] | undefined;
-  mode: AvailableSchoolTheme;
+  palette: CombinedPalette[SchoolThemes] | undefined;
+  mode: SchoolThemes;
 };
 const createNewTypography = ({ mode, palette }: Props) => {
   if (tokens[mode]) {
