@@ -5,13 +5,8 @@ import type {
   CustomColors,
   AllColor,
 } from "./newTheme/Palette/utils";
-import type { SchoolThemes, AvailableSchoolThemes } from "./newTheme/types";
+import type { SchoolThemes } from "./newTheme/types";
 
 export { CustomThemeProvider, newTheme };
-export type {
-  MuiColors,
-  CustomColors,
-  AllColor,
-  SchoolThemes,
-  AvailableSchoolThemes,
-};
+export type { MuiColors, CustomColors, AllColor, SchoolThemes };
+export { AvailableSchoolThemes } from "./newTheme/types";
