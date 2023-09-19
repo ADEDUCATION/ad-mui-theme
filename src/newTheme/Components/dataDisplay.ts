@@ -1,6 +1,3 @@
-import { ChipProps } from "@mui/material";
-
-import { MergeSubObjects } from "../Palette/utils";
 import { Props } from "./components";
 
 const dataDisplay = ({ palette, typography }: Props) => ({

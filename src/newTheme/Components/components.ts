@@ -1,20 +1,20 @@
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
 
-import { CombinedPalette, SubObjectKeys } from "../Palette/utils";
-// import typographyImports from "../Typography/typographyImports";
-import { SubObjectKeysTypography, TypographyMerge } from "../Typography/utils";
 import dataDisplay from "./dataDisplay";
 import globals from "./globals";
 import inputs from "./inputs";
 import { layout } from "./layout";
-import { Shape, SubObjectKeysShape } from "../Shape/utils";
-import { Gap, SubObjectKeysGap } from "../Gap/utils";
+import { Gap } from "../Gap/utils";
+import { SchoolThemes } from "../types";
+import { Shape } from "../Shape/utils";
+import { TypographyMerge } from "../Typography/utils";
+import { CombinedPalette } from "../Palette/utils";
 
 export type Props = {
-  palette: CombinedPalette[SubObjectKeys] | undefined;
-  typography: TypographyMerge[SubObjectKeysTypography] | undefined;
-  borderRadius: Shape[SubObjectKeysShape] | undefined;
-  gap: Gap[SubObjectKeysGap] | undefined;
+  palette: CombinedPalette[SchoolThemes] | undefined;
+  typography: TypographyMerge[SchoolThemes] | undefined;
+  borderRadius: Shape[SchoolThemes] | undefined;
+  gap: Gap[SchoolThemes] | undefined;
 };
 
 const components = ({

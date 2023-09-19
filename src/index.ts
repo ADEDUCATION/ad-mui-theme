@@ -1,16 +1,17 @@
 import { newTheme } from "./newTheme/theme";
 import CustomThemeProvider from "./newTheme/Provider";
 import type {
-  MergeSubObjects,
-  SubObjectsCustomPalette,
+  MuiColors,
+  CustomColors,
   AllColor,
 } from "./newTheme/Palette/utils";
-import type { AvailableSchoolTheme } from "./newTheme/types";
+import type { SchoolThemes, AvailableSchoolThemes } from "./newTheme/types";
 
 export { CustomThemeProvider, newTheme };
 export type {
-  MergeSubObjects,
-  SubObjectsCustomPalette,
+  MuiColors,
+  CustomColors,
   AllColor,
-  AvailableSchoolTheme,
+  SchoolThemes,
+  AvailableSchoolThemes,
 };

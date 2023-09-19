@@ -1,10 +1,11 @@
-import { CombinedPalette, SubObjectKeys } from "../Palette/utils";
+import { CombinedPalette } from "../Palette/utils";
 import { tokens } from "../theme";
-import { SubObjectTypography, TypographyMerge } from "./utils";
+import { SchoolThemes } from "../types";
+import { TypographyVariants, TypographyMerge } from "./utils";
 
 export type Props = {
-  palette: CombinedPalette[SubObjectKeys] | undefined;
-  mode: keyof typeof tokens;
+  palette: CombinedPalette[SchoolThemes] | undefined;
+  mode: SchoolThemes;
 };
 const createNewTypography = ({ mode, palette }: Props) => {
   if (tokens[mode]) {
@@ -15,7 +16,7 @@ const createNewTypography = ({ mode, palette }: Props) => {
     const fontFamily = tokens[mode].fontFamily;
 
     Object.entries(typo).map(([key, value]) => {
-      const variant = key as SubObjectTypography;
+      const variant = key as TypographyVariants;
 
       typography = {
         ...typography,

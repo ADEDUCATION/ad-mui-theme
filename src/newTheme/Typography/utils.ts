@@ -1,35 +1,28 @@
-import { TypographyStyleOptions } from '@mui/material/styles/createTypography';
+import { TypographyStyleOptions } from "@mui/material/styles/createTypography";
 
-import { tokens } from '../theme';
+import { tokens } from "../theme";
+import { SchoolThemes } from "../types";
 
 type Typography = {
-  [key in keyof typeof tokens]: {
-    [typo in keyof typeof tokens[key]['typography']]: TypographyStyleOptions;
+  [key in SchoolThemes]: {
+    [typo in keyof (typeof tokens)[key]["typography"]]: TypographyStyleOptions;
   };
 };
 
 type TypographyMerge = {
-  [key in keyof typeof tokens]: {
-    [typo in keyof typeof tokens[key]['typography']]: TypographyStyleOptions;
+  [key in SchoolThemes]: {
+    [typo in keyof (typeof tokens)[key]["typography"]]: TypographyStyleOptions;
   } & {
     fontFamily: string;
   };
 };
 
 type FontFamily = {
-  [key in keyof typeof tokens]: {
-    [typo in keyof typeof tokens[key]['fontFamily']]: string;
+  [key in SchoolThemes]: {
+    [typo in keyof (typeof tokens)[key]["fontFamily"]]: string;
   };
 };
 
-type SubObjectKeysTypography = keyof Typography;
+type TypographyVariants = keyof Typography[SchoolThemes];
 
-type SubObjectTypography = keyof Typography[SubObjectKeysTypography];
-
-export type {
-  Typography,
-  TypographyMerge,
-  FontFamily,
-  SubObjectKeysTypography,
-  SubObjectTypography,
-};
+export type { Typography, TypographyMerge, FontFamily, TypographyVariants };

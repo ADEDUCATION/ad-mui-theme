@@ -1,13 +1,14 @@
 import { tokens } from "../theme";
+import { SchoolThemes } from "../types";
 import {
   CombinedPalette,
-  MergeSubObjects,
+  MuiColors,
   PaletteBackground,
-  SubObjectsCustomPalette,
-  SubObjectsTonalOffset,
+  CustomColors,
+  TonalColors,
 } from "./utils";
 
-const createNewPalette = (mode: keyof typeof tokens) => {
+const createNewPalette = (mode: SchoolThemes) => {
   if (tokens[mode]) {
     let mainPalette = {} as CombinedPalette[typeof mode];
 
@@ -17,7 +18,7 @@ const createNewPalette = (mode: keyof typeof tokens) => {
     const paletteBackground = tokens[mode].paletteBackground;
 
     Object.entries(palette).map(([keyColor, color]) => {
-      const muiColor = keyColor as MergeSubObjects;
+      const muiColor = keyColor as MuiColors;
 
       mainPalette = {
         ...mainPalette,
@@ -38,7 +39,7 @@ const createNewPalette = (mode: keyof typeof tokens) => {
     });
 
     Object.entries(customPalette).map(([keyColor, color]) => {
-      const customColor = keyColor as SubObjectsCustomPalette;
+      const customColor = keyColor as CustomColors;
 
       mainPalette = {
         ...mainPalette,
@@ -57,7 +58,7 @@ const createNewPalette = (mode: keyof typeof tokens) => {
     });
 
     Object.entries(tonalOffset).map(([key, value]) => {
-      const tonalColor = key as SubObjectsTonalOffset;
+      const tonalColor = key as TonalColors;
 
       mainPalette = {
         ...mainPalette,

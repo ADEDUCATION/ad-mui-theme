@@ -1,4 +1,4 @@
-import { PaletteOptions, ThemeOptions, createTheme } from "@mui/material";
+import { ThemeOptions, createTheme } from "@mui/material";
 import { frFR as coreFrFR } from "@mui/material/locale";
 import { frFR as gridfrFR } from "@mui/x-data-grid";
 import { frFR } from "@mui/x-date-pickers";
@@ -13,6 +13,7 @@ import createNewShape from "./Shape/createShape";
 import { Shape } from "./Shape/utils";
 import createNewGap from "./Gap/createGap";
 import { Gap } from "./Gap/utils";
+import { SchoolThemes } from "./types";
 
 export const tokens = {
   esp: themeTokens.themes.esp,
@@ -22,17 +23,15 @@ export const tokens = {
 
 declare module "@mui/material/styles" {
   interface Theme {
-    ade: PaletteOptions;
-    esd: PaletteOptions;
-    adeDark: PaletteOptions;
-    palette: CombinedPalette[keyof typeof tokens];
-    shape: Shape[keyof typeof tokens];
+    palette: CombinedPalette[SchoolThemes];
+    gap: Gap[SchoolThemes];
+    borderRadius: Shape[SchoolThemes];
   }
 }
 
 interface CustomThemeOptions extends ThemeOptions {
-  gap: Gap[keyof typeof tokens];
-  borderRadius: Shape[keyof typeof tokens];
+  gap: Gap[SchoolThemes];
+  borderRadius: Shape[SchoolThemes];
 }
 
 declare module "@mui/material/Button" {
@@ -101,7 +100,7 @@ declare module "@mui/material/Alert" {
   }
 }
 
-export const newTheme = (mode: keyof typeof tokens) => {
+export const newTheme = (mode: SchoolThemes) => {
   const customPalette = createNewPalette(mode);
   const customTypography = createNewTypography({
     mode,
@@ -115,8 +114,6 @@ export const newTheme = (mode: keyof typeof tokens) => {
       palette: {
         ...customPalette,
         action: {
-          // active: customPalette?.primary.main,
-          // hover: customPalette?.primary.main,
           disabled: customPalette?.grey[600],
           disabledBackground: customPalette?.grey[900],
         },

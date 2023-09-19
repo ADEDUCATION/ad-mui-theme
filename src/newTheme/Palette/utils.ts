@@ -4,20 +4,16 @@ import {
   ColorPartial,
   TypeBackground,
 } from "@mui/material/styles/createPalette";
-
-type SubObjectKeys = keyof Palette;
+import { SchoolThemes } from "../types";
 
 // Fusion des sous-objets en un seul type
-type MergeSubObjects = keyof Palette[SubObjectKeys];
+type MuiColors = keyof Palette[SchoolThemes];
 
-type SubObjectsCustomPalette = keyof PaletteCustom[SubObjectKeys];
+type CustomColors = keyof PaletteCustom[SchoolThemes];
 
-type SubObjectsTonalOffset = keyof PaletteOffset[SubObjectKeys];
+type TonalColors = keyof PaletteOffset[SchoolThemes];
 
-type AllColor =
-  | MergeSubObjects
-  | SubObjectsCustomPalette
-  | SubObjectsTonalOffset;
+type AllColor = MuiColors | CustomColors | TonalColors;
 
 type NewColor = {
   A10?: string;
@@ -26,19 +22,19 @@ type NewColor = {
 } & SimplePaletteColorOptions;
 
 type Palette = {
-  [key in keyof typeof tokens]: {
+  [key in SchoolThemes]: {
     [color in keyof (typeof tokens)[key]["palette"]]: NewColor;
   };
 };
 
 type PaletteCustom = {
-  [key in keyof typeof tokens]: {
+  [key in SchoolThemes]: {
     [color in keyof (typeof tokens)[key]["customPalette"]]: NewColor;
   };
 };
 
 type PaletteOffset = {
-  [key in keyof typeof tokens]: {
+  [key in SchoolThemes]: {
     [color in keyof (typeof tokens)[key]["tonalOffset"]]: ColorPartial;
   };
 };
@@ -48,13 +44,13 @@ type BackgroundType = {
 } & TypeBackground;
 
 type PaletteBackground = {
-  [key in keyof typeof tokens]: {
+  [key in SchoolThemes]: {
     [color in keyof (typeof tokens)[key]["paletteBackground"]]: BackgroundType;
   };
 };
 
 type CombinedPalette = {
-  [key in keyof typeof tokens]: {
+  [key in SchoolThemes]: {
     [color in
       | keyof (typeof tokens)[key]["palette"]
       | keyof (typeof tokens)[key]["customPalette"]]: NewColor;
@@ -74,10 +70,9 @@ type CombinedPalette = {
 
 export type {
   CombinedPalette,
-  SubObjectKeys,
-  SubObjectsTonalOffset,
-  SubObjectsCustomPalette,
-  MergeSubObjects,
+  TonalColors,
+  CustomColors,
+  MuiColors,
   Palette,
   PaletteCustom,
   PaletteOffset,

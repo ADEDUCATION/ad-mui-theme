@@ -1,7 +1,7 @@
-import { ButtonProps, Color, alpha } from "@mui/material";
+import { ButtonProps } from "@mui/material";
 import { Props } from "./components";
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
-import { MergeSubObjects } from "../Palette/utils";
+import { MuiColors } from "../Palette/utils";
 
 const inputs = ({
   palette,
@@ -32,14 +32,14 @@ const inputs = ({
           "&:hover": {
             backgroundColor:
               ownerState.variant === "contained"
-                ? palette && palette[ownerState.color as MergeSubObjects].light
+                ? palette && palette[ownerState.color as MuiColors].light
                 : ownerState.variant === "text" &&
                   palette &&
-                  palette[ownerState.color as MergeSubObjects].A20,
+                  palette[ownerState.color as MuiColors].A20,
             color:
               ownerState.variant === "text" &&
               palette &&
-              palette[ownerState.color as MergeSubObjects].light,
+              palette[ownerState.color as MuiColors].light,
 
             boxShadow: "none",
           },
