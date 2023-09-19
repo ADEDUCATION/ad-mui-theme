@@ -1,18 +1,17 @@
 import { tokens } from "../theme";
-import { Gap, SubObjectGap } from "./utils";
+import { AvailableSchoolTheme } from "../types";
+import { Gap } from "./utils";
 
-const createNewGap = (mode: keyof typeof tokens) => {
+const createNewGap = (mode: AvailableSchoolTheme) => {
   if (tokens[mode]) {
     let gap = {} as Gap[typeof mode];
 
     const GapTokens = tokens[mode].gap;
 
     Object.entries(GapTokens).map(([key, value]) => {
-      const borderRadius = key as SubObjectGap;
-
       gap = {
         ...gap,
-        [borderRadius]: Number(value.value),
+        [key]: Number(value.value),
       };
     });
 
