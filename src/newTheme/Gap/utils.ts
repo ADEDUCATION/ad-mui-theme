@@ -3,7 +3,7 @@ import { SchoolThemes } from "../types";
 
 type Gap = {
   [key in SchoolThemes]: {
-    [gap in keyof (typeof tokens)[key]["gap"]]: number;
+    [gap in keyof (typeof tokens)[key]["gap"]]: string;
   };
 };
 

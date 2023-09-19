@@ -128,11 +128,11 @@ const Welcome = () => {
                   sx={{
                     backgroundColor: theme.palette.background.paper,
                     color: theme.palette.grey[500],
-                    borderRadius: theme.borderRadius[key] + "px",
+                    borderRadius: theme.borderRadius[key],
                     padding: 2,
                   }}
                 >
-                  Un borderRadius de type {key} = {theme.borderRadius[key]} px
+                  Un borderRadius de type {key} = {theme.borderRadius[key]}
                 </Box>
               );
             })}
@@ -151,9 +151,9 @@ const Welcome = () => {
                   }}
                 >
                   <Typography variant="subtitleMedium">
-                    Un gap de type {key} = {theme.gap[key]} px
+                    Un gap de type {key} = {theme.gap[key]}
                   </Typography>
-                  <Stack direction="row" gap={theme.gap[key] + "px"}>
+                  <Stack direction="row" gap={theme.gap[key]}>
                     {Array.from(Array(3).keys()).map((i) => (
                       <Box
                         key={i}

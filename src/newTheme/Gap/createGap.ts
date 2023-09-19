@@ -11,7 +11,7 @@ const createNewGap = (mode: SchoolThemes) => {
     Object.entries(GapTokens).map(([key, value]) => {
       gap = {
         ...gap,
-        [key]: Number(value.value),
+        [key]: value.value,
       };
     });
 

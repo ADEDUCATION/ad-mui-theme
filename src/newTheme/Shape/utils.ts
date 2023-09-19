@@ -3,7 +3,7 @@ import { SchoolThemes } from "../types";
 
 type Shape = {
   [key in SchoolThemes]: {
-    [shape in keyof (typeof tokens)[key]["shape"]]: number;
+    [shape in keyof (typeof tokens)[key]["shape"]]: string;
   };
 };
 
