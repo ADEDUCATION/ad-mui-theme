@@ -11,7 +11,7 @@ const createNewShape = (mode: SchoolThemes) => {
     Object.entries(shapeTokens).map(([key, value]) => {
       shape = {
         ...shape,
-        [key]: Number(value.value),
+        [key]: value.value,
       };
     });
 
