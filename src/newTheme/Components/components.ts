@@ -4,24 +4,24 @@ import dataDisplay from "./dataDisplay";
 import globals from "./globals";
 import inputs from "./inputs";
 import { layout } from "./layout";
-import { Gap } from "../Gap/utils";
 import { SchoolThemes } from "../types";
 import { Shape } from "../Shape/utils";
 import { TypographyMerge } from "../Typography/utils";
 import { CombinedPalette } from "../Palette/utils";
+import { Space } from "../Space/utils";
 
 export type Props = {
   palette: CombinedPalette[SchoolThemes] | undefined;
   typography: TypographyMerge[SchoolThemes] | undefined;
   borderRadius: Shape[SchoolThemes] | undefined;
-  gap: Gap[SchoolThemes] | undefined;
+  space: Space[SchoolThemes] | undefined;
 };
 
 const components = ({
   palette,
   typography,
   borderRadius,
-  gap,
+  space,
 }: Props): OverridesStyleRules => {
   return {
     MuiCssBaseline: {
@@ -32,10 +32,10 @@ const components = ({
         },
       },
     },
-    ...inputs({ palette, typography, borderRadius, gap }),
-    ...dataDisplay({ palette, typography, borderRadius, gap }),
-    ...layout({ palette, typography, borderRadius, gap }),
-    ...globals({ palette, typography, borderRadius, gap }),
+    ...inputs({ palette, typography, borderRadius, space }),
+    ...dataDisplay({ palette, typography, borderRadius, space }),
+    ...layout({ palette, typography, borderRadius, space }),
+    ...globals({ palette, typography, borderRadius, space }),
   };
 };
 

@@ -11,9 +11,9 @@ import { CombinedPalette } from "./Palette/utils";
 import createNewTypography from "./Typography/createTypography";
 import createNewShape from "./Shape/createShape";
 import { Shape } from "./Shape/utils";
-import createNewGap from "./Gap/createGap";
-import { Gap } from "./Gap/utils";
 import { SchoolThemes } from "./types";
+import { Space } from "./Space/utils";
+import createNewSpace from "./Space/createGap";
 
 export const tokens = {
   esp: themeTokens.themes.esp,
@@ -24,13 +24,13 @@ export const tokens = {
 declare module "@mui/material/styles" {
   interface Theme {
     palette: CombinedPalette[SchoolThemes];
-    gap: Gap[SchoolThemes];
+    space: Space[SchoolThemes];
     borderRadius: Shape[SchoolThemes];
   }
 }
 
 interface CustomThemeOptions extends ThemeOptions {
-  gap: Gap[SchoolThemes];
+  space: Space[SchoolThemes];
   borderRadius: Shape[SchoolThemes];
 }
 
@@ -107,7 +107,7 @@ export const newTheme = (mode: SchoolThemes) => {
     palette: customPalette,
   });
   const customShape = createNewShape(mode);
-  const customGap = createNewGap(mode);
+  const customSpace = createNewSpace(mode);
 
   return createTheme(
     {
@@ -123,9 +123,9 @@ export const newTheme = (mode: SchoolThemes) => {
         palette: customPalette,
         typography: customTypography,
         borderRadius: customShape,
-        gap: customGap,
+        space: customSpace,
       }),
-      gap: customGap,
+      space: customSpace,
       borderRadius: customShape,
     } as CustomThemeOptions,
     gridfrFR,
