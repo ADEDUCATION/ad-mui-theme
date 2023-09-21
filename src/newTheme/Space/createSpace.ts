@@ -4,18 +4,18 @@ import { Space } from "./utils";
 
 const createNewSpace = (mode: SchoolThemes) => {
   if (tokens[mode]) {
-    let gap = {} as Space[typeof mode];
+    let space = {} as Space[typeof mode];
 
     const GapTokens = tokens[mode].space;
 
     Object.entries(GapTokens).map(([key, value]) => {
-      gap = {
-        ...gap,
+      space = {
+        ...space,
         [key]: value.value,
       };
     });
 
-    return gap;
+    return space;
   }
 };
 

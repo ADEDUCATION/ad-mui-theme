@@ -3,7 +3,7 @@ import { SchoolThemes } from "../types";
 
 type Space = {
   [key in SchoolThemes]: {
-    [gap in keyof (typeof tokens)[key]["space"]]: string;
+    [space in keyof (typeof tokens)[key]["space"]]: string;
   };
 };
 

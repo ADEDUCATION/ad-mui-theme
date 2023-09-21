@@ -9,11 +9,11 @@ import components from "./Components/components";
 import createNewPalette from "./Palette/createPalette";
 import { CombinedPalette } from "./Palette/utils";
 import createNewTypography from "./Typography/createTypography";
-import createNewShape from "./Shape/createShape";
-import { Shape } from "./Shape/utils";
 import { SchoolThemes } from "./types";
 import { Space } from "./Space/utils";
-import createNewSpace from "./Space/createGap";
+import { Radius } from "./Radius/utils";
+import createNewRadius from "./Radius/createRadius";
+import createNewSpace from "./Space/createSpace";
 
 export const tokens = {
   esp: themeTokens.themes.esp,
@@ -25,13 +25,13 @@ declare module "@mui/material/styles" {
   interface Theme {
     palette: CombinedPalette[SchoolThemes];
     space: Space[SchoolThemes];
-    borderRadius: Shape[SchoolThemes];
+    radius: Radius[SchoolThemes];
   }
 }
 
 interface CustomThemeOptions extends ThemeOptions {
   space: Space[SchoolThemes];
-  borderRadius: Shape[SchoolThemes];
+  radius: Radius[SchoolThemes];
 }
 
 declare module "@mui/material/Button" {
@@ -106,7 +106,7 @@ export const newTheme = (mode: SchoolThemes) => {
     mode,
     palette: customPalette,
   });
-  const customShape = createNewShape(mode);
+  const customRadius = createNewRadius(mode);
   const customSpace = createNewSpace(mode);
 
   return createTheme(
@@ -122,11 +122,11 @@ export const newTheme = (mode: SchoolThemes) => {
       components: components({
         palette: customPalette,
         typography: customTypography,
-        borderRadius: customShape,
+        radius: customRadius,
         space: customSpace,
       }),
       space: customSpace,
-      borderRadius: customShape,
+      radius: customRadius,
     } as CustomThemeOptions,
     gridfrFR,
     frFR,
