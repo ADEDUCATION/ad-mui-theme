@@ -1,12 +1,12 @@
 import { tokens } from "../theme";
 import { SchoolThemes } from "../types";
-import { Gap } from "./utils";
+import { Space } from "./utils";
 
-const createNewGap = (mode: SchoolThemes) => {
+const createNewSpace = (mode: SchoolThemes) => {
   if (tokens[mode]) {
-    let gap = {} as Gap[typeof mode];
+    let gap = {} as Space[typeof mode];
 
-    const GapTokens = tokens[mode].gap;
+    const GapTokens = tokens[mode].space;
 
     Object.entries(GapTokens).map(([key, value]) => {
       gap = {
@@ -19,4 +19,4 @@ const createNewGap = (mode: SchoolThemes) => {
   }
 };
 
-export default createNewGap;
+export default createNewSpace;
