@@ -121,18 +121,18 @@ const Welcome = () => {
         <Stack gap={2}>
           <Typography variant="h4">Border radius</Typography>
           <Stack>
-            {Object.entries(theme.borderRadius).map(([key]) => {
+            {Object.entries(theme.radius).map(([key]) => {
               return (
                 <Box
                   my={1}
                   sx={{
                     backgroundColor: theme.palette.background.paper,
                     color: theme.palette.grey[500],
-                    borderRadius: theme.borderRadius[key],
+                    borderRadius: theme.radius[key],
                     padding: 2,
                   }}
                 >
-                  Un borderRadius de type {key} = {theme.borderRadius[key]}
+                  Un borderRadius de type {key} = {theme.radius[key]}
                 </Box>
               );
             })}
@@ -140,8 +140,8 @@ const Welcome = () => {
         </Stack>
         <Stack gap={2}>
           <Typography variant="h4">Gap</Typography>
-          <Stack gap={theme.gap.md + "px"}>
-            {Object.entries(theme.gap).map(([key]) => {
+          <Stack gap={theme.space.md + "px"}>
+            {Object.entries(theme.space).map(([key]) => {
               return (
                 <Box
                   sx={{
@@ -151,9 +151,9 @@ const Welcome = () => {
                   }}
                 >
                   <Typography variant="subtitleMedium">
-                    Un gap de type {key} = {theme.gap[key]}
+                    Un gap de type {key} = {theme.space[key]}
                   </Typography>
-                  <Stack direction="row" gap={theme.gap[key]}>
+                  <Stack direction="row" gap={theme.space[key]}>
                     {Array.from(Array(3).keys()).map((i) => (
                       <Box
                         key={i}
