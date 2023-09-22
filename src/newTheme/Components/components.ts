@@ -5,22 +5,22 @@ import globals from "./globals";
 import inputs from "./inputs";
 import { layout } from "./layout";
 import { SchoolThemes } from "../types";
-import { Shape } from "../Shape/utils";
 import { TypographyMerge } from "../Typography/utils";
 import { CombinedPalette } from "../Palette/utils";
 import { Space } from "../Space/utils";
+import { Radius } from "../Radius/utils";
 
 export type Props = {
   palette: CombinedPalette[SchoolThemes] | undefined;
   typography: TypographyMerge[SchoolThemes] | undefined;
-  borderRadius: Shape[SchoolThemes] | undefined;
+  radius: Radius[SchoolThemes] | undefined;
   space: Space[SchoolThemes] | undefined;
 };
 
 const components = ({
   palette,
   typography,
-  borderRadius,
+  radius,
   space,
 }: Props): OverridesStyleRules => {
   return {
@@ -32,10 +32,10 @@ const components = ({
         },
       },
     },
-    ...inputs({ palette, typography, borderRadius, space }),
-    ...dataDisplay({ palette, typography, borderRadius, space }),
-    ...layout({ palette, typography, borderRadius, space }),
-    ...globals({ palette, typography, borderRadius, space }),
+    ...inputs({ palette, typography, radius, space }),
+    ...dataDisplay({ palette, typography, radius, space }),
+    ...layout({ palette, typography, radius, space }),
+    ...globals({ palette, typography, radius, space }),
   };
 };
 

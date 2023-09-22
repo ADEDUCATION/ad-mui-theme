@@ -6,7 +6,7 @@ import { MuiColors } from "../Palette/utils";
 const inputs = ({
   palette,
   typography,
-  borderRadius,
+  radius,
 }: Props): OverridesStyleRules => ({
   MuiFormLabel: {
     styleOverrides: {
