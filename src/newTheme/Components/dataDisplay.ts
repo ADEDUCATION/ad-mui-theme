@@ -1,9 +1,10 @@
 import { Props } from "./components";
 
-const dataDisplay = ({ palette, typography }: Props) => ({
+const dataDisplay = ({ palette, typography, radius }: Props) => ({
   MuiChip: {
     styleOverrides: {
       root: {
+        borderRadius: radius?.chip,
         "& .MuiChip-label": {
           fontWeight: typography?.subtitleMedium.fontWeight,
         },

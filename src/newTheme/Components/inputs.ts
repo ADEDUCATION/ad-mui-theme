@@ -29,6 +29,7 @@ const inputs = ({
           padding: "0.5rem 1.2rem",
           boxShadow: "none",
           textTransform: "inherit",
+          borderRadius: radius?.button,
           "&:hover": {
             backgroundColor:
               ownerState.variant === "contained"
@@ -295,7 +296,7 @@ const inputs = ({
           },
           "&.info": {
             color: palette?.color1.main,
-            borderRadius: 50,
+            borderRadius: radius?.shapeFull,
             backgroundColor: palette?.color1.contrastText,
             width: 18,
             height: 18,
