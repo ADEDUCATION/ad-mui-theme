@@ -7,6 +7,7 @@ export const layout = ({
   palette,
   typography,
   radius,
+  space,
 }: Props): OverridesStyleRules => ({
   MuiDataGrid: {
     defaultProps: {
@@ -164,10 +165,10 @@ export const layout = ({
         color: palette?.grey[300],
         zIndex: 9,
         flexDirection: "row",
-        gap: "0.5rem",
+        gap: space?.sm,
         fontWeight: "800",
         minWidth: "100px",
-        padding: "0 1.5rem",
+        padding: `0 ${space?.xl}`,
         "&:hover": {
           background: palette?.primaryBase[900],
           color: palette?.primary.main,
@@ -181,20 +182,6 @@ export const layout = ({
           color: palette?.primary.main,
           background: palette?.primaryBase[900],
           outline: "none",
-        },
-        "& .MuiChip-root": {
-          borderRadius: "5px",
-          width: "22px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "22px",
-          "& .MuiChip-label": {
-            padding: "0",
-            fontSize: "0.7rem",
-            fontWeight: "800",
-            color: "#fff",
-          },
         },
         "& .MuiSvgIcon-root": {
           margin: 0,
@@ -214,10 +201,10 @@ export const layout = ({
         borderBottom: "1px solid",
         borderColor: palette?.grey[800],
         backgroundColor: palette?.background.paper,
-        "& button": {
-          paddingLeft: 20,
-          paddingRight: 20,
-        },
+        // "& button": {
+        //   paddingLeft: 20,
+        //   paddingRight: 20,
+        // },
         "& .MuiTabScrollButton-root": {
           transition: "0.2s",
           color: palette?.primary.main,
@@ -246,7 +233,7 @@ export const layout = ({
         "& .react-tel-input": {
           border: "1px solid",
           borderColor: palette?.grey[700],
-          borderRadius: "7px",
+          borderRadius: radius?.input,
           margin: "1px",
           "&.disabled": {
             borderColor: palette?.grey[800],
@@ -266,8 +253,8 @@ export const layout = ({
             width: "100% !important",
             minHeight: "44px",
             color: palette?.grey[300],
-            fontWeight: 700,
-            fontFamily: "Causten",
+            fontWeight: typography?.bodyMedium.fontWeight,
+            fontFamily: typography?.fontFamily,
             border: "none",
             "&.invalid-number": {
               border: "none !important",
@@ -283,11 +270,11 @@ export const layout = ({
           },
           "& .flag-dropdown": {
             border: "none",
-            borderRadius: "6px 0 0 6px",
+            borderRadius: radius?.input + " 0 0 " + radius?.input,
             "&:hover": {
-              borderRadius: "6px 0 0 6px",
+              borderRadius: radius?.input + " 0 0 " + radius?.input,
               "& .selected-flag": {
-                borderRadius: "6px 0 0 6px",
+                borderRadius: radius?.input + " 0 0 " + radius?.input,
               },
             },
           },
@@ -308,7 +295,7 @@ export const layout = ({
   MuiContainer: {
     styleOverrides: {
       root: {
-        padding: "2rem !important",
+        padding: space?.["3xl"],
       },
     },
   },
@@ -321,9 +308,9 @@ export const layout = ({
           "& .MuiDrawer-paper": {
             backgroundColor: palette?.background.surface1,
             color: "grey.100",
-            padding: "30px 20px",
+            padding: `${space?.["3xl"]} ${space?.xl}`,
             display: "flex",
-            gap: "2rem",
+            gap: space?.["3xl"],
             alignItems: "center",
 
             "& .sidebar-logo": {
@@ -331,7 +318,7 @@ export const layout = ({
               justifyContent: "center",
               display: "flex",
               marginTop: "40px",
-              marginBottom: "24px",
+              marginBottom: space?.["2xl"],
               "&:hover": { cursor: "pointer" },
               "& svg": {
                 width: "100%",
@@ -363,20 +350,19 @@ export const layout = ({
   MuiTabPanel: {
     styleOverrides: {
       root: {
-        padding: 0,
-        paddingTop: "1rem",
+        paddingTop: space?.lg,
       },
     },
   },
   MuiDivider: {
     styleOverrides: {
       vertical: {
-        marginRight: 10,
-        marginLeft: 10,
+        marginRight: space?.md,
+        marginLeft: space?.md,
       },
       middle: {
-        marginTop: 10,
-        marginBottom: 10,
+        marginTop: space?.md,
+        marginBottom: space?.md,
         width: "80%",
       },
     },
@@ -388,8 +374,8 @@ export const layout = ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: "4px",
-        padding: "6px 16px",
+        borderRadius: radius?.input,
+        padding: `${space?.sm} ${space?.lg}`,
         "& .MuiAlertTitle-root": {
           fontWeight: typography?.h6.fontWeight,
           fontSize: typography?.h6.fontSize,
@@ -482,7 +468,7 @@ export const layout = ({
     styleOverrides: {
       root: {
         "& .MuiStepper-root": {
-          gap: "0.5rem",
+          gap: space?.sm,
           height: "40px",
           "& .MuiStep-root": {
             padding: 0,
@@ -490,7 +476,7 @@ export const layout = ({
               flexDirection: "row-reverse",
               "& .Mui-active": {
                 "& .MuiSvgIcon-root": {
-                  marginLeft: "0.5rem",
+                  marginLeft: space?.sm,
                   color: palette?.background.paper,
                   "& .MuiStepIcon-text": {
                     fill: palette?.grey[400],

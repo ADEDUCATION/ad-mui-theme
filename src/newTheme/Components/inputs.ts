@@ -7,6 +7,7 @@ const inputs = ({
   palette,
   typography,
   radius,
+  space,
 }: Props): OverridesStyleRules => ({
   MuiFormLabel: {
     styleOverrides: {
@@ -26,7 +27,6 @@ const inputs = ({
     styleOverrides: {
       root: ({ ownerState }: { ownerState: ButtonProps }) => {
         return {
-          padding: "0.5rem 1.2rem",
           boxShadow: "none",
           textTransform: "inherit",
           borderRadius: radius?.button,
@@ -47,24 +47,24 @@ const inputs = ({
         };
       },
       sizeSmall: {
-        padding: "0.625rem 0.875rem",
+        padding: `${space?.xs} ${space?.md}`,
         fontSize: typography?.bodyBold.fontSize,
         fontWeight: typography?.bodyBold.fontWeight,
       },
       sizeMedium: {
-        padding: "0.625rem 1rem",
+        padding: `${space?.sm} ${space?.lg}`,
         fontSize: typography?.subtitleBold.fontSize,
         fontWeight: typography?.subtitleBold.fontWeight,
       },
       sizeLarge: {
-        padding: "0.75rem 1.125rem",
+        padding: `${space?.md} ${space?.["2xl"]}`,
         fontSize: typography?.h6.fontSize,
         fontWeight: typography?.subtitleBold.fontWeight,
       },
       MuiOutlinedInput: {
         styleOverrides: {
           root: {
-            input: { padding: "10px !important" },
+            input: { padding: space?.md + " !important" },
           },
         },
       },
@@ -74,14 +74,14 @@ const inputs = ({
     styleOverrides: {
       root: {
         "&.MuiIconButton-sizeSmall": {
-          padding: "6px",
+          padding: space?.xs,
           "& .MuiSvgIcon-root": {
             width: "16px",
             height: "16px",
           },
         },
         "&.MuiIconButton-sizeMedium": {
-          padding: "8px",
+          padding: space?.sm,
           "& .MuiSvgIcon-root": {
             width: "18px",
             height: "18px",
@@ -284,7 +284,7 @@ const inputs = ({
         },
         "& .MuiInputAdornment-root": {
           "& .MuiButtonBase-root": {
-            padding: "10px",
+            padding: space?.sm,
             "& .MuiSvgIcon-root": {
               color: palette?.grey[500],
               marginRight: "-1px",
