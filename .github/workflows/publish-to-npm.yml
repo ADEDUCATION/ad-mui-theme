@@ -1,0 +1,76 @@
+name: Publish package to npmjs
+on:
+  push:
+    tags:
+      - "v*"
+      - "V*"
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    outputs:
+      LAST_VERSION: ${{ steps.release_upgrade.outputs.LAST_VERSION }}
+      VERSION: ${{ steps.release_upgrade.outputs.VERSION }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install jq
+        run: sudo apt-get install jq -y
+      - name: Release upgrade
+        id: release_upgrade
+        run: |
+          VERSION=$(echo $GITHUB_REF_NAME | cut -c 2-) && \
+          echo "LAST_VERSION=$(jq -r '.version' package.json)" >> $GITHUB_OUTPUT && \
+          jq '.version |="'$(echo $VERSION)'"' package.json > package.json.tmp && mv package.json.tmp package.json && \
+          echo "Release version: $VERSION" && \
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+      - name: Commit release
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "package.json"
+          author_name: "Théo Gillet"
+          author_email: "gillettheo1@gmail.com"
+          message: "Release ${{ steps.release_upgrade.outputs.VERSION }}"
+          new_branch: main
+  build:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          registry-url: "https://registry.npmjs.org"
+      - name: Install dependencies
+        run: npm ci
+      - name: Publish package
+        if: success()
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Create new release
+        uses: theo-code33/create-release-action@v0.3
+        with:
+          version: ${{ github.ref_name }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+  remove_last_commit:
+    needs: [release, build]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Reset package version
+        run: |
+          LAST_VERSION=$(echo ${{ needs.release.outputs.LAST_VERSION }}) && \
+          jq '.version |="'$(echo $LAST_VERSION)'"' package.json > package.json.tmp && mv package.json.tmp package.json && \
+          echo "Last version: $LAST_VERSION"
+      - name: Remove last commit
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "package.json"
+          author_name: "Théo Gillet"
+          author_email: "gillettheo1@gmail.com"
+          message: "Release ${{ needs.release.outputs.VERSION }} failed"
+          new_branch: main
