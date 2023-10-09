@@ -1,5 +1,6 @@
 import { tokens } from "../theme";
 import { SchoolThemes } from "../types";
+import { convertPxToRem } from "../utils";
 import { Radius } from "./utils";
 
 const createNewRadius = (mode: SchoolThemes) => {
@@ -11,7 +12,7 @@ const createNewRadius = (mode: SchoolThemes) => {
     Object.entries(shapeTokens).map(([key, value]) => {
       radius = {
         ...radius,
-        [key]: value.value,
+        [key]: convertPxToRem(value.value as string),
       };
     });
 
