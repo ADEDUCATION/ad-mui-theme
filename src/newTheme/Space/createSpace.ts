@@ -7,9 +7,9 @@ const createNewSpace = (mode: SchoolThemes) => {
   if (tokens[mode]) {
     let space = {} as Space[typeof mode];
 
-    const GapTokens = tokens[mode].space;
+    const spaceTokens = tokens[mode].space;
 
-    Object.entries(GapTokens).map(([key, value]) => {
+    Object.entries(spaceTokens).map(([key, value]) => {
       space = {
         ...space,
         [key]: convertPxToRem(value.value as string),
