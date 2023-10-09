@@ -1,6 +1,7 @@
 import { CombinedPalette } from "../Palette/utils";
 import { tokens } from "../theme";
 import { SchoolThemes } from "../types";
+import { convertPxToRem } from "../utils";
 import { TypographyVariants, TypographyMerge } from "./utils";
 
 export type Props = {
@@ -29,7 +30,7 @@ const createNewTypography = ({ mode, palette }: Props) => {
           ...typography,
           [variant]: {
             ...typography[variant],
-            [key]: value,
+            [key]: key === "fontSize" ? convertPxToRem(value as string) : value,
             color: [
               "subtitleMedium",
               "subtitleRegular",
