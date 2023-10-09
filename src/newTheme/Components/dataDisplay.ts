@@ -1,9 +1,10 @@
 import { Props } from "./components";
 
-const dataDisplay = ({ palette, typography }: Props) => ({
+const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
   MuiChip: {
     styleOverrides: {
       root: {
+        borderRadius: radius?.chip,
         "& .MuiChip-label": {
           fontWeight: typography?.subtitleMedium.fontWeight,
         },
@@ -45,23 +46,23 @@ const dataDisplay = ({ palette, typography }: Props) => ({
             width: "18px",
             height: "18px",
             fontSize: typography?.bodyMedium.fontSize,
-            marginLeft: "3px",
+            marginLeft: space?.["2xs"],
           },
           "& .MuiSvgIcon-root": {
             width: "18px",
             height: "18px",
-            marginLeft: "3px",
+            marginLeft: space?.["2xs"],
           },
           "& .tabler-icon": {
             width: "18px",
             height: "18px",
-            marginLeft: "3px",
+            marginLeft: space?.["2xs"],
           },
           "& .MuiChip-deleteIcon": {
             width: "18px",
             height: "18px",
-            marginRight: "3px",
-            marginLeft: "-4px",
+            marginRight: space?.["2xs"],
+            marginLeft: `-${space?.["2xs"]}`,
           },
         },
       },
@@ -75,29 +76,29 @@ const dataDisplay = ({ palette, typography }: Props) => ({
           "& .MuiChip-label": {
             fontSize: typography?.bodyMedium.fontSize,
             fontWeight: typography?.bodyMedium.fontWeight,
-            padding: "0 10px",
+            padding: `0 ${space?.sm}`,
           },
           "& .MuiAvatar-root": {
             width: "21px",
             height: "21px",
             fontSize: typography?.bodyMedium.fontSize,
-            marginLeft: "3px",
+            marginLeft: space?.["2xs"],
           },
           "& .MuiSvgIcon-root": {
             width: "21px",
             height: "21px",
-            marginLeft: "3px",
+            marginLeft: space?.["2xs"],
           },
           "& .tabler-icon": {
             width: "21px",
             height: "21px",
-            marginLeft: "3px",
+            marginLeft: space?.["2xs"],
           },
           "& .MuiChip-deleteIcon": {
             width: "21px",
             height: "21px",
-            marginRight: "3px",
-            marginLeft: "-4px",
+            marginRight: space?.["2xs"],
+            marginLeft: `-${space?.["2xs"]}`,
           },
         },
       },
@@ -111,7 +112,7 @@ const dataDisplay = ({ palette, typography }: Props) => ({
           "& .MuiChip-label": {
             fontSize: typography?.subtitleMedium.fontSize,
             fontWeight: typography?.subtitleMedium.fontWeight,
-            padding: "0 12px",
+            padding: `0 ${space?.md}`,
           },
         },
       },

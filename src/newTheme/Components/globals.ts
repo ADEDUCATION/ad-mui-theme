@@ -56,7 +56,7 @@ const globals = ({ palette, typography }: Props) => ({
       tooltip: {
         backgroundColor: palette?.grey[300],
         color: palette?.grey[900],
-        fontSize: '0.75rem',
+        fontSize: typography?.bodyMedium.fontSize,
         // fontStyle: 'italic',
         // fontWeight: 200,
       },
