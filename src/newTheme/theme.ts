@@ -53,11 +53,11 @@ declare module "@mui/material/Typography" {
     bodyMedium: true;
     bodyRegular: true;
     bodyLight: true;
-    h6Semibold: true;
+    h6SemiBold: true;
     h6Medium: true;
     h6Regular: true;
     h6Light: true;
-    h5Semibold: true;
+    h5SemiBold: true;
     h5Medium: true;
     h5Regular: true;
     h5Light: true;
