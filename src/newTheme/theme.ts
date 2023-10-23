@@ -14,6 +14,8 @@ import { Space } from "./Space/utils";
 import { Radius } from "./Radius/utils";
 import createNewRadius from "./Radius/createRadius";
 import createNewSpace from "./Space/createSpace";
+import createPrimitives from "./Primitives/createPrimitives";
+import { Primitives } from "./Primitives/utils";
 
 export const tokens = {
   esp: themeTokens.themes.esp,
@@ -26,6 +28,7 @@ declare module "@mui/material/styles" {
     palette: CombinedPalette[SchoolThemes];
     space: Space[SchoolThemes];
     radius: Radius[SchoolThemes];
+    primitives: Primitives;
   }
 }
 
@@ -135,6 +138,7 @@ export const newTheme = (mode: SchoolThemes) => {
       }),
       space: customSpace,
       radius: customRadius,
+      primitives: createPrimitives(),
     } as CustomThemeOptions,
     gridfrFR,
     frFR,
