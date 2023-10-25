@@ -4,7 +4,6 @@ import {
   CombinedPalette,
   MuiColors,
   PaletteBackground,
-  CustomColors,
   TonalColors,
 } from "./utils";
 
@@ -13,7 +12,6 @@ const createNewPalette = (mode: SchoolThemes) => {
     let mainPalette = {} as CombinedPalette[typeof mode];
 
     const palette = tokens[mode].palette;
-    const customPalette = tokens[mode].customPalette;
     const tonalOffset = tokens[mode].tonalOffset;
     const paletteBackground = tokens[mode].paletteBackground;
 
@@ -32,25 +30,6 @@ const createNewPalette = (mode: SchoolThemes) => {
           ...mainPalette,
           [muiColor]: {
             ...mainPalette[muiColor],
-            [keyHue]: hue.value,
-          },
-        };
-      });
-    });
-
-    Object.entries(customPalette).map(([keyColor, color]) => {
-      const customColor = keyColor as CustomColors;
-
-      mainPalette = {
-        ...mainPalette,
-        [customColor]: {},
-      };
-
-      Object.entries(color).map(([keyHue, hue]) => {
-        mainPalette = {
-          ...mainPalette,
-          [customColor]: {
-            ...mainPalette[customColor],
             [keyHue]: hue.value,
           },
         };

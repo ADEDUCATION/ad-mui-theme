@@ -9,27 +9,20 @@ import { SchoolThemes } from "../types";
 // Fusion des sous-objets en un seul type
 type MuiColors = keyof Palette[SchoolThemes];
 
-type CustomColors = keyof PaletteCustom[SchoolThemes];
-
 type TonalColors = keyof PaletteOffset[SchoolThemes];
 
-type AllColor = MuiColors | CustomColors | TonalColors;
+type AllColor = MuiColors | TonalColors;
 
 type NewColor = {
   A10?: string;
   A20?: string;
-  base?: string;
+  xlight?: string;
+  xdark?: string;
 } & SimplePaletteColorOptions;
 
 type Palette = {
   [key in SchoolThemes]: {
     [color in keyof (typeof tokens)[key]["palette"]]: NewColor;
-  };
-};
-
-type PaletteCustom = {
-  [key in SchoolThemes]: {
-    [color in keyof (typeof tokens)[key]["customPalette"]]: NewColor;
   };
 };
 
@@ -51,9 +44,7 @@ type PaletteBackground = {
 
 type CombinedPalette = {
   [key in SchoolThemes]: {
-    [color in
-      | keyof (typeof tokens)[key]["palette"]
-      | keyof (typeof tokens)[key]["customPalette"]]: NewColor;
+    [color in keyof (typeof tokens)[key]["palette"]]: NewColor;
   } & {
     [color in keyof (typeof tokens)[key]["tonalOffset"]]: ColorPartial;
   } & {
@@ -71,10 +62,8 @@ type CombinedPalette = {
 export type {
   CombinedPalette,
   TonalColors,
-  CustomColors,
   MuiColors,
   Palette,
-  PaletteCustom,
   PaletteOffset,
   PaletteBackground,
   AllColor,
