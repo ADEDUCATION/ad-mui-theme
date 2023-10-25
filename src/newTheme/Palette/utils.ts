@@ -16,7 +16,6 @@ type AllColor = MuiColors | TonalColors;
 type NewColor = {
   A10?: string;
   A20?: string;
-  base?: string;
   xlight?: string;
   xdark?: string;
 } & SimplePaletteColorOptions;
