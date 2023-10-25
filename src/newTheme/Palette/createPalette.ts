@@ -4,7 +4,6 @@ import {
   CombinedPalette,
   MuiColors,
   PaletteBackground,
-  // CustomColors,
   TonalColors,
 } from "./utils";
 
