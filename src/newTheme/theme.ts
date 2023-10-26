@@ -69,15 +69,13 @@ declare module "@mui/material/Typography" {
 
 declare module "@mui/material/Chip" {
   interface ChipPropsColorOverrides {
+    neutralDark: true;
+    neutralLight: true;
     color1: true;
     color2: true;
     color3: true;
     color4: true;
     color5: true;
-    color6: true;
-    color7: true;
-    color8: true;
-    color9: true;
   }
   interface ChipPropsSizeOverrides {
     large: true;
@@ -86,15 +84,28 @@ declare module "@mui/material/Chip" {
 
 declare module "@mui/material/IconButton" {
   interface IconButtonPropsColorOverrides {
+    neutralDark: true;
+    neutralLight: true;
     color1: true;
     color2: true;
     color3: true;
     color4: true;
     color5: true;
-    color6: true;
-    color7: true;
-    color8: true;
-    color9: true;
+    actionable: true;
+    outlined: true;
+    delete: true;
+  }
+}
+
+declare module "@mui/material/Badge" {
+  interface BadgePropsColorOverrides {
+    neutralDark: true;
+    neutralLight: true;
+    color1: true;
+    color2: true;
+    color3: true;
+    color4: true;
+    color5: true;
     actionable: true;
     outlined: true;
     delete: true;
