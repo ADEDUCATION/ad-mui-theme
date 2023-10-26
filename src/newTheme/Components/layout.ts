@@ -170,7 +170,7 @@ export const layout = ({
         minWidth: "100px",
         padding: `0 ${space?.xl}`,
         "&:hover": {
-          background: palette?.primaryBase[900],
+          background: palette?.primary.xlight,
           color: palette?.primary.main,
           borderBottom: "2px solid",
           borderColor: palette?.primary.light,
@@ -180,7 +180,7 @@ export const layout = ({
         },
         "&.Mui-selected": {
           color: palette?.primary.main,
-          background: palette?.primaryBase[900],
+          background: palette?.primary.xlight,
           outline: "none",
         },
         "& .MuiSvgIcon-root": {
