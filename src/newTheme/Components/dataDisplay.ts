@@ -17,11 +17,11 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
           backgroundColor: "transparent",
           transition: "0.2s",
           "&:hover": {
-            backgroundColor: palette?.primaryBase[900],
+            backgroundColor: palette?.primary.xlight,
             transform: "translateY(-3px)",
           },
           "&.MuiChip-filled": {
-            backgroundColor: palette?.primaryBase[900],
+            backgroundColor: palette?.primary.xlight,
             border: "1px solid",
             borderColor: palette?.primary.light,
             color: palette?.primary.main,

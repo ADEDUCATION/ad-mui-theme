@@ -30,18 +30,30 @@ const inputs = ({
           boxShadow: "none",
           textTransform: "inherit",
           borderRadius: radius?.button,
+          color:
+            ownerState.variant === "contained"
+              ? palette && palette[ownerState.color as MuiColors].contrastText
+              : ownerState.variant === "soft"
+              ? palette && palette[ownerState.color as MuiColors].xdark
+              : palette && palette[ownerState.color as MuiColors].main,
+          backgroundColor:
+            ownerState.variant === "contained"
+              ? palette && palette[ownerState.color as MuiColors].main
+              : ownerState.variant === "soft"
+              ? palette && palette[ownerState.color as MuiColors].xlight
+              : "transparent",
           "&:hover": {
             backgroundColor:
               ownerState.variant === "contained"
+                ? palette && palette[ownerState.color as MuiColors].dark
+                : ownerState.variant === "soft"
                 ? palette && palette[ownerState.color as MuiColors].light
-                : ownerState.variant === "text" &&
-                  palette &&
-                  palette[ownerState.color as MuiColors].A20,
+                : palette && palette[ownerState.color as MuiColors].xlight,
             color:
-              ownerState.variant === "text" &&
-              palette &&
-              palette[ownerState.color as MuiColors].light,
-
+              ownerState.variant === "text" ||
+              (ownerState.variant === "outlined" &&
+                palette &&
+                palette[ownerState.color as MuiColors].xdark),
             boxShadow: "none",
           },
         };
@@ -117,12 +129,12 @@ const inputs = ({
       {
         props: { color: "secondary" },
         style: {
-          backgroundColor: palette?.secondaryBase[900] + " !important",
+          backgroundColor: palette?.secondary.main + " !important",
           "& .MuiSvgIcon-root": {
-            color: palette?.secondaryBase[300] + " !important",
+            color: palette?.secondary.contrastText + " !important",
           },
           "& .tabler-icon": {
-            color: palette?.secondaryBase[300] + " !important",
+            color: palette?.secondary.contrastText + " !important",
           },
           "&:hover": {
             backgroundColor: palette?.primary.light + " !important",
@@ -443,7 +455,7 @@ const inputs = ({
           color: palette?.primary.main,
         },
         "& .MuiAutocomplete-tag": {
-          backgroundColor: palette?.primaryBase[900],
+          backgroundColor: palette?.primary.xlight,
           color: palette?.primary.main,
           "& .MuiChip-deleteIcon": {
             color: palette?.primary.main,

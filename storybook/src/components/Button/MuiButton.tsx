@@ -1,5 +1,5 @@
 import { Box, Button, ButtonProps as MuiButtonProps } from "@mui/material";
-import { Add, Delete } from "@mui/icons-material";
+import { Add, Delete, TramSharp } from "@mui/icons-material";
 import { MuiOmits } from "../../utils";
 
 type ButtonBaseProps = MuiButtonProps;
@@ -17,6 +17,17 @@ export const MuiButton = ({ label, endIcon, ...rest }: ButtonProps) => {
       <Button endIcon={endIcon && getEndIcon(endIcon)} {...rest}>
         {label}
       </Button>
+      <Box>
+        <Button
+          variant="contained"
+          color="secondary"
+          size="large"
+          endIcon={<TramSharp />}
+          startIcon={<TramSharp />}
+        >
+          Test
+        </Button>
+      </Box>
     </>
   );
 };
