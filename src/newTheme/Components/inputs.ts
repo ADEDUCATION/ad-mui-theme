@@ -117,12 +117,12 @@ const inputs = ({
       {
         props: { color: "secondary" },
         style: {
-          backgroundColor: palette?.secondaryBase[900] + " !important",
+          backgroundColor: palette?.secondary.main + " !important",
           "& .MuiSvgIcon-root": {
-            color: palette?.secondaryBase[300] + " !important",
+            color: palette?.secondary.contrastText + " !important",
           },
           "& .tabler-icon": {
-            color: palette?.secondaryBase[300] + " !important",
+            color: palette?.secondary.contrastText + " !important",
           },
           "&:hover": {
             backgroundColor: palette?.primary.light + " !important",
@@ -443,7 +443,7 @@ const inputs = ({
           color: palette?.primary.main,
         },
         "& .MuiAutocomplete-tag": {
-          backgroundColor: palette?.primaryBase[900],
+          backgroundColor: palette?.primary.xlight,
           color: palette?.primary.main,
           "& .MuiChip-deleteIcon": {
             color: palette?.primary.main,

@@ -37,7 +37,7 @@ const globals = ({ palette, typography }: Props) => ({
                 },
               },
               "&:hover": {
-                backgroundColor: palette?.primaryBase[900] + " !important",
+                backgroundColor: palette?.primary.xlight + " !important",
                 "& .MuiTypography-root": {
                   color: palette?.primary.main + " !important",
                 },
