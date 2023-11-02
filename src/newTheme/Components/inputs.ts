@@ -30,18 +30,30 @@ const inputs = ({
           boxShadow: "none",
           textTransform: "inherit",
           borderRadius: radius?.button,
+          color:
+            ownerState.variant === "contained"
+              ? palette && palette[ownerState.color as MuiColors].contrastText
+              : ownerState.variant === "soft"
+              ? palette && palette[ownerState.color as MuiColors].xdark
+              : palette && palette[ownerState.color as MuiColors].main,
+          backgroundColor:
+            ownerState.variant === "contained"
+              ? palette && palette[ownerState.color as MuiColors].main
+              : ownerState.variant === "soft"
+              ? palette && palette[ownerState.color as MuiColors].xlight
+              : "transparent",
           "&:hover": {
             backgroundColor:
               ownerState.variant === "contained"
+                ? palette && palette[ownerState.color as MuiColors].dark
+                : ownerState.variant === "soft"
                 ? palette && palette[ownerState.color as MuiColors].light
-                : ownerState.variant === "text" &&
-                  palette &&
-                  palette[ownerState.color as MuiColors].A20,
+                : palette && palette[ownerState.color as MuiColors].xlight,
             color:
-              ownerState.variant === "text" &&
-              palette &&
-              palette[ownerState.color as MuiColors].light,
-
+              ownerState.variant === "text" ||
+              (ownerState.variant === "outlined" &&
+                palette &&
+                palette[ownerState.color as MuiColors].xdark),
             boxShadow: "none",
           },
         };

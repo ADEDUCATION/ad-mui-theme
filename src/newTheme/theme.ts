@@ -42,6 +42,9 @@ declare module "@mui/material/Button" {
     color1: true;
     color3: true;
   }
+  interface ButtonPropsVariantOverrides {
+    soft: true;
+  }
 }
 
 declare module "@mui/material/Typography" {
