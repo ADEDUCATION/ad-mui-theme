@@ -89,7 +89,7 @@ const inputs = ({
         return {
           border:
             variant === "outlined"
-              ? `2px solid ${palette && palette[color as MuiColors].main}`
+              ? `1px solid ${palette && palette[color as MuiColors].main}`
               : "none",
           backgroundColor:
             variant === "contained"
@@ -117,7 +117,7 @@ const inputs = ({
           "&.Mui-disabled": {
             border:
               variant === "outlined"
-                ? `2px solid ${palette?.grey[700]}`
+                ? `1px solid ${palette?.grey[700]}`
                 : "none",
             backgroundColor:
               variant === "outlined" || variant === "ghost"
