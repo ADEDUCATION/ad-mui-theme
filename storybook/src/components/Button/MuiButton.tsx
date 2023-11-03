@@ -1,44 +1,39 @@
-import { Box, Button, ButtonProps as MuiButtonProps } from "@mui/material";
-import { Add, Delete, TramSharp } from "@mui/icons-material";
+import { Button, ButtonProps as MuiButtonProps } from "@mui/material";
+import { IconCactus, IconAccessPoint } from "@tabler/icons-react";
 import { MuiOmits } from "../../utils";
 
 type ButtonBaseProps = MuiButtonProps;
 
 export interface ButtonProps extends Omit<ButtonBaseProps, MuiOmits> {
   label: string;
-  endIcon?: "delete" | "add"; // Définition des valeurs possibles pour endIcon
+  endIcon?: "cactus" | "point";
+  startIcon?: "cactus" | "point";
 }
 
-// interface Color extends ButtonBasePropsColors
-
-export const MuiButton = ({ label, endIcon, ...rest }: ButtonProps) => {
+export const MuiButton = ({
+  label,
+  endIcon,
+  startIcon,
+  ...rest
+}: ButtonProps) => {
   return (
     <>
-      <Button endIcon={endIcon && getEndIcon(endIcon)} {...rest}>
+      <Button
+        endIcon={endIcon && getIcon(endIcon)}
+        startIcon={startIcon && getIcon(startIcon)}
+        {...rest}
+      >
         {label}
       </Button>
-      <Box>
-        <Button
-          variant="contained"
-          color="secondary"
-          size="large"
-          endIcon={<TramSharp />}
-          startIcon={<TramSharp />}
-        >
-          Test
-        </Button>
-      </Box>
     </>
   );
 };
 
-const getEndIcon = (endIcon: "delete" | "add") => {
+const getIcon = (endIcon: "cactus" | "point") => {
   switch (endIcon) {
-    case "delete":
-      return <Delete />;
-    case "add":
-      return <Add />;
-    default:
-      return null;
+    case "cactus":
+      return <IconCactus />;
+    case "point":
+      return <IconAccessPoint />;
   }
 };

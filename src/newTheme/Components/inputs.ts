@@ -56,22 +56,52 @@ const inputs = ({
                 palette[ownerState.color as MuiColors].xdark),
             boxShadow: "none",
           },
+
+          "& .MuiButton-startIcon": {
+            margin: 0,
+          },
+
+          "& .MuiButton-endIcon": {
+            margin: 0,
+          },
+          "& .MuiSvgIcon-root": {
+            width: space?.xl,
+            height: space?.xl,
+            margin: 0,
+          },
+          "& .tabler-icon": {
+            width: space?.xl,
+            height: space?.xl,
+            margin: 0,
+          },
         };
       },
       sizeSmall: {
         padding: `${space?.xs} ${space?.md}`,
-        fontSize: typography?.bodyBold.fontSize,
-        fontWeight: typography?.bodyBold.fontWeight,
+        minWidth: "80px",
+        minHeight: space?.["4xl"],
+        fontSize: typography?.buttonSmall.fontSize,
+        fontWeight: typography?.buttonSmall.fontWeight,
+        lineHeight: typography?.buttonSmall.lineHeight,
+        gap: space?.xs,
       },
       sizeMedium: {
         padding: `${space?.sm} ${space?.lg}`,
-        fontSize: typography?.subtitleBold.fontSize,
-        fontWeight: typography?.subtitleBold.fontWeight,
+        minWidth: "100px",
+        minHeight: space?.["5xl"],
+        fontSize: typography?.buttonMedium.fontSize,
+        fontWeight: typography?.buttonMedium.fontWeight,
+        lineHeight: typography?.buttonMedium.lineHeight,
+        gap: space?.xs,
       },
       sizeLarge: {
-        padding: `${space?.md} ${space?.["2xl"]}`,
-        fontSize: typography?.h6.fontSize,
-        fontWeight: typography?.subtitleBold.fontWeight,
+        padding: `${space?.md} ${space?.xl}`,
+        minWidth: "120px",
+        minHeight: space?.["7xl"],
+        fontSize: typography?.buttonLarge.fontSize,
+        fontWeight: typography?.buttonLarge.fontWeight,
+        lineHeight: typography?.buttonLarge.lineHeight,
+        gap: space?.xs,
       },
       MuiOutlinedInput: {
         styleOverrides: {

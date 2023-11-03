@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 
 import { MuiButton } from "./MuiButton";
 
@@ -12,6 +12,7 @@ export default {
     color: "primary",
     size: "medium",
     variant: "contained",
+    disableElevation: false,
   },
 } as Meta<typeof MuiButton>;
 
