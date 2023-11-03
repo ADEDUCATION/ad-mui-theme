@@ -20,6 +20,15 @@ type NewColor = {
   xdark?: string;
 } & SimplePaletteColorOptions;
 
+type OmitColorPartial = Omit<
+  ColorPartial,
+  50 | "A700" | "A600" | "A500" | "A400" | "A300" | "A200" | "A100"
+>;
+
+type CombinedMuiColors = `${MuiColors}.${keyof NewColor}`;
+
+type CombinedTonalColors = `${TonalColors}.${keyof OmitColorPartial}`;
+
 type Palette = {
   [key in SchoolThemes]: {
     [color in keyof (typeof tokens)[key]["palette"]]: NewColor;
@@ -28,7 +37,7 @@ type Palette = {
 
 type PaletteOffset = {
   [key in SchoolThemes]: {
-    [color in keyof (typeof tokens)[key]["tonalOffset"]]: ColorPartial;
+    [color in keyof (typeof tokens)[key]["tonalOffset"]]: OmitColorPartial;
   };
 };
 
@@ -67,4 +76,6 @@ export type {
   PaletteOffset,
   PaletteBackground,
   AllColor,
+  CombinedMuiColors,
+  CombinedTonalColors,
 };
