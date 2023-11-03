@@ -78,4 +78,6 @@ export type {
   AllColor,
   CombinedMuiColors,
   CombinedTonalColors,
+  NewColor,
+  OmitColorPartial,
 };

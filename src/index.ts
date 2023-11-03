@@ -5,6 +5,8 @@ import type {
   AllColor,
   CombinedMuiColors,
   CombinedTonalColors,
+  NewColor,
+  OmitColorPartial,
 } from "./newTheme/Palette/utils";
 import type { SchoolThemes } from "./newTheme/types";
 
@@ -15,5 +17,7 @@ export type {
   SchoolThemes,
   CombinedMuiColors,
   CombinedTonalColors,
+  NewColor,
+  OmitColorPartial,
 };
 export { AvailableSchoolThemes } from "./newTheme/types";
