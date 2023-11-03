@@ -159,56 +159,56 @@ const inputs = ({
       sizeXsmall: {
         padding: space?.xs,
         "& .MuiSvgIcon-root": {
-          width: "12px",
-          height: "12px",
+          width: space?.md,
+          height: space?.md,
         },
         "& .tabler-icon": {
-          width: "12px",
-          height: "12px",
+          width: space?.md,
+          height: space?.md,
         },
       },
       sizeSmall: {
         padding: space?.sm,
         "& .MuiSvgIcon-root": {
-          width: "12px",
-          height: "12px",
+          width: space?.md,
+          height: space?.md,
         },
         "& .tabler-icon": {
-          width: "12px",
-          height: "12px",
+          width: space?.md,
+          height: space?.md,
         },
       },
       sizeMedium: {
         padding: space?.sm,
         "& .MuiSvgIcon-root": {
-          width: "16px",
-          height: "16px",
+          width: space?.lg,
+          height: space?.lg,
         },
         "& .tabler-icon": {
-          width: "16px",
-          height: "16px",
+          width: space?.lg,
+          height: space?.lg,
         },
       },
       sizeLarge: {
         padding: space?.sm,
         "& .MuiSvgIcon-root": {
-          width: "20px",
-          height: "20px",
+          width: space?.xl,
+          height: space?.xl,
         },
         "& .tabler-icon": {
-          width: "20px",
-          height: "20px",
+          width: space?.xl,
+          height: space?.xl,
         },
       },
       sizeXlarge: {
         padding: space?.sm,
         "& .MuiSvgIcon-root": {
-          width: "24px",
-          height: "24px",
+          width: space?.["2xl"],
+          height: space?.["2xl"],
         },
         "& .tabler-icon": {
-          width: "24px",
-          height: "24px",
+          width: space?.["2xl"],
+          height: space?.["2xl"],
         },
       },
     },
