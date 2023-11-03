@@ -97,6 +97,7 @@ declare module "@mui/material/IconButton" {
     actionable: true;
     outlined: true;
     delete: true;
+    "primary-contained": true;
   }
 }
 

@@ -15,6 +15,7 @@ export const MuiIconButton = ({ label, ...rest }: MuiIconButtonProps) => (
       }}
     >
       <IconButton {...rest}>{label}</IconButton>
+      <IconButton color="primary-contained">{label}</IconButton>
     </Paper>
   </>
 );

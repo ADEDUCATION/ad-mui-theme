@@ -1,4 +1,4 @@
-import { ButtonProps } from "@mui/material";
+import { ButtonProps, IconButtonProps } from "@mui/material";
 import { Props } from "./components";
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
 import { MuiColors } from "../Palette/utils";
@@ -84,163 +84,206 @@ const inputs = ({
   },
   MuiIconButton: {
     styleOverrides: {
-      root: {
-        "&.MuiIconButton-sizeSmall": {
-          padding: space?.xs,
-          "& .MuiSvgIcon-root": {
-            width: "16px",
-            height: "16px",
-          },
-        },
-        "&.MuiIconButton-sizeMedium": {
-          padding: space?.sm,
-          "& .MuiSvgIcon-root": {
-            width: "18px",
-            height: "18px",
-          },
-        },
+      root: ({ ownerState }: { ownerState: IconButtonProps }) => {
+        const [color, variant] = ownerState.color?.split("-") as string[];
+        console.log(color, variant);
+
+        return {};
       },
+
+      // {
+      //   "&.MuiIconButton-sizeSmall": {
+      //     padding: space?.xs,
+      //     "& .MuiSvgIcon-root": {
+      //       width: "16px",
+      //       height: "16px",
+      //     },
+      //   },
+      //   "&.MuiIconButton-sizeMedium": {
+      //     padding: space?.sm,
+      //     "& .MuiSvgIcon-root": {
+      //       width: "18px",
+      //       height: "18px",
+      //     },
+      //   },
+      // },
     },
-    variants: [
-      {
-        props: { color: "primary" },
-        style: {
-          backgroundColor: palette?.grey[900] + " !important",
-          "& .MuiSvgIcon-root": {
-            color: palette?.grey[500] + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.grey[500] + " !important",
-          },
-          "&:hover": {
-            backgroundColor: palette?.primary.light + " !important",
-            "& .MuiSvgIcon-root": {
-              color: palette?.primary.contrastText + " !important",
-            },
-            "& .MuiCircularProgress-root": {
-              color: palette?.primary.contrastText + " !important",
-            },
-            "& .tabler-icon": {
-              color: palette?.primary.contrastText + " !important",
-            },
-          },
-        },
-      },
-      {
-        props: { color: "secondary" },
-        style: {
-          backgroundColor: palette?.secondary.main + " !important",
-          "& .MuiSvgIcon-root": {
-            color: palette?.secondary.contrastText + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.secondary.contrastText + " !important",
-          },
-          "&:hover": {
-            backgroundColor: palette?.primary.light + " !important",
-            "& .MuiSvgIcon-root": {
-              color: palette?.background.default + " !important",
-            },
-            "& .tabler-icon": {
-              color: palette?.background.default + " !important",
-            },
-          },
-        },
-      },
-      {
-        props: { color: "default" },
-        style: {
-          "& .MuiSvgIcon-root": {
-            color: palette?.grey[300] + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.grey[300] + " !important",
-          },
-          "&:hover": {
-            backgroundColor: palette?.grey[800] + " !important",
-          },
-        },
-      },
-      {
-        props: { color: "actionable" },
-        style: {
-          "& .MuiSvgIcon-root": {
-            color: palette?.grey[300] + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.grey[300] + " !important",
-          },
-          "&:hover": {
-            backgroundColor: palette?.primary.A10 + " !important",
-            "& .MuiSvgIcon-root": {
-              color: palette?.primary.light + " !important",
-            },
-            "& .tabler-icon": {
-              color: palette?.primary.light + " !important",
-            },
-          },
-        },
-      },
-      {
-        props: { color: "outlined" },
-        style: {
-          border: "1px solid " + palette?.background.paper + " !important",
-          "& .MuiSvgIcon-root": {
-            color: palette?.background.paper + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.background.paper + " !important",
-          },
-          "&:hover": {
-            backgroundColor: palette?.background.paper + " !important",
-            "& .MuiSvgIcon-root": {
-              color: palette?.color1.contrastText + " !important",
-            },
-            "& .tabler-icon": {
-              color: palette?.color1.contrastText + " !important",
-            },
-          },
-        },
-      },
-      {
-        props: { color: "error" },
-        style: {
-          backgroundColor: palette?.error.main + " !important",
-          "& .MuiSvgIcon-root": {
-            color: palette?.error.contrastText + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.error.contrastText + " !important",
-          },
-        },
-      },
-      {
-        props: { color: "success" },
-        style: {
-          backgroundColor: palette?.success.main + " !important",
-          "& .MuiSvgIcon-root": {
-            color: palette?.success.contrastText + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.success.contrastText + " !important",
-          },
-        },
-      },
-      {
-        props: { color: "delete" },
-        style: {
-          "&:hover": {
-            backgroundColor: palette?.error.A10 + " !important",
-            "& .MuiSvgIcon-root": {
-              color: palette?.error.main + " !important",
-            },
-            "& .tabler-icon": {
-              color: palette?.error.main + " !important",
-            },
-          },
-        },
-      },
-    ],
+    // variants: [
+    //   ({ ownerState }: { ownerState: IconButtonProps }) => {
+    //     return {
+    //       props: { color: `${ownerState.color}-contained` },
+    //       style: {
+    //         backgroundColor:
+    //           palette && palette[ownerState.color as MuiColors].main,
+    //         "& .MuiSvgIcon-root": {
+    //           color:
+    //             palette && palette[ownerState.color as MuiColors].contrastText,
+    //         },
+    //         "& .tabler-icon": {
+    //           color:
+    //             palette && palette[ownerState.color as MuiColors].contrastText,
+    //         },
+    //         "&:hover": {
+    //           backgroundColor: palette?.primary.light + " !important",
+    //           "& .MuiSvgIcon-root": {
+    //             color:
+    //               palette &&
+    //               palette[ownerState.color as MuiColors].contrastText,
+    //           },
+    //           "& .MuiCircularProgress-root": {
+    //             color:
+    //               palette &&
+    //               palette[ownerState.color as MuiColors].contrastText,
+    //           },
+    //           "& .tabler-icon": {
+    //             color:
+    //               palette &&
+    //               palette[ownerState.color as MuiColors].contrastText,
+    //           },
+    //         },
+    //       },
+    //     };
+    //   },
+
+    //   // {
+    //   //   props: { color: "primary" },
+    //   //   style: {
+    //   //     backgroundColor: palette?.grey[900] + " !important",
+    //   //     "& .MuiSvgIcon-root": {
+    //   //       color: palette?.grey[500] + " !important",
+    //   //     },
+    //   //     "& .tabler-icon": {
+    //   //       color: palette?.grey[500] + " !important",
+    //   //     },
+    //   //     "&:hover": {
+    //   //       backgroundColor: palette?.primary.light + " !important",
+    //   //       "& .MuiSvgIcon-root": {
+    //   //         color: palette?.primary.contrastText + " !important",
+    //   //       },
+    //   //       "& .MuiCircularProgress-root": {
+    //   //         color: palette?.primary.contrastText + " !important",
+    //   //       },
+    //   //       "& .tabler-icon": {
+    //   //         color: palette?.primary.contrastText + " !important",
+    //   //       },
+    //   //     },
+    //   //   },
+    //   // },
+    //   // {
+    //   //   props: { color: "secondary" },
+    //   //   style: {
+    //   //     backgroundColor: palette?.secondary.main + " !important",
+    //   //     "& .MuiSvgIcon-root": {
+    //   //       color: palette?.secondary.contrastText + " !important",
+    //   //     },
+    //   //     "& .tabler-icon": {
+    //   //       color: palette?.secondary.contrastText + " !important",
+    //   //     },
+    //   //     "&:hover": {
+    //   //       backgroundColor: palette?.primary.light + " !important",
+    //   //       "& .MuiSvgIcon-root": {
+    //   //         color: palette?.background.default + " !important",
+    //   //       },
+    //   //       "& .tabler-icon": {
+    //   //         color: palette?.background.default + " !important",
+    //   //       },
+    //   //     },
+    //   //   },
+    //   // },
+    //   // {
+    //   //   props: { color: "default" },
+    //   //   style: {
+    //   //     "& .MuiSvgIcon-root": {
+    //   //       color: palette?.grey[300] + " !important",
+    //   //     },
+    //   //     "& .tabler-icon": {
+    //   //       color: palette?.grey[300] + " !important",
+    //   //     },
+    //   //     "&:hover": {
+    //   //       backgroundColor: palette?.grey[800] + " !important",
+    //   //     },
+    //   //   },
+    //   // },
+    //   // {
+    //   //   props: { color: "actionable" },
+    //   //   style: {
+    //   //     "& .MuiSvgIcon-root": {
+    //   //       color: palette?.grey[300] + " !important",
+    //   //     },
+    //   //     "& .tabler-icon": {
+    //   //       color: palette?.grey[300] + " !important",
+    //   //     },
+    //   //     "&:hover": {
+    //   //       backgroundColor: palette?.primary.A10 + " !important",
+    //   //       "& .MuiSvgIcon-root": {
+    //   //         color: palette?.primary.light + " !important",
+    //   //       },
+    //   //       "& .tabler-icon": {
+    //   //         color: palette?.primary.light + " !important",
+    //   //       },
+    //   //     },
+    //   //   },
+    //   // },
+    //   // {
+    //   //   props: { color: "outlined" },
+    //   //   style: {
+    //   //     border: "1px solid " + palette?.background.paper + " !important",
+    //   //     "& .MuiSvgIcon-root": {
+    //   //       color: palette?.background.paper + " !important",
+    //   //     },
+    //   //     "& .tabler-icon": {
+    //   //       color: palette?.background.paper + " !important",
+    //   //     },
+    //   //     "&:hover": {
+    //   //       backgroundColor: palette?.background.paper + " !important",
+    //   //       "& .MuiSvgIcon-root": {
+    //   //         color: palette?.color1.contrastText + " !important",
+    //   //       },
+    //   //       "& .tabler-icon": {
+    //   //         color: palette?.color1.contrastText + " !important",
+    //   //       },
+    //   //     },
+    //   //   },
+    //   // },
+    //   // {
+    //   //   props: { color: "error" },
+    //   //   style: {
+    //   //     backgroundColor: palette?.error.main + " !important",
+    //   //     "& .MuiSvgIcon-root": {
+    //   //       color: palette?.error.contrastText + " !important",
+    //   //     },
+    //   //     "& .tabler-icon": {
+    //   //       color: palette?.error.contrastText + " !important",
+    //   //     },
+    //   //   },
+    //   // },
+    //   // {
+    //   //   props: { color: "success" },
+    //   //   style: {
+    //   //     backgroundColor: palette?.success.main + " !important",
+    //   //     "& .MuiSvgIcon-root": {
+    //   //       color: palette?.success.contrastText + " !important",
+    //   //     },
+    //   //     "& .tabler-icon": {
+    //   //       color: palette?.success.contrastText + " !important",
+    //   //     },
+    //   //   },
+    //   // },
+    //   // {
+    //   //   props: { color: "delete" },
+    //   //   style: {
+    //   //     "&:hover": {
+    //   //       backgroundColor: palette?.error.A10 + " !important",
+    //   //       "& .MuiSvgIcon-root": {
+    //   //         color: palette?.error.main + " !important",
+    //   //       },
+    //   //       "& .tabler-icon": {
+    //   //         color: palette?.error.main + " !important",
+    //   //       },
+    //   //     },
+    //   //   },
+    //   // },
+    // ],
   },
   MuiFab: {
     styleOverrides: {
