@@ -88,16 +88,14 @@ declare module "@mui/material/Chip" {
 
 declare module "@mui/material/IconButton" {
   interface IconButtonPropsColorOverrides {
-    neutralDark: true;
-    neutralLight: true;
-    color1: true;
-    color2: true;
-    color3: true;
-    color4: true;
-    color5: true;
-    actionable: true;
-    outlined: true;
-    delete: true;
+    primary: false;
+    secondary: false;
+    error: false;
+    warning: false;
+    success: false;
+    info: false;
+    inherit: false;
+    default: false;
     "primary-contained": true;
     "primary-soft": true;
     "primary-outlined": true;
