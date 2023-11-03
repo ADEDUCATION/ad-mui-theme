@@ -72,6 +72,7 @@ declare module "@mui/material/Typography" {
 
 declare module "@mui/material/Chip" {
   interface ChipPropsColorOverrides {
+    default: false;
     neutralDark: true;
     neutralLight: true;
     color1: true;
@@ -115,6 +116,22 @@ declare module "@mui/material/Badge" {
     actionable: true;
     outlined: true;
     delete: true;
+  }
+}
+
+declare module "@mui/material/Fab" {
+  interface FabPropsColorOverrides {
+    inherit: false;
+    neutralDark: true;
+    neutralLight: true;
+  }
+  interface FabPropsVariantOverrides {
+    circular: false;
+    extended: false;
+    contained: true;
+    soft: true;
+    outlined: true;
+    ghost: true;
   }
 }
 

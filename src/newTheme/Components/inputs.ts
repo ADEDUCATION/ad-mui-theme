@@ -1,4 +1,4 @@
-import { ButtonProps } from "@mui/material";
+import { ButtonProps, FabProps } from "@mui/material";
 import { Props } from "./components";
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
 import { MuiColors } from "../Palette/utils";
@@ -244,11 +244,86 @@ const inputs = ({
   },
   MuiFab: {
     styleOverrides: {
-      root: {
-        position: "fixed",
-        bottom: 16,
-        right: 16,
-        boxShadow: "none",
+      root: ({ ownerState }: { ownerState: FabProps }) => {
+        return {
+          position: "fixed",
+          bottom: space?.lg,
+          right: space?.lg,
+          boxShadow: "none",
+          textTransform: "inherit",
+          width: "inherit",
+          height: "inherit",
+
+          "& .MuiSvgIcon-root": {
+            width: space?.["3xl"],
+            height: space?.["3xl"],
+          },
+
+          "& .tabler-icon": {
+            width: space?.["3xl"],
+            height: space?.["3xl"],
+          },
+          borderRadius: radius?.floatingButton,
+          border:
+            ownerState.variant === "outlined"
+              ? `1px solid ${
+                  palette && palette[ownerState.color as MuiColors].main
+                }`
+              : "none",
+          color:
+            ownerState.variant === "contained"
+              ? palette && palette[ownerState.color as MuiColors].contrastText
+              : ownerState.variant === "soft"
+              ? palette && palette[ownerState.color as MuiColors].xdark
+              : palette && palette[ownerState.color as MuiColors].main,
+          backgroundColor:
+            ownerState.variant === "contained"
+              ? palette && palette[ownerState.color as MuiColors].main
+              : ownerState.variant === "soft"
+              ? palette && palette[ownerState.color as MuiColors].xlight
+              : "transparent",
+
+          "&.Mui-disabled": {
+            border:
+              ownerState.variant === "outlined"
+                ? `1px solid ${palette?.grey[700]}`
+                : "none",
+            backgroundColor:
+              ownerState.variant === "outlined" ||
+              ownerState.variant === "ghost"
+                ? "transparent"
+                : palette?.grey[900],
+            color: palette?.grey[700],
+          },
+          "&:hover": {
+            borderColor:
+              ownerState.variant === "outlined" &&
+              palette &&
+              palette[ownerState.color as MuiColors].dark,
+            backgroundColor:
+              ownerState.variant === "contained"
+                ? palette && palette[ownerState.color as MuiColors].dark
+                : ownerState.variant === "soft"
+                ? palette && palette[ownerState.color as MuiColors].light
+                : palette && palette[ownerState.color as MuiColors].xlight,
+            color:
+              (ownerState.variant === "outlined" ||
+                ownerState.variant === "ghost") &&
+              palette &&
+              palette[ownerState.color as MuiColors].xdark,
+            boxShadow: "none",
+          },
+        };
+      },
+
+      sizeSmall: {
+        padding: `${space?.xs}`,
+      },
+      sizeMedium: {
+        padding: `${space?.sm}`,
+      },
+      sizeLarge: {
+        padding: `${space?.md}`,
       },
     },
   },

@@ -10,6 +10,5 @@ export interface MuiChipProps extends Omit<ChipBaseProps, MuiOmits> {
 export const MuiChip = ({ label, ...rest }: MuiChipProps) => (
   <>
     <Chip label={label} {...rest} />
-    <Chip label="test" variant="outlined" color="primary" size="small" />
   </>
 );
