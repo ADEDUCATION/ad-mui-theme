@@ -1,118 +1,149 @@
+import { ChipProps } from "@mui/material";
 import { Props } from "./components";
+import { MuiColors } from "../Palette/utils";
 
 const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
   MuiChip: {
     styleOverrides: {
-      root: {
-        borderRadius: radius?.chip,
-        "& .MuiChip-label": {
-          fontWeight: typography?.subtitleMedium.fontWeight,
-        },
-        "&:focus": {
-          boxShadow: "none",
-        },
-        "&.MuiChip-colorPrimary": {
-          color: palette?.primary.main,
-          borderColor: palette?.primary.A20,
-          backgroundColor: "transparent",
-          transition: "0.2s",
+      root: ({ ownerState }: { ownerState: ChipProps }) => {
+        return {
+          borderRadius: radius?.chip,
+          color:
+            ownerState.variant === "filled"
+              ? palette && palette[ownerState.color as MuiColors].contrastText
+              : ownerState.variant === "soft"
+              ? palette && palette[ownerState.color as MuiColors].xdark
+              : palette && palette[ownerState.color as MuiColors].main,
+          backgroundColor:
+            ownerState.variant === "filled"
+              ? palette && palette[ownerState.color as MuiColors].main
+              : ownerState.variant === "soft"
+              ? palette && palette[ownerState.color as MuiColors].xlight
+              : "transparent",
           "&:hover": {
-            backgroundColor: palette?.primary.xlight,
-            transform: "translateY(-3px)",
+            backgroundColor:
+              ownerState.variant === "filled" && ownerState.avatar
+                ? palette && palette[ownerState.color as MuiColors]
+                : ownerState.variant === "filled"
+                ? palette && palette[ownerState.color as MuiColors].dark
+                : ownerState.variant === "soft" && ownerState.avatar
+                ? palette && palette[ownerState.color as MuiColors].xlight
+                : ownerState.variant === "soft"
+                ? palette && palette[ownerState.color as MuiColors].light
+                : palette && palette[ownerState.color as MuiColors].xlight,
           },
-          "&.MuiChip-filled": {
-            backgroundColor: palette?.primary.xlight,
-            border: "1px solid",
-            borderColor: palette?.primary.light,
-            color: palette?.primary.main,
-          },
-        },
-        "& .MuiChip-deleteIconColorPrimary": {
-          color: palette?.primary.main,
-          "&:hover": {
-            color: palette?.primary.main,
-          },
-        },
-        "& .MuiChip-labelSmall": {
-          fontSize: typography?.bodyMedium.fontSize,
-        },
+        };
       },
     },
     variants: [
       {
         props: { size: "small" },
         style: {
+          height: "unset",
+          padding: `${space?.["3xs"]} ${space?.["2xs"]}`,
+          minHeight: space?.xl,
           "& .MuiAvatar-root": {
-            width: "18px",
-            height: "18px",
+            width: space?.lg,
+            height: space?.lg,
             fontSize: typography?.bodyMedium.fontSize,
-            marginLeft: space?.["2xs"],
+            margin: 0,
           },
           "& .MuiSvgIcon-root": {
-            width: "18px",
-            height: "18px",
-            marginLeft: space?.["2xs"],
+            width: space?.lg,
+            height: space?.lg,
+            margin: 0,
           },
           "& .tabler-icon": {
-            width: "18px",
-            height: "18px",
-            marginLeft: space?.["2xs"],
+            width: space?.lg,
+            height: space?.lg,
+            margin: 0,
           },
           "& .MuiChip-deleteIcon": {
-            width: "18px",
-            height: "18px",
-            marginRight: space?.["2xs"],
-            marginLeft: `-${space?.["2xs"]}`,
+            width: space?.lg,
+            height: space?.lg,
+            margin: 0,
+          },
+          "& .MuiChip-labelSmall": {
+            fontSize: typography?.bodyMedium.fontSize,
+            fontWeight: typography?.bodyMedium.fontWeight,
+            lineHeight: typography?.bodyMedium.lineHeight,
+            letterSpacing: typography?.bodyMedium.letterSpacing,
+            paddingLeft: space?.["3xs"],
+            paddingRight: space?.["3xs"],
           },
         },
       },
       {
         props: { size: "medium" },
         style: {
-          display: "inline-flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "27px",
-          "& .MuiChip-label": {
-            fontSize: typography?.bodyMedium.fontSize,
-            fontWeight: typography?.bodyMedium.fontWeight,
-            padding: `0 ${space?.sm}`,
-          },
+          height: "unset",
+          minHeight: space?.["2xl"],
+          padding: `${space?.["2xs"]} ${space?.xs}`,
           "& .MuiAvatar-root": {
-            width: "21px",
-            height: "21px",
+            width: space?.lg,
+            height: space?.lg,
             fontSize: typography?.bodyMedium.fontSize,
-            marginLeft: space?.["2xs"],
+            margin: 0,
           },
           "& .MuiSvgIcon-root": {
-            width: "21px",
-            height: "21px",
-            marginLeft: space?.["2xs"],
+            width: space?.lg,
+            height: space?.lg,
+            margin: 0,
           },
           "& .tabler-icon": {
-            width: "21px",
-            height: "21px",
-            marginLeft: space?.["2xs"],
+            width: space?.lg,
+            height: space?.lg,
+            margin: 0,
           },
           "& .MuiChip-deleteIcon": {
-            width: "21px",
-            height: "21px",
-            marginRight: space?.["2xs"],
-            marginLeft: `-${space?.["2xs"]}`,
+            width: space?.lg,
+            height: space?.lg,
+            margin: 0,
+          },
+          "& .MuiChip-labelMedium": {
+            fontSize: typography?.bodyMedium.fontSize,
+            fontWeight: typography?.bodyMedium.fontWeight,
+            lineHeight: typography?.bodyMedium.lineHeight,
+            letterSpacing: typography?.bodyMedium.letterSpacing,
+            paddingLeft: space?.["2xs"],
+            paddingRight: space?.["2xs"],
           },
         },
       },
       {
         props: { size: "large" },
         style: {
-          display: "inline-flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "32px",
-          "& .MuiChip-label": {
+          height: "unset",
+          minHeight: space?.["3xl"],
+          padding: `${space?.["2xs"]} ${space?.xs}`,
+          "& .MuiAvatar-root": {
+            width: space?.xl,
+            height: space?.xl,
+            fontSize: typography?.bodyMedium.fontSize,
+            margin: 0,
+          },
+          "& .MuiSvgIcon-root": {
+            width: space?.xl,
+            height: space?.xl,
+            margin: 0,
+          },
+          "& .tabler-icon": {
+            width: space?.xl,
+            height: space?.xl,
+            margin: 0,
+          },
+          "& .MuiChip-deleteIcon": {
+            width: space?.xl,
+            height: space?.xl,
+            margin: 0,
+          },
+          "& .MuiChip-labelMedium": {
             fontSize: typography?.subtitleMedium.fontSize,
             fontWeight: typography?.subtitleMedium.fontWeight,
-            padding: `0 ${space?.md}`,
+            lineHeight: typography?.subtitleMedium.lineHeight,
+            letterSpacing: typography?.subtitleMedium.letterSpacing,
+            paddingLeft: space?.["2xs"],
+            paddingRight: space?.["2xs"],
           },
         },
       },

@@ -73,6 +73,7 @@ declare module "@mui/material/Typography" {
 
 declare module "@mui/material/Chip" {
   interface ChipPropsColorOverrides {
+    default: false;
     neutralDark: true;
     neutralLight: true;
     color1: true;
@@ -83,6 +84,9 @@ declare module "@mui/material/Chip" {
   }
   interface ChipPropsSizeOverrides {
     large: true;
+  }
+  interface ChipPropsVariantOverrides {
+    soft: true;
   }
 }
 

@@ -30,4 +30,5 @@ export type MuiOmits =
   | "component"
   | "edge"
   | "focusRipple"
+  | "skipFocusWhenDisabled"
   | "";
