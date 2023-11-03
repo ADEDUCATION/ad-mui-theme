@@ -22,8 +22,12 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
               : "transparent",
           "&:hover": {
             backgroundColor:
-              ownerState.variant === "filled"
+              ownerState.variant === "filled" && ownerState.avatar
+                ? palette && palette[ownerState.color as MuiColors]
+                : ownerState.variant === "filled"
                 ? palette && palette[ownerState.color as MuiColors].dark
+                : ownerState.variant === "soft" && ownerState.avatar
+                ? palette && palette[ownerState.color as MuiColors].xlight
                 : ownerState.variant === "soft"
                 ? palette && palette[ownerState.color as MuiColors].light
                 : palette && palette[ownerState.color as MuiColors].xlight,
