@@ -16,6 +16,7 @@ import createNewRadius from "./Radius/createRadius";
 import createNewSpace from "./Space/createSpace";
 import createPrimitives from "./Primitives/createPrimitives";
 import { Primitives } from "./Primitives/utils";
+import { MuiColors } from "./Palette/utils";
 
 export const tokens = {
   esp: themeTokens.themes.esp,
@@ -91,16 +92,51 @@ declare module "@mui/material/Chip" {
 
 declare module "@mui/material/IconButton" {
   interface IconButtonPropsColorOverrides {
-    neutralDark: true;
-    neutralLight: true;
-    color1: true;
-    color2: true;
-    color3: true;
-    color4: true;
-    color5: true;
-    actionable: true;
-    outlined: true;
-    delete: true;
+    primary: false;
+    secondary: false;
+    error: false;
+    warning: false;
+    success: false;
+    info: false;
+    inherit: false;
+    default: false;
+    "primary-contained": true;
+    "primary-soft": true;
+    "primary-outlined": true;
+    "primary-ghost": true;
+    "secondary-contained": true;
+    "secondary-soft": true;
+    "secondary-outlined": true;
+    "secondary-ghost": true;
+    "error-contained": true;
+    "error-soft": true;
+    "error-outlined": true;
+    "error-ghost": true;
+    "warning-contained": true;
+    "warning-soft": true;
+    "warning-outlined": true;
+    "warning-ghost": true;
+    "success-contained": true;
+    "success-soft": true;
+    "success-outlined": true;
+    "success-ghost": true;
+    "info-contained": true;
+    "info-soft": true;
+    "info-outlined": true;
+    "info-ghost": true;
+    "neutralLight-contained": true;
+    "neutralLight-soft": true;
+    "neutralLight-outlined": true;
+    "neutralLight-ghost": true;
+    "neutralDark-contained": true;
+    "neutralDark-soft": true;
+    "neutralDark-outlined": true;
+    "neutralDark-ghost": true;
+  }
+  interface IconButtonPropsSizeOverrides {
+    large: true;
+    xlarge: true;
+    xsmall: true;
   }
 }
 
