@@ -117,10 +117,13 @@ declare module "@mui/material/Badge" {
 
 declare module "@mui/material/Fab" {
   interface FabPropsColorOverrides {
+    inherit: false;
     neutralDark: true;
     neutralLight: true;
   }
   interface FabPropsVariantOverrides {
+    circular: false;
+    extended: false;
     contained: true;
     soft: true;
     outlined: true;
