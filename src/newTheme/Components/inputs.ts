@@ -282,6 +282,19 @@ const inputs = ({
               : ownerState.variant === "soft"
               ? palette && palette[ownerState.color as MuiColors].xlight
               : "transparent",
+
+          "&.Mui-disabled": {
+            border:
+              ownerState.variant === "outlined"
+                ? `1px solid ${palette?.grey[700]}`
+                : "none",
+            backgroundColor:
+              ownerState.variant === "outlined" ||
+              ownerState.variant === "ghost"
+                ? "transparent"
+                : palette?.grey[900],
+            color: palette?.grey[700],
+          },
           "&:hover": {
             borderColor:
               ownerState.variant === "outlined" &&
