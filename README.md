@@ -52,28 +52,6 @@ const MyComponent = () => {
 };
 ```
 
-### Use the theme in your component with sx
-
-To use the theme in your component with sx
-
-```tsx
-// import mui component
-import { Button } from "@mui/material";
-
-const MyComponent = () => {
-  return (
-    <Button
-      sx={{
-        // use theme here
-        color: "color1",
-      }}
-    >
-      My component
-    </Button>
-  );
-};
-```
-
 ### Use the theme in sx with `useTheme`
 
 To use the theme in your component you need to import the hook `useTheme` and use it.
@@ -152,16 +130,24 @@ export default CustomInputPhone;
 
 ## Custom IconButton
 
-If you want to use custom IconButton you need to import `IconButton` from `@mui/material` and add `className` to the component. You can use `action`, `delete`, `grey`, `error`, `success`, `outlined`, `secondary` and `primary` className.
+If you want to use custom IconButton you need to import `IconButton` from `@mui/material` and add color-variant in `color` props.
+
+4 variants are available : `contained`, `soft`, `outlined`, `text`.
+
+For use combined color and variant you need to add `color-variant` in `color` props.
+
+For example if you want to use `contained` variant with `primary` color you need to add `primary-contained` in `color` props.
 
 ```tsx
 import { IconButton } from "@mui/material";
 
 const MyComponent = () => {
   return (
-    <IconButton className="action">
+    <IconButton color="primary-contained">
       <Icon />
     </IconButton>
   );
 };
 ```
+
+If you want to use this button in disabled mode you need to add `disabled` props and one color-variant in `color` props.
