@@ -1,41 +1,34 @@
+import { ChipProps } from "@mui/material";
 import { Props } from "./components";
+import { MuiColors } from "../Palette/utils";
 
 const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
   MuiChip: {
     styleOverrides: {
-      root: {
-        borderRadius: radius?.chip,
-        "& .MuiChip-label": {
-          fontWeight: typography?.subtitleMedium.fontWeight,
-        },
-        "&:focus": {
-          boxShadow: "none",
-        },
-        "&.MuiChip-colorPrimary": {
-          color: palette?.primary.main,
-          borderColor: palette?.primary.A20,
-          backgroundColor: "transparent",
-          transition: "0.2s",
+      root: ({ ownerState }: { ownerState: ChipProps }) => {
+        return {
+          borderRadius: radius?.chip,
+          color:
+            ownerState.variant === "filled"
+              ? palette && palette[ownerState.color as MuiColors].contrastText
+              : ownerState.variant === "soft"
+              ? palette && palette[ownerState.color as MuiColors].xdark
+              : palette && palette[ownerState.color as MuiColors].main,
+          backgroundColor:
+            ownerState.variant === "filled"
+              ? palette && palette[ownerState.color as MuiColors].main
+              : ownerState.variant === "soft"
+              ? palette && palette[ownerState.color as MuiColors].xlight
+              : "transparent",
           "&:hover": {
-            backgroundColor: palette?.primary.xlight,
-            transform: "translateY(-3px)",
+            backgroundColor:
+              ownerState.variant === "filled"
+                ? palette && palette[ownerState.color as MuiColors].dark
+                : ownerState.variant === "soft"
+                ? palette && palette[ownerState.color as MuiColors].light
+                : palette && palette[ownerState.color as MuiColors].xlight,
           },
-          "&.MuiChip-filled": {
-            backgroundColor: palette?.primary.xlight,
-            border: "1px solid",
-            borderColor: palette?.primary.light,
-            color: palette?.primary.main,
-          },
-        },
-        "& .MuiChip-deleteIconColorPrimary": {
-          color: palette?.primary.main,
-          "&:hover": {
-            color: palette?.primary.main,
-          },
-        },
-        "& .MuiChip-labelSmall": {
-          fontSize: typography?.bodyMedium.fontSize,
-        },
+        };
       },
     },
     variants: [
@@ -63,6 +56,9 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
             height: "18px",
             marginRight: space?.["2xs"],
             marginLeft: `-${space?.["2xs"]}`,
+          },
+          "& .MuiChip-labelSmall": {
+            fontSize: typography?.bodyMedium.fontSize,
           },
         },
       },

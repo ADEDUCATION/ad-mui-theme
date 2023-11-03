@@ -83,6 +83,9 @@ declare module "@mui/material/Chip" {
   interface ChipPropsSizeOverrides {
     large: true;
   }
+  interface ChipPropsVariantOverrides {
+    soft: true;
+  }
 }
 
 declare module "@mui/material/IconButton" {
