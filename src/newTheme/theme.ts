@@ -115,6 +115,19 @@ declare module "@mui/material/Badge" {
   }
 }
 
+declare module "@mui/material/Fab" {
+  interface FabPropsColorOverrides {
+    neutralDark: true;
+    neutralLight: true;
+  }
+  interface FabPropsVariantOverrides {
+    contained: true;
+    soft: true;
+    outlined: true;
+    ghost: true;
+  }
+}
+
 declare module "@mui/material/Alert" {
   interface AlertPropsColorOverrides {
     error: true;
