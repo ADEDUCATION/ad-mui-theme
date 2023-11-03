@@ -1,4 +1,4 @@
-import { ButtonProps, FabProps } from "@mui/material";
+import { ButtonProps, IconButtonProps, FabProps } from "@mui/material";
 import { Props } from "./components";
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
 import { MuiColors } from "../Palette/utils";
@@ -84,163 +84,134 @@ const inputs = ({
   },
   MuiIconButton: {
     styleOverrides: {
-      root: {
-        "&.MuiIconButton-sizeSmall": {
-          padding: space?.xs,
+      root: ({ ownerState }: { ownerState: IconButtonProps }) => {
+        const [color, variant] = ownerState.color?.split("-") as string[];
+        return {
+          border:
+            variant === "outlined"
+              ? `1px solid ${palette && palette[color as MuiColors].main}`
+              : "none",
+          backgroundColor:
+            variant === "contained"
+              ? palette && palette[color as MuiColors].main
+              : variant === "soft"
+              ? palette && palette[color as MuiColors].xlight
+              : "transparent",
+
           "& .MuiSvgIcon-root": {
-            width: "16px",
-            height: "16px",
+            color:
+              variant === "contained"
+                ? palette && palette[color as MuiColors].contrastText
+                : variant === "soft"
+                ? palette && palette[color as MuiColors].xdark
+                : palette && palette[color as MuiColors].main,
           },
+          "& .tabler-icon": {
+            color:
+              variant === "contained"
+                ? palette && palette[color as MuiColors].contrastText
+                : variant === "soft"
+                ? palette && palette[color as MuiColors].xdark
+                : palette && palette[color as MuiColors].main,
+          },
+          "&.Mui-disabled": {
+            border:
+              variant === "outlined"
+                ? `1px solid ${palette?.grey[700]}`
+                : "none",
+            backgroundColor:
+              variant === "outlined" || variant === "ghost"
+                ? "transparent"
+                : palette?.grey[900],
+            "& .MuiSvgIcon-root": {
+              color: palette?.grey[700],
+            },
+            "& .tabler-icon": {
+              color: palette?.grey[700],
+            },
+          },
+          "&:hover": {
+            backgroundColor:
+              variant === "contained"
+                ? palette && palette[color as MuiColors].dark
+                : variant === "soft" || variant === "ghost"
+                ? palette && palette[color as MuiColors].light
+                : palette && palette[color as MuiColors].xlight,
+            "& .MuiSvgIcon-root": {
+              color:
+                variant === "contained"
+                  ? palette && palette[color as MuiColors].contrastText
+                  : variant === "soft" || variant === "ghost"
+                  ? palette && palette[color as MuiColors].xdark
+                  : palette && palette[color as MuiColors].main,
+            },
+            "& .tabler-icon": {
+              color:
+                variant === "contained"
+                  ? palette && palette[color as MuiColors].contrastText
+                  : variant === "soft" || variant === "ghost"
+                  ? palette && palette[color as MuiColors].xdark
+                  : palette && palette[color as MuiColors].main,
+            },
+          },
+        };
+      },
+      sizeXsmall: {
+        padding: space?.xs,
+        "& .MuiSvgIcon-root": {
+          width: space?.md,
+          height: space?.md,
         },
-        "&.MuiIconButton-sizeMedium": {
-          padding: space?.sm,
-          "& .MuiSvgIcon-root": {
-            width: "18px",
-            height: "18px",
-          },
+        "& .tabler-icon": {
+          width: space?.md,
+          height: space?.md,
+        },
+      },
+      sizeSmall: {
+        padding: space?.sm,
+        "& .MuiSvgIcon-root": {
+          width: space?.md,
+          height: space?.md,
+        },
+        "& .tabler-icon": {
+          width: space?.md,
+          height: space?.md,
+        },
+      },
+      sizeMedium: {
+        padding: space?.sm,
+        "& .MuiSvgIcon-root": {
+          width: space?.lg,
+          height: space?.lg,
+        },
+        "& .tabler-icon": {
+          width: space?.lg,
+          height: space?.lg,
+        },
+      },
+      sizeLarge: {
+        padding: space?.sm,
+        "& .MuiSvgIcon-root": {
+          width: space?.xl,
+          height: space?.xl,
+        },
+        "& .tabler-icon": {
+          width: space?.xl,
+          height: space?.xl,
+        },
+      },
+      sizeXlarge: {
+        padding: space?.sm,
+        "& .MuiSvgIcon-root": {
+          width: space?.["2xl"],
+          height: space?.["2xl"],
+        },
+        "& .tabler-icon": {
+          width: space?.["2xl"],
+          height: space?.["2xl"],
         },
       },
     },
-    variants: [
-      {
-        props: { color: "primary" },
-        style: {
-          backgroundColor: palette?.grey[900] + " !important",
-          "& .MuiSvgIcon-root": {
-            color: palette?.grey[500] + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.grey[500] + " !important",
-          },
-          "&:hover": {
-            backgroundColor: palette?.primary.light + " !important",
-            "& .MuiSvgIcon-root": {
-              color: palette?.primary.contrastText + " !important",
-            },
-            "& .MuiCircularProgress-root": {
-              color: palette?.primary.contrastText + " !important",
-            },
-            "& .tabler-icon": {
-              color: palette?.primary.contrastText + " !important",
-            },
-          },
-        },
-      },
-      {
-        props: { color: "secondary" },
-        style: {
-          backgroundColor: palette?.secondary.main + " !important",
-          "& .MuiSvgIcon-root": {
-            color: palette?.secondary.contrastText + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.secondary.contrastText + " !important",
-          },
-          "&:hover": {
-            backgroundColor: palette?.primary.light + " !important",
-            "& .MuiSvgIcon-root": {
-              color: palette?.background.default + " !important",
-            },
-            "& .tabler-icon": {
-              color: palette?.background.default + " !important",
-            },
-          },
-        },
-      },
-      {
-        props: { color: "default" },
-        style: {
-          "& .MuiSvgIcon-root": {
-            color: palette?.grey[300] + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.grey[300] + " !important",
-          },
-          "&:hover": {
-            backgroundColor: palette?.grey[800] + " !important",
-          },
-        },
-      },
-      {
-        props: { color: "actionable" },
-        style: {
-          "& .MuiSvgIcon-root": {
-            color: palette?.grey[300] + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.grey[300] + " !important",
-          },
-          "&:hover": {
-            backgroundColor: palette?.primary.A10 + " !important",
-            "& .MuiSvgIcon-root": {
-              color: palette?.primary.light + " !important",
-            },
-            "& .tabler-icon": {
-              color: palette?.primary.light + " !important",
-            },
-          },
-        },
-      },
-      {
-        props: { color: "outlined" },
-        style: {
-          border: "1px solid " + palette?.background.paper + " !important",
-          "& .MuiSvgIcon-root": {
-            color: palette?.background.paper + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.background.paper + " !important",
-          },
-          "&:hover": {
-            backgroundColor: palette?.background.paper + " !important",
-            "& .MuiSvgIcon-root": {
-              color: palette?.color1.contrastText + " !important",
-            },
-            "& .tabler-icon": {
-              color: palette?.color1.contrastText + " !important",
-            },
-          },
-        },
-      },
-      {
-        props: { color: "error" },
-        style: {
-          backgroundColor: palette?.error.main + " !important",
-          "& .MuiSvgIcon-root": {
-            color: palette?.error.contrastText + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.error.contrastText + " !important",
-          },
-        },
-      },
-      {
-        props: { color: "success" },
-        style: {
-          backgroundColor: palette?.success.main + " !important",
-          "& .MuiSvgIcon-root": {
-            color: palette?.success.contrastText + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.success.contrastText + " !important",
-          },
-        },
-      },
-      {
-        props: { color: "delete" },
-        style: {
-          "&:hover": {
-            backgroundColor: palette?.error.A10 + " !important",
-            "& .MuiSvgIcon-root": {
-              color: palette?.error.main + " !important",
-            },
-            "& .tabler-icon": {
-              color: palette?.error.main + " !important",
-            },
-          },
-        },
-      },
-    ],
   },
   MuiFab: {
     styleOverrides: {

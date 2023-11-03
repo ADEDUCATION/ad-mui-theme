@@ -7,7 +7,10 @@ export default {
   title: "Components/IconButton",
   component: MuiIconButton,
   args: {
-    label: <Add />,
+    icon: "cactus",
+    color: "primary-contained",
+    size: "medium",
+    disabled: false,
   },
 } as Meta<typeof MuiIconButton>;
 
