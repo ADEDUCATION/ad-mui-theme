@@ -22,4 +22,12 @@ export type MuiOmits =
   | "PopperComponent"
   | "onClose"
   | "onOpen"
+  | "centerRipple"
+  | "disableRipple"
+  | "disableTouchRipple"
+  | "disableFocusRipple"
+  | "sx"
+  | "component"
+  | "edge"
+  | "focusRipple"
   | "";
