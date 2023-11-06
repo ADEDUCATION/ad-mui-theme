@@ -6,7 +6,7 @@ import type {
   CombinedMuiColors,
   CombinedTonalColors,
   ColorStructure,
-  OmitColorPartial,
+  TonalOffsetStructure,
 } from "./newTheme/Palette/utils";
 import type {
   SchoolThemes,
@@ -24,7 +24,7 @@ export type {
   CombinedMuiColors,
   CombinedTonalColors,
   ColorStructure,
-  OmitColorPartial,
+  TonalOffsetStructure,
   VariantComponent,
   AllSizes,
   CompactSizes,

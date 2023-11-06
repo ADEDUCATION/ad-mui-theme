@@ -20,14 +20,14 @@ type ColorStructure = {
   xdark?: string;
 } & SimplePaletteColorOptions;
 
-type OmitColorPartial = Omit<
+type TonalOffsetStructure = Omit<
   ColorPartial,
   50 | "A700" | "A600" | "A500" | "A400" | "A300" | "A200" | "A100"
 >;
 
 type CombinedMuiColors = `${MuiColors}.${keyof ColorStructure}`;
 
-type CombinedTonalColors = `${TonalColors}.${keyof OmitColorPartial}`;
+type CombinedTonalColors = `${TonalColors}.${keyof TonalOffsetStructure}`;
 
 type Palette = {
   [key in SchoolThemes]: {
@@ -37,7 +37,7 @@ type Palette = {
 
 type PaletteOffset = {
   [key in SchoolThemes]: {
-    [color in keyof (typeof tokens)[key]["tonalOffset"]]: OmitColorPartial;
+    [color in keyof (typeof tokens)[key]["tonalOffset"]]: TonalOffsetStructure;
   };
 };
 
@@ -79,5 +79,5 @@ export type {
   CombinedMuiColors,
   CombinedTonalColors,
   ColorStructure,
-  OmitColorPartial,
+  TonalOffsetStructure,
 };
