@@ -1,4 +1,5 @@
 import { tokens } from "./theme";
+import primitives from "../tokens/primitives.json";
 
 export type SchoolThemes = keyof typeof tokens;
 
@@ -15,3 +16,9 @@ export type VariantComponent =
   | "text"
   | "ghost"
   | "soft";
+
+export type AllSizes = keyof typeof primitives;
+
+export type Sizes = Extract<AllSizes, "xs" | "sm" | "md" | "lg" | "xl">;
+
+export type CompactSizes = Extract<AllSizes, "sm" | "md" | "lg">;

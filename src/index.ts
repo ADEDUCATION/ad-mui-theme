@@ -8,7 +8,13 @@ import type {
   NewColor,
   OmitColorPartial,
 } from "./newTheme/Palette/utils";
-import type { SchoolThemes, VariantComponent } from "./newTheme/types";
+import type {
+  SchoolThemes,
+  VariantComponent,
+  AllSizes,
+  CompactSizes,
+  Sizes,
+} from "./newTheme/types";
 
 export { CustomThemeProvider, newTheme };
 export type {
@@ -20,5 +26,8 @@ export type {
   NewColor,
   OmitColorPartial,
   VariantComponent,
+  AllSizes,
+  CompactSizes,
+  Sizes,
 };
 export { AvailableSchoolThemes } from "./newTheme/types";
