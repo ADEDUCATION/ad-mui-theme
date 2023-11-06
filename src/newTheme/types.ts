@@ -8,3 +8,10 @@ export enum AvailableSchoolThemes {
   ESP = "esp",
   ADE = "ade",
 }
+
+export type VariantComponent =
+  | "contained"
+  | "outlined"
+  | "text"
+  | "ghost"
+  | "soft";

@@ -8,7 +8,7 @@ import type {
   NewColor,
   OmitColorPartial,
 } from "./newTheme/Palette/utils";
-import type { SchoolThemes } from "./newTheme/types";
+import type { SchoolThemes, VariantComponent } from "./newTheme/types";
 
 export { CustomThemeProvider, newTheme };
 export type {
@@ -19,5 +19,6 @@ export type {
   CombinedTonalColors,
   NewColor,
   OmitColorPartial,
+  VariantComponent,
 };
 export { AvailableSchoolThemes } from "./newTheme/types";
