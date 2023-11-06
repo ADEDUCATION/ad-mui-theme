@@ -13,7 +13,7 @@ type TonalColors = keyof PaletteOffset[SchoolThemes];
 
 type AllColor = MuiColors | TonalColors;
 
-type NewColor = {
+type ColorStructure = {
   A10?: string;
   A20?: string;
   xlight?: string;
@@ -25,13 +25,13 @@ type OmitColorPartial = Omit<
   50 | "A700" | "A600" | "A500" | "A400" | "A300" | "A200" | "A100"
 >;
 
-type CombinedMuiColors = `${MuiColors}.${keyof NewColor}`;
+type CombinedMuiColors = `${MuiColors}.${keyof ColorStructure}`;
 
 type CombinedTonalColors = `${TonalColors}.${keyof OmitColorPartial}`;
 
 type Palette = {
   [key in SchoolThemes]: {
-    [color in keyof (typeof tokens)[key]["palette"]]: NewColor;
+    [color in keyof (typeof tokens)[key]["palette"]]: ColorStructure;
   };
 };
 
@@ -53,7 +53,7 @@ type PaletteBackground = {
 
 type CombinedPalette = {
   [key in SchoolThemes]: {
-    [color in keyof (typeof tokens)[key]["palette"]]: NewColor;
+    [color in keyof (typeof tokens)[key]["palette"]]: ColorStructure;
   } & {
     [color in keyof (typeof tokens)[key]["tonalOffset"]]: ColorPartial;
   } & {
@@ -78,6 +78,6 @@ export type {
   AllColor,
   CombinedMuiColors,
   CombinedTonalColors,
-  NewColor,
+  ColorStructure,
   OmitColorPartial,
 };

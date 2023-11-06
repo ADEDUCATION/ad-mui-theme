@@ -5,7 +5,7 @@ import type {
   AllColor,
   CombinedMuiColors,
   CombinedTonalColors,
-  NewColor,
+  ColorStructure,
   OmitColorPartial,
 } from "./newTheme/Palette/utils";
 import type {
@@ -23,7 +23,7 @@ export type {
   SchoolThemes,
   CombinedMuiColors,
   CombinedTonalColors,
-  NewColor,
+  ColorStructure,
   OmitColorPartial,
   VariantComponent,
   AllSizes,
