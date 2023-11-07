@@ -149,9 +149,6 @@ declare module "@mui/material/Badge" {
     color3: true;
     color4: true;
     color5: true;
-    actionable: true;
-    outlined: true;
-    delete: true;
   }
 }
 

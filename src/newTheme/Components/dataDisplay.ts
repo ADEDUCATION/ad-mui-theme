@@ -149,6 +149,20 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
       },
     ],
   },
+  MuiBadge: {
+    styleOverrides: {
+      root: {
+        "& .MuiBadge-badge": {
+          borderRadius: radius?.badgeLg,
+          fontSize: typography?.bodySemiBold.fontSize,
+          fontWeight: typography?.bodySemiBold.fontWeight,
+          lineHeight: typography?.bodySemiBold.lineHeight,
+          padding: space?.["3xs"],
+          minHeight: space?.xl,
+        },
+      },
+    },
+  },
 });
 
 export default dataDisplay;
