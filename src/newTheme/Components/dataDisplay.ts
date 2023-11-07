@@ -158,7 +158,6 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
           fontWeight: typography?.bodySemiBold.fontWeight,
           lineHeight: typography?.bodySemiBold.lineHeight,
           padding: space?.["3xs"],
-          minHeight: space?.xl,
         },
       },
     },
