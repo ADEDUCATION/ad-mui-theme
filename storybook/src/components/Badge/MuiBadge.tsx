@@ -1,8 +1,25 @@
 import { Badge, BadgeProps } from "@mui/material";
+import { MuiOmits } from "../../utils";
 
-const MuiBadge = ({ ...rest }: BadgeProps) => {
+export interface MuiBadgeProps extends Omit<BadgeProps, MuiOmits> {
+  content: string;
+  vertical: "top" | "bottom";
+  horizontal: "left" | "right";
+}
+
+const MuiBadge = ({
+  content,
+  vertical,
+  horizontal,
+  ...rest
+}: MuiBadgeProps) => {
   return (
-    <Badge badgeContent={4} color="primary" {...rest}>
+    <Badge
+      badgeContent={content}
+      color="primary"
+      anchorOrigin={{ vertical, horizontal }}
+      {...rest}
+    >
       <div>Badge</div>
     </Badge>
   );

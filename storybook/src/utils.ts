@@ -31,4 +31,10 @@ export type MuiOmits =
   | "edge"
   | "focusRipple"
   | "skipFocusWhenDisabled"
+  | "ref"
+  | "style"
+  | "component"
+  | "badgeContent"
+  | "invisible"
+  | "anchorOrigin"
   | "";
