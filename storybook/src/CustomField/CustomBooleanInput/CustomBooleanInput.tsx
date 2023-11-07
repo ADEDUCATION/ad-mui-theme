@@ -9,8 +9,9 @@ import {
 
 import Label from "../Label";
 import { useState } from "react";
+import { MuiOmits } from "../../utils";
 
-interface MuiCustomBooleanInputProps extends CheckboxProps {
+interface MuiCustomBooleanInputProps extends Omit<CheckboxProps, MuiOmits> {
   field: IFieldStructure;
 }
 
