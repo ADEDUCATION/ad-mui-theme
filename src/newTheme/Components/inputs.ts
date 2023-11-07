@@ -420,7 +420,10 @@ const inputs = ({
               : palette?.neutralDark.main,
           transition: "all 0.2s ease-in-out",
           "& + .MuiTypography-root": {
-            color: palette?.neutralDark.main,
+            color:
+              ownerState.color === "neutralLight"
+                ? palette?.neutralLight.main
+                : palette?.neutralDark.main,
             fontSize: typography?.subtitleMedium.fontSize,
             fontWeight: typography?.subtitleMedium.fontWeight,
             lineHeight: typography?.subtitleMedium.lineHeight,
@@ -469,16 +472,16 @@ const inputs = ({
         };
       },
     },
-    sizeSmall: {
-      "& .MuiSvgIcon-root": {
-        width: space?.["10xl"],
-        height: space?.["10xl"],
-      },
-      "& .tabler-icon": {
-        width: space?.lg,
-        height: space?.lg,
-      },
-    },
+    // sizeSmall: {
+    //   "& .MuiSvgIcon-root": {
+    //     width: space?.["10xl"],
+    //     height: space?.["10xl"],
+    //   },
+    //   "& .tabler-icon": {
+    //     width: space?.lg,
+    //     height: space?.lg,
+    //   },
+    // },
   },
   MuiFormControlLabel: {
     styleOverrides: {
