@@ -16,7 +16,6 @@ const MuiBadge = ({
   return (
     <Badge
       badgeContent={content}
-      color="primary"
       anchorOrigin={{ vertical, horizontal }}
       {...rest}
     >

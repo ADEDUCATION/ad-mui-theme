@@ -11,6 +11,7 @@ export default {
     vertical: "top",
     horizontal: "right",
     max: 99,
+    color: "primary",
   },
 } as Meta<typeof MuiBadge>;
 
