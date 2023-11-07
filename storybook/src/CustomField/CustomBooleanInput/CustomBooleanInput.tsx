@@ -10,11 +10,11 @@ import {
 import Label from "../Label";
 import { useState } from "react";
 
-interface MuiCustomBooleanInputProps extends FormControlLabelProps {
+interface MuiCustomBooleanInputProps extends CheckboxProps {
   field: IFieldStructure;
 }
 
-const CustomBooleanInput = ({ field }: MuiCustomBooleanInputProps) => {
+const CustomBooleanInput = ({ field, ...rest }: MuiCustomBooleanInputProps) => {
   const [value, setValue] = useState<string | number | boolean>(false);
   return (
     <FormGroup row style={{ paddingTop: 20 }}>
@@ -24,9 +24,10 @@ const CustomBooleanInput = ({ field }: MuiCustomBooleanInputProps) => {
             onChange={() => setValue(!value)}
             name={field.id}
             checked={!!value}
+            {...rest}
           />
         }
-        label={<Label field={field} />}
+        label={field.label}
         disabled={field.disabled}
       />
     </FormGroup>

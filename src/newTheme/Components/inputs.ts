@@ -1,4 +1,9 @@
-import { ButtonProps, IconButtonProps, FabProps } from "@mui/material";
+import {
+  ButtonProps,
+  IconButtonProps,
+  FabProps,
+  CheckboxProps,
+} from "@mui/material";
 import { Props } from "./components";
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
 import { MuiColors } from "../Palette/utils";
@@ -407,20 +412,53 @@ const inputs = ({
   },
   MuiCheckbox: {
     styleOverrides: {
-      root: {
-        color: palette?.grey[500],
-        "& + .MuiTypography-root": {
-          color: palette?.grey[500],
-        },
-        "&.Mui-checked": {
-          color: palette?.primary.main,
+      root: ({ ownerState }: { ownerState: CheckboxProps }) => {
+        return {
+          color: palette?.neutralDark.main,
+          transition: "all 0.2s ease-in-out",
           "& + .MuiTypography-root": {
-            color: palette?.primary.main,
+            color: palette?.neutralDark.main,
+            fontSize: typography?.subtitleMedium.fontSize,
+            fontWeight: typography?.subtitleMedium.fontWeight,
+            lineHeight: typography?.subtitleMedium.lineHeight,
           },
-        },
-        "&:hover": {
-          color: palette?.primary.main,
-        },
+          "&.Mui-checked": {
+            color: palette && palette[ownerState.color as MuiColors].main,
+          },
+          "&:hover": {
+            color: palette && palette[ownerState.color as MuiColors].main,
+            backgroundColor:
+              palette && palette[ownerState.color as MuiColors].A10,
+          },
+          "&.MuiCheckbox-sizeSmall": {
+            padding: space?.md,
+            maxWidth: space?.["5xl"],
+            maxHeight: space?.["5xl"],
+            "& .MuiSvgIcon-root": {
+              width: space?.lg,
+              height: space?.lg,
+            },
+          },
+          "&.MuiCheckbox-sizeMedium": {
+            padding: space?.md,
+            maxWidth: space?.["6xl"],
+            maxHeight: space?.["6xl"],
+            "& .MuiSvgIcon-root": {
+              width: space?.xl,
+              height: space?.xl,
+            },
+          },
+        };
+      },
+    },
+    sizeSmall: {
+      "& .MuiSvgIcon-root": {
+        width: space?.["10xl"],
+        height: space?.["10xl"],
+      },
+      "& .tabler-icon": {
+        width: space?.lg,
+        height: space?.lg,
       },
     },
   },
