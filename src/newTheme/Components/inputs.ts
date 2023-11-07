@@ -414,7 +414,10 @@ const inputs = ({
     styleOverrides: {
       root: ({ ownerState }: { ownerState: CheckboxProps }) => {
         return {
-          color: palette?.neutralDark.main,
+          color:
+            ownerState.color === "neutralLight"
+              ? palette?.neutralLight.main
+              : palette?.neutralDark.main,
           transition: "all 0.2s ease-in-out",
           "& + .MuiTypography-root": {
             color: palette?.neutralDark.main,
@@ -455,6 +458,12 @@ const inputs = ({
             "& .MuiSvgIcon-root": {
               width: space?.["2xl"],
               height: space?.["2xl"],
+            },
+          },
+          "&.Mui-disabled": {
+            color: palette?.grey[700],
+            "& + .MuiTypography-root": {
+              color: palette?.grey[700],
             },
           },
         };
