@@ -172,6 +172,15 @@ declare module "@mui/material/Fab" {
 }
 
 declare module "@mui/material/Checkbox" {
+  interface CheckboxPropsColorOverrides {
+    warning: false;
+    error: false;
+    info: false;
+    success: false;
+    neutralDark: true;
+    neutralLight: true;
+    default: false;
+  }
   interface CheckboxPropsSizeOverrides {
     large: true;
   }
