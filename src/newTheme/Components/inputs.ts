@@ -448,6 +448,15 @@ const inputs = ({
               height: space?.xl,
             },
           },
+          "&.MuiCheckbox-sizeLarge": {
+            padding: space?.lg,
+            maxWidth: space?.["7xl"],
+            maxHeight: space?.["7xl"],
+            "& .MuiSvgIcon-root": {
+              width: space?.["2xl"],
+              height: space?.["2xl"],
+            },
+          },
         };
       },
     },

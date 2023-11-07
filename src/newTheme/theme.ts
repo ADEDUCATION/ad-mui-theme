@@ -171,6 +171,12 @@ declare module "@mui/material/Fab" {
   }
 }
 
+declare module "@mui/material/Checkbox" {
+  interface CheckboxPropsSizeOverrides {
+    large: true;
+  }
+}
+
 declare module "@mui/material/Alert" {
   interface AlertPropsColorOverrides {
     error: true;
