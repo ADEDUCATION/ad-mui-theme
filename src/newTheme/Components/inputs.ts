@@ -437,33 +437,6 @@ const inputs = ({
             backgroundColor:
               palette && palette[ownerState.color as MuiColors].A10,
           },
-          "&.MuiCheckbox-sizeSmall": {
-            padding: space?.md,
-            maxWidth: space?.["5xl"],
-            maxHeight: space?.["5xl"],
-            "& .MuiSvgIcon-root": {
-              width: space?.lg,
-              height: space?.lg,
-            },
-          },
-          "&.MuiCheckbox-sizeMedium": {
-            padding: space?.md,
-            maxWidth: space?.["6xl"],
-            maxHeight: space?.["6xl"],
-            "& .MuiSvgIcon-root": {
-              width: space?.xl,
-              height: space?.xl,
-            },
-          },
-          "&.MuiCheckbox-sizeLarge": {
-            padding: space?.lg,
-            maxWidth: space?.["7xl"],
-            maxHeight: space?.["7xl"],
-            "& .MuiSvgIcon-root": {
-              width: space?.["2xl"],
-              height: space?.["2xl"],
-            },
-          },
           "&.Mui-disabled": {
             color: palette?.grey[700],
             "& + .MuiTypography-root": {
@@ -471,6 +444,33 @@ const inputs = ({
             },
           },
         };
+      },
+      sizeSmall: {
+        padding: space?.md,
+        maxWidth: space?.["5xl"],
+        maxHeight: space?.["5xl"],
+        "& .MuiSvgIcon-root": {
+          width: space?.lg,
+          height: space?.lg,
+        },
+      },
+      sizeMedium: {
+        padding: space?.md,
+        maxWidth: space?.["6xl"],
+        maxHeight: space?.["6xl"],
+        "& .MuiSvgIcon-root": {
+          width: space?.xl,
+          height: space?.xl,
+        },
+      },
+      sizeLarge: {
+        padding: space?.lg,
+        maxWidth: space?.["7xl"],
+        maxHeight: space?.["7xl"],
+        "& .MuiSvgIcon-root": {
+          width: space?.["2xl"],
+          height: space?.["2xl"],
+        },
       },
     },
   },
@@ -508,24 +508,6 @@ const inputs = ({
             backgroundColor:
               palette && palette[ownerState.color as MuiColors].A10,
           },
-          "&.MuiRadio-sizeSmall": {
-            padding: space?.md,
-            maxWidth: space?.["5xl"],
-            maxHeight: space?.["5xl"],
-            "& .MuiSvgIcon-root": {
-              width: space?.lg,
-              height: space?.lg,
-            },
-          },
-          "&.MuiRadio-sizeLarge": {
-            padding: space?.lg,
-            maxWidth: space?.["7xl"],
-            maxHeight: space?.["7xl"],
-            "& .MuiSvgIcon-root": {
-              width: space?.["2xl"],
-              height: space?.["2xl"],
-            },
-          },
           "&.Mui-disabled": {
             color: palette?.grey[700],
             "& + .MuiTypography-root": {
@@ -533,6 +515,24 @@ const inputs = ({
             },
           },
         };
+      },
+      sizeSmall: {
+        padding: space?.md,
+        maxWidth: space?.["5xl"],
+        maxHeight: space?.["5xl"],
+        "& .MuiSvgIcon-root": {
+          width: space?.lg,
+          height: space?.lg,
+        },
+      },
+      sizeLarge: {
+        padding: space?.lg,
+        maxWidth: space?.["7xl"],
+        maxHeight: space?.["7xl"],
+        "& .MuiSvgIcon-root": {
+          width: space?.["2xl"],
+          height: space?.["2xl"],
+        },
       },
     },
   },
