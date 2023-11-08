@@ -113,6 +113,10 @@ const inputs = ({
     },
   },
   MuiIconButton: {
+    defaultProps: {
+      disableElevation: true,
+      color: "primary-ghost",
+    },
     styleOverrides: {
       root: ({ ownerState }: { ownerState: IconButtonProps }) => {
         const [color, variant] = ownerState.color?.split("-") as string[];
@@ -363,12 +367,12 @@ const inputs = ({
           "& .MuiOutlinedInput-notchedOutline": {
             borderColor: palette?.primary.main + " !important",
           },
-          "& .MuiSvgIcon-root": {
-            color: palette?.primary.main + " !important",
-          },
-          "& .tabler-icon": {
-            color: palette?.primary.main + " !important",
-          },
+          // "& .MuiSvgIcon-root": {
+          //   color: palette?.primary.main + " !important",
+          // },
+          // "& .tabler-icon": {
+          //   color: palette?.primary.main + " !important",
+          // },
         },
         "& .MuiInputAdornment-root": {
           "& .MuiButtonBase-root": {
@@ -529,17 +533,6 @@ const inputs = ({
         },
         "& .MuiAutocomplete-clearIndicator": {
           color: palette?.primary.main,
-        },
-        "& .MuiAutocomplete-tag": {
-          backgroundColor: palette?.primary.xlight,
-          color: palette?.primary.main,
-          "& .MuiChip-deleteIcon": {
-            color: palette?.primary.main,
-            transition: "color 0.2s ease-in-out",
-            "&:hover": {
-              color: palette?.primary.light + " !important",
-            },
-          },
         },
       },
     },

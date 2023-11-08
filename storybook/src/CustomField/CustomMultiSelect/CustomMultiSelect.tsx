@@ -1,16 +1,18 @@
-import { useContext, useEffect, useState } from "react";
-
 import {
+  Autocomplete,
+  Checkbox,
   Chip,
-  FormControl,
   FormHelperText,
   InputLabel,
   MenuItem,
   Select,
   SelectProps,
+  TextField,
+  Typography,
 } from "@mui/material";
 
 import Label from "../Label";
+import { IconCactus } from "@tabler/icons-react";
 
 const CustomMultiselectInput = ({ ...rest }: SelectProps) => {
   const field = {
@@ -28,39 +30,102 @@ const CustomMultiselectInput = ({ ...rest }: SelectProps) => {
   } as IFieldStructure;
 
   return (
+    // <>
+    //   <InputLabel id={field.id}>
+    //     <Label field={field} />
+    //   </InputLabel>
+    //   <Select
+    //     autoWidth={true}
+    //     fullWidth
+    //     // multiple
+    //     renderValue={(selected) => {
+    //       return (
+    //         <div style={{ margin: 3 }}>
+    //           {/* {(selected as unknown as string[]).map((selectedValue) => ( */}
+    //           <Chip
+    //             key={`${field.id}`}
+    //             label={field.list?.find((el) => el.id === selected)?.label}
+    //             sx={{ m: 1 }}
+    //             color="primary"
+    //             onDelete={() => {
+    //               console.log("delete");
+    //             }}
+    //             variant="soft"
+    //             icon={<IconCactus />}
+    //             size="medium"
+    //           />
+    //           {/* ))} */}
+    //         </div>
+    //       );
+    //     }}
+    //     {...rest}
+    //   >
+    //     {field.list &&
+    //       field.list.map((el) => (
+    //         <MenuItem key={`${field.id}-${el.id}`} value={el.id}>
+    //           {el.label}
+    //         </MenuItem>
+    //       ))}
+    //   </Select>
+    //   {!!field.helperText && (
+    //     <FormHelperText>{field.helperText}</FormHelperText>
+    //   )}
+    // </>
     <>
-      <InputLabel id={field.id}>
+      <InputLabel>
         <Label field={field} />
       </InputLabel>
-      <Select
-        autoWidth={true}
+      <Autocomplete
+        multiple={true}
+        // value={inputValue}
         fullWidth
-        // multiple
-        renderValue={(selected) => {
+        disabled={field.disabled}
+        // isOptionEqualToValue={(option, value) => option.value === value.value}
+        options={field.list || []}
+        disableCloseOnSelect
+        ChipProps={{
+          color: "primary",
+          variant: "soft",
+          size: "medium",
+        }}
+        renderInput={(params) => (
+          <TextField {...params} variant="outlined" label="" />
+        )}
+        renderOption={(props, option, { selected }) => {
           return (
-            <div style={{ margin: 3 }}>
-              {/* {(selected as unknown as string[]).map((selectedValue) => ( */}
-              <Chip
-                key={`${field.id}`}
-                label={field.list?.find((el) => el.id === selected)?.label}
-                sx={{ m: 1 }}
+            <li
+              {...props}
+              key={`${field.id}` as string}
+              style={{
+                backgroundColor: selected ? "primary.main" : "white",
+              }}
+            >
+              <Checkbox
+                style={{ marginRight: 8 }}
+                checked={selected}
+                color="primary"
               />
-              {/* ))} */}
-            </div>
+              <Typography
+                variant="body2"
+                component="span"
+                sx={{
+                  color: selected ? "primary.main" : "grey.500",
+                }}
+              >
+                {option.label || "Information manquante"}
+              </Typography>
+            </li>
           );
         }}
-        {...rest}
-      >
-        {field.list &&
-          field.list.map((el) => (
-            <MenuItem key={`${field.id}-${el.id}`} value={el.id}>
-              {el.label}
-            </MenuItem>
-          ))}
-      </Select>
-      {!!field.helperText && (
-        <FormHelperText>{field.helperText}</FormHelperText>
-      )}
+        sx={{
+          "& .MuiInputBase-root": {
+            py: 0.5,
+          },
+          "& .MuiFormLabel-root": {
+            marginTop: "-3px",
+          },
+        }}
+      />
     </>
   );
 };

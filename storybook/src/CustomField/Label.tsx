@@ -1,4 +1,4 @@
-import { Box, Tooltip } from "@mui/material";
+import { Box, Tooltip, Typography } from "@mui/material";
 
 const formColors: {
   color: string;
@@ -19,32 +19,15 @@ const formColors: {
 
 const Label = ({ field }: { field: IFieldStructure }) => {
   return (
-    <Box
-      alignContent={"flex-end"}
-      sx={{ pr: 1, fontSize: 12, fontWeight: "bold" }}
-    >
+    // <Box
+    //   alignContent="flex-end"
+    //   sx={{ pr: 1, fontSize: 12, fontWeight: "bold", color: "grey.300" }}
+    // >
+    //   {field.label}{" "}
+    // </Box>
+    <Typography variant="bodyBold" color="grey.300">
       {field.label}
-      <span style={{ float: "right", display: "flex" }}>
-        {formColors.map((formColor) => {
-          if (field?.[formColor.id]) {
-            return (
-              <Tooltip title={formColor.tooltip} key={formColor.id}>
-                <div
-                  style={{
-                    width: 12,
-                    height: 12,
-                    backgroundColor: formColor.color,
-                    borderRadius: 12,
-                    marginLeft: 10,
-                    marginTop: 6,
-                  }}
-                ></div>
-              </Tooltip>
-            );
-          }
-        })}
-      </span>
-    </Box>
+    </Typography>
   );
 };
 
