@@ -414,6 +414,7 @@ const inputs = ({
     styleOverrides: {
       root: ({ ownerState }: { ownerState: CheckboxProps }) => {
         return {
+          marginRight: space?.["3xs"],
           color:
             ownerState.color === "neutralLight"
               ? palette?.neutralLight.main
@@ -472,41 +473,93 @@ const inputs = ({
         };
       },
     },
-    // sizeSmall: {
-    //   "& .MuiSvgIcon-root": {
-    //     width: space?.["10xl"],
-    //     height: space?.["10xl"],
-    //   },
-    //   "& .tabler-icon": {
-    //     width: space?.lg,
-    //     height: space?.lg,
-    //   },
-    // },
   },
-  MuiFormControlLabel: {
+  MuiRadio: {
     styleOverrides: {
-      root: {
-        color: palette?.grey[500],
-        "& .MuiRadio-root": {
-          color: palette?.grey[500],
-          "&.Mui-disabled": {
-            "& + .MuiTypography-root": {
-              color: palette?.grey[600],
-            },
+      root: ({ ownerState }: { ownerState: CheckboxProps }) => {
+        return {
+          padding: space?.md,
+          maxWidth: space?.["6xl"],
+          maxHeight: space?.["6xl"],
+          "& .MuiSvgIcon-root": {
+            width: space?.xl,
+            height: space?.xl,
+          },
+          marginRight: space?.["3xs"],
+          color:
+            ownerState.color === "neutralLight"
+              ? palette?.neutralLight.main
+              : palette?.neutralDark.main,
+          transition: "all 0.2s ease-in-out",
+          "& + .MuiTypography-root": {
+            color:
+              ownerState.color === "neutralLight"
+                ? palette?.neutralLight.main
+                : palette?.neutralDark.main,
+            fontSize: typography?.subtitleMedium.fontSize,
+            fontWeight: typography?.subtitleMedium.fontWeight,
+            lineHeight: typography?.subtitleMedium.lineHeight,
           },
           "&.Mui-checked": {
-            color: palette?.primary.main,
-            "& + .MuiTypography-root": {
-              color: palette?.primary.main,
+            color: palette && palette[ownerState.color as MuiColors].main,
+          },
+          "&:hover": {
+            color: palette && palette[ownerState.color as MuiColors].main,
+            backgroundColor:
+              palette && palette[ownerState.color as MuiColors].A10,
+          },
+          "&.MuiRadio-sizeSmall": {
+            padding: space?.md,
+            maxWidth: space?.["5xl"],
+            maxHeight: space?.["5xl"],
+            "& .MuiSvgIcon-root": {
+              width: space?.lg,
+              height: space?.lg,
             },
           },
-        },
-        "& .MuiTypography-root": {
-          fontWeight: typography?.subtitleBold.fontWeight,
-        },
+          "&.MuiRadio-sizeLarge": {
+            padding: space?.lg,
+            maxWidth: space?.["7xl"],
+            maxHeight: space?.["7xl"],
+            "& .MuiSvgIcon-root": {
+              width: space?.["2xl"],
+              height: space?.["2xl"],
+            },
+          },
+          "&.Mui-disabled": {
+            color: palette?.grey[700],
+            "& + .MuiTypography-root": {
+              color: palette?.grey[700],
+            },
+          },
+        };
       },
     },
   },
+  // MuiFormControlLabel: {
+  //   styleOverrides: {
+  //     root: {
+  //       color: palette?.grey[500],
+  //       "& .MuiRadio-root": {
+  //         color: palette?.grey[500],
+  //         "&.Mui-disabled": {
+  //           "& + .MuiTypography-root": {
+  //             color: palette?.grey[600],
+  //           },
+  //         },
+  //         "&.Mui-checked": {
+  //           color: palette?.primary.main,
+  //           "& + .MuiTypography-root": {
+  //             color: palette?.primary.main,
+  //           },
+  //         },
+  //       },
+  //       "& .MuiTypography-root": {
+  //         fontWeight: typography?.subtitleBold.fontWeight,
+  //       },
+  //     },
+  //   },
+  // },
   MuiSelect: {
     styleOverrides: {
       root: {
