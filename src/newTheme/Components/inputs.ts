@@ -23,6 +23,7 @@ const inputs = ({
   MuiButton: {
     defaultProps: {
       disableElevation: true,
+      variant: "contained",
     },
     styleOverrides: {
       root: ({ ownerState }: { ownerState: ButtonProps }) => {
@@ -30,11 +31,15 @@ const inputs = ({
           boxShadow: "none",
           textTransform: "inherit",
           borderRadius: radius?.button,
+          maxWidth: "100%",
           color:
             ownerState.variant === "contained"
               ? palette && palette[ownerState.color as MuiColors].contrastText
               : ownerState.variant === "soft"
               ? palette && palette[ownerState.color as MuiColors].xdark
+              : ownerState.variant === "text" &&
+                ownerState.color === "neutralLight"
+              ? palette && palette[ownerState.color as MuiColors].dark
               : palette && palette[ownerState.color as MuiColors].main,
           backgroundColor:
             ownerState.variant === "contained"
@@ -48,12 +53,14 @@ const inputs = ({
                 ? palette && palette[ownerState.color as MuiColors].dark
                 : ownerState.variant === "soft"
                 ? palette && palette[ownerState.color as MuiColors].light
+                : ownerState.variant === "text"
+                ? "transparent"
                 : palette && palette[ownerState.color as MuiColors].xlight,
             color:
-              ownerState.variant === "text" ||
-              (ownerState.variant === "outlined" &&
-                palette &&
-                palette[ownerState.color as MuiColors].xdark),
+              (ownerState.variant === "text" ||
+                ownerState.variant === "outlined") &&
+              palette &&
+              palette[ownerState.color as MuiColors].xdark,
             boxShadow: "none",
           },
 
@@ -76,32 +83,45 @@ const inputs = ({
           },
         };
       },
-      sizeSmall: {
-        padding: `${space?.xs} ${space?.md}`,
-        minWidth: "80px",
-        minHeight: space?.["4xl"],
-        fontSize: typography?.buttonSmall.fontSize,
-        fontWeight: typography?.buttonSmall.fontWeight,
-        lineHeight: typography?.buttonSmall.lineHeight,
-        gap: space?.xs,
+      sizeSmall: ({ ownerState }: { ownerState: ButtonProps }) => {
+        return {
+          padding:
+            ownerState.variant === "text"
+              ? `${space?.xs} 0`
+              : `${space?.xs} ${space?.md}`,
+          minWidth: ownerState.variant === "text" ? 0 : "80px",
+          minHeight: space?.["4xl"],
+          fontSize: typography?.buttonSmall.fontSize,
+          fontWeight: typography?.buttonSmall.fontWeight,
+          lineHeight: typography?.buttonSmall.lineHeight,
+          gap: space?.xs,
+        };
       },
-      sizeMedium: {
-        padding: `${space?.sm} ${space?.lg}`,
-        minWidth: "100px",
-        minHeight: space?.["5xl"],
-        fontSize: typography?.buttonMedium.fontSize,
-        fontWeight: typography?.buttonMedium.fontWeight,
-        lineHeight: typography?.buttonMedium.lineHeight,
-        gap: space?.xs,
+      sizeMedium: ({ ownerState }: { ownerState: ButtonProps }) => {
+        return {
+          padding:
+            ownerState.variant === "text"
+              ? `${space?.sm} 0`
+              : `${space?.sm} ${space?.lg}`,
+          minWidth: ownerState.variant === "text" ? 0 : "100px",
+          minHeight: space?.["5xl"],
+          fontSize: typography?.buttonMedium.fontSize,
+          fontWeight: typography?.buttonMedium.fontWeight,
+          lineHeight: typography?.buttonMedium.lineHeight,
+          gap: space?.xs,
+        };
       },
-      sizeLarge: {
-        padding: `${space?.md} ${space?.xl}`,
-        minWidth: "120px",
-        minHeight: space?.["7xl"],
-        fontSize: typography?.buttonLarge.fontSize,
-        fontWeight: typography?.buttonLarge.fontWeight,
-        lineHeight: typography?.buttonLarge.lineHeight,
-        gap: space?.xs,
+      sizeLarge: ({ ownerState }: { ownerState: ButtonProps }) => {
+        return {
+          padding:
+            ownerState.variant === "text" ? 0 : `${space?.md} ${space?.xl}`,
+          minWidth: ownerState.variant === "text" ? 0 : "120px",
+          minHeight: space?.["7xl"],
+          fontSize: typography?.buttonLarge.fontSize,
+          fontWeight: typography?.buttonLarge.fontWeight,
+          lineHeight: typography?.buttonLarge.lineHeight,
+          gap: space?.xs,
+        };
       },
       MuiOutlinedInput: {
         styleOverrides: {

@@ -40,8 +40,9 @@ interface CustomThemeOptions extends ThemeOptions {
 
 declare module "@mui/material/Button" {
   interface ButtonPropsColorOverrides {
-    color1: true;
-    color3: true;
+    neutralDark: true;
+    neutralLight: true;
+    inherit: false;
   }
   interface ButtonPropsVariantOverrides {
     soft: true;
