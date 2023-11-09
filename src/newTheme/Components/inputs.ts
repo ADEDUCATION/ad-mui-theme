@@ -337,7 +337,7 @@ const inputs = ({
       root: {
         color: palette && palette.grey[300],
         fontWeight: typography?.subtitleMedium.fontWeight,
-        height: 48,
+        height: space?.["8xl"],
         "&.MuiOutlinedInput-root": {
           paddingRight: 0,
         },
@@ -499,7 +499,7 @@ const inputs = ({
         "&.MuiAutocomplete-hasPopupIcon": {
           "& .MuiFormControl-root": {
             "& .MuiInputBase-root": {
-              minHeight: 48,
+              minHeight: space?.["8xl"],
               height: "auto",
             },
           },
