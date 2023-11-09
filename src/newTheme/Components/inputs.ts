@@ -495,11 +495,14 @@ const inputs = ({
           "& .MuiAutocomplete-endAdornment": {
             "& .MuiIconButton-root": {
               padding: 0,
-              width: 24,
-              height: 24,
+              width: space?.xl,
+              height: space?.xl,
+              "&:hover": {
+                backgroundColor: "transparent",
+              },
               "& .MuiSvgIcon-root": {
-                width: 24,
-                height: 24,
+                width: space?.xl,
+                height: space?.xl,
               },
             },
           },
@@ -533,6 +536,14 @@ const inputs = ({
         },
         "& .MuiAutocomplete-clearIndicator": {
           color: palette?.primary.main,
+        },
+        "& .MuiChip-root": {
+          "& .MuiChip-deleteIcon": {
+            color: palette?.primary.xdark,
+            "&:hover": {
+              color: palette?.primary.xdark,
+            },
+          },
         },
       },
     },
