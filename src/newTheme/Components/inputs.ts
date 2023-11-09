@@ -337,7 +337,13 @@ const inputs = ({
       root: {
         color: palette && palette.grey[300],
         fontWeight: typography?.subtitleMedium.fontWeight,
-        height: 44,
+        height: 48,
+        "&.MuiOutlinedInput-root": {
+          paddingRight: 0,
+        },
+        "& .MuiNativeSelect-select": {
+          marginBottom: space?.["2xs"],
+        },
         "& input": {
           fontSize: typography?.subtitleMedium.fontSize,
         },
@@ -375,6 +381,11 @@ const inputs = ({
           // },
         },
         "& .MuiInputAdornment-root": {
+          "& .MuiTypography-root": {
+            fontSize: typography?.subtitleMedium.fontSize,
+            fontWeight: typography?.subtitleMedium.fontWeight,
+            lineHeight: typography?.subtitleMedium.lineHeight,
+          },
           "& .MuiButtonBase-root": {
             padding: space?.sm,
             "& .MuiSvgIcon-root": {
@@ -452,43 +463,43 @@ const inputs = ({
       },
     },
   },
-  MuiSelect: {
-    styleOverrides: {
-      root: {
-        // minHeight: 60,
-        "& .MuiSelect-root": {
-          color: palette?.grey[500],
-        },
-        "& .MuiSvgIcon-root": {
-          color: palette?.grey[500] + " !important",
-        },
-        "& .tabler-icon": {
-          color: palette?.grey[500] + " !important",
-        },
-        "& .MuiSelect-icon": {
-          color: palette?.grey[200],
-        },
-        "& .MuiInputBase-root": {
-          color: palette?.grey[500],
-        },
-        "& .MuiOutlinedInput-notchedOutline": {
-          borderColor: palette?.grey[500],
-        },
-        // "&.Mui-disabled": {
-        //   "& .MuiOutlinedInput-notchedOutline": {
-        //     borderColor: palette?.grey[800] + "!important",
-        //   },
-        // },
-      },
-    },
-  },
+  // MuiSelect: {
+  //   styleOverrides: {
+  //     root: {
+  //       // minHeight: 60,
+  //       "& .MuiSelect-root": {
+  //         color: palette?.grey[500],
+  //       },
+  //       "& .MuiSvgIcon-root": {
+  //         color: palette?.grey[500] + " !important",
+  //       },
+  //       "& .tabler-icon": {
+  //         color: palette?.grey[500] + " !important",
+  //       },
+  //       "& .MuiSelect-icon": {
+  //         color: palette?.grey[200],
+  //       },
+  //       "& .MuiInputBase-root": {
+  //         color: palette?.grey[500],
+  //       },
+  //       "& .MuiOutlinedInput-notchedOutline": {
+  //         borderColor: palette?.grey[500],
+  //       },
+  //       // "&.Mui-disabled": {
+  //       //   "& .MuiOutlinedInput-notchedOutline": {
+  //       //     borderColor: palette?.grey[800] + "!important",
+  //       //   },
+  //       // },
+  //     },
+  //   },
+  // },
   MuiAutocomplete: {
     styleOverrides: {
       root: {
         "&.MuiAutocomplete-hasPopupIcon": {
           "& .MuiFormControl-root": {
             "& .MuiInputBase-root": {
-              minHeight: 52,
+              minHeight: 48,
               height: "auto",
             },
           },
