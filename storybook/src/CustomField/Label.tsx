@@ -1,4 +1,5 @@
 import { Box, Tooltip, Typography } from "@mui/material";
+import { IFieldStructure } from "./type";
 
 const formColors: {
   color: string;

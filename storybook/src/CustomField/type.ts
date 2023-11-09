@@ -20,7 +20,7 @@ type CustomFieldTypes =
   | "autocompleteAddress"
   | "text";
 
-type IFieldStructure = {
+export type IFieldStructure = {
   // label: string;
   // id: string;
   // type: CustomFieldTypes;
