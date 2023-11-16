@@ -7,6 +7,7 @@ export default {
   component: MuiTooltip,
   args: {
     title: "Tooltip",
+    arrow: false,
   },
 } as Meta<typeof MuiTooltip>;
 

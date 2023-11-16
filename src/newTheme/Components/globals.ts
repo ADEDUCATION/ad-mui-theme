@@ -1,6 +1,6 @@
 import { Props } from "./components";
 
-const globals = ({ palette, typography }: Props) => ({
+const globals = ({ palette, typography, space }: Props) => ({
   MuiPopover: {
     styleOverrides: {
       paper: {
@@ -54,14 +54,15 @@ const globals = ({ palette, typography }: Props) => ({
   MuiTooltip: {
     styleOverrides: {
       tooltip: {
-        backgroundColor: palette?.grey[300],
-        color: palette?.grey[900],
+        backgroundColor: palette?.info.dark,
+        color: palette?.background.paper,
         fontSize: typography?.bodyMedium.fontSize,
-        // fontStyle: 'italic',
-        // fontWeight: 200,
+        fontWeight: typography?.bodyMedium.fontWeight,
+        lineHeight: typography?.bodyMedium.lineHeight,
+        padding: `${space?.sm} ${space?.md}`,
       },
       arrow: {
-        color: palette?.grey[300],
+        color: palette?.info.dark,
       },
     },
   },

@@ -8,7 +8,7 @@ export interface MuiTooltipProps extends Omit<TooltipProps, MuiOmits> {
 const MuiTooltip = ({ title, ...rest }: MuiTooltipProps) => {
   return (
     <Tooltip title={title} {...rest}>
-      <Button>{title}</Button>
+      <Button>Hover me</Button>
     </Tooltip>
   );
 };
