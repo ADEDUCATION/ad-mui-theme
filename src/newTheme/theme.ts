@@ -40,8 +40,9 @@ interface CustomThemeOptions extends ThemeOptions {
 
 declare module "@mui/material/Button" {
   interface ButtonPropsColorOverrides {
-    color1: true;
-    color3: true;
+    neutralDark: true;
+    neutralLight: true;
+    inherit: false;
   }
   interface ButtonPropsVariantOverrides {
     soft: true;
@@ -142,6 +143,7 @@ declare module "@mui/material/IconButton" {
 
 declare module "@mui/material/Badge" {
   interface BadgePropsColorOverrides {
+    default: false;
     neutralDark: true;
     neutralLight: true;
     color1: true;
@@ -149,9 +151,6 @@ declare module "@mui/material/Badge" {
     color3: true;
     color4: true;
     color5: true;
-    actionable: true;
-    outlined: true;
-    delete: true;
   }
 }
 
@@ -168,6 +167,36 @@ declare module "@mui/material/Fab" {
     soft: true;
     outlined: true;
     ghost: true;
+  }
+}
+
+declare module "@mui/material/Checkbox" {
+  interface CheckboxPropsColorOverrides {
+    warning: false;
+    error: false;
+    info: false;
+    success: false;
+    neutralDark: true;
+    neutralLight: true;
+    default: false;
+  }
+  interface CheckboxPropsSizeOverrides {
+    large: true;
+  }
+}
+
+declare module "@mui/material/Radio" {
+  interface RadioPropsColorOverrides {
+    warning: false;
+    error: false;
+    info: false;
+    success: false;
+    neutralDark: true;
+    neutralLight: true;
+    default: false;
+  }
+  interface RadioPropsSizeOverrides {
+    large: true;
   }
 }
 

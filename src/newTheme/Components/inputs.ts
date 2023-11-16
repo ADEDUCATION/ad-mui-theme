@@ -1,14 +1,9 @@
-import { ButtonProps, IconButtonProps, FabProps } from "@mui/material";
+import { ButtonProps, IconButtonProps, FabProps, CheckboxProps } from "@mui/material";
 import { Props } from "./components";
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
 import { MuiColors } from "../Palette/utils";
 
-const inputs = ({
-  palette,
-  typography,
-  radius,
-  space,
-}: Props): OverridesStyleRules => ({
+const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRules => ({
   MuiFormLabel: {
     styleOverrides: {
       root: {
@@ -23,6 +18,7 @@ const inputs = ({
   MuiButton: {
     defaultProps: {
       disableElevation: true,
+      variant: "contained",
     },
     styleOverrides: {
       root: ({ ownerState }: { ownerState: ButtonProps }) => {
@@ -30,11 +26,14 @@ const inputs = ({
           boxShadow: "none",
           textTransform: "inherit",
           borderRadius: radius?.button,
+          maxWidth: "100%",
           color:
             ownerState.variant === "contained"
               ? palette && palette[ownerState.color as MuiColors].contrastText
               : ownerState.variant === "soft"
               ? palette && palette[ownerState.color as MuiColors].xdark
+              : ownerState.variant === "text" && ownerState.color === "neutralLight"
+              ? palette && palette[ownerState.color as MuiColors].dark
               : palette && palette[ownerState.color as MuiColors].main,
           backgroundColor:
             ownerState.variant === "contained"
@@ -48,12 +47,13 @@ const inputs = ({
                 ? palette && palette[ownerState.color as MuiColors].dark
                 : ownerState.variant === "soft"
                 ? palette && palette[ownerState.color as MuiColors].light
+                : ownerState.variant === "text"
+                ? "transparent"
                 : palette && palette[ownerState.color as MuiColors].xlight,
             color:
-              ownerState.variant === "text" ||
-              (ownerState.variant === "outlined" &&
-                palette &&
-                palette[ownerState.color as MuiColors].xdark),
+              (ownerState.variant === "text" || ownerState.variant === "outlined") &&
+              palette &&
+              palette[ownerState.color as MuiColors].xdark,
             boxShadow: "none",
           },
 
@@ -76,32 +76,53 @@ const inputs = ({
           },
         };
       },
-      sizeSmall: {
-        padding: `${space?.xs} ${space?.md}`,
-        minWidth: "80px",
-        minHeight: space?.["4xl"],
-        fontSize: typography?.buttonSmall.fontSize,
-        fontWeight: typography?.buttonSmall.fontWeight,
-        lineHeight: typography?.buttonSmall.lineHeight,
-        gap: space?.xs,
+      sizeSmall: ({ ownerState }: { ownerState: ButtonProps }) => {
+        return {
+          padding:
+            ownerState.variant === "text"
+              ? `${space?.xs} 0`
+              : ownerState.variant === "outlined"
+              ? `calc(${space?.xs} - 1px) calc(${space?.md} - 1px)`
+              : `${space?.xs} ${space?.md}`,
+          minWidth: ownerState.variant === "text" ? 0 : "80px",
+          minHeight: space?.["4xl"],
+          fontSize: typography?.buttonSmall.fontSize,
+          fontWeight: typography?.buttonSmall.fontWeight,
+          lineHeight: typography?.buttonSmall.lineHeight,
+          gap: space?.xs,
+        };
       },
-      sizeMedium: {
-        padding: `${space?.sm} ${space?.lg}`,
-        minWidth: "100px",
-        minHeight: space?.["5xl"],
-        fontSize: typography?.buttonMedium.fontSize,
-        fontWeight: typography?.buttonMedium.fontWeight,
-        lineHeight: typography?.buttonMedium.lineHeight,
-        gap: space?.xs,
+      sizeMedium: ({ ownerState }: { ownerState: ButtonProps }) => {
+        return {
+          padding:
+            ownerState.variant === "text"
+              ? `${space?.sm} 0`
+              : ownerState.variant === "outlined"
+              ? `calc(${space?.sm} - 1px) calc(${space?.lg} - 1px)`
+              : `${space?.sm} ${space?.lg}`,
+          minWidth: ownerState.variant === "text" ? 0 : "100px",
+          minHeight: space?.["5xl"],
+          fontSize: typography?.buttonMedium.fontSize,
+          fontWeight: typography?.buttonMedium.fontWeight,
+          lineHeight: typography?.buttonMedium.lineHeight,
+          gap: space?.xs,
+        };
       },
-      sizeLarge: {
-        padding: `${space?.md} ${space?.xl}`,
-        minWidth: "120px",
-        minHeight: space?.["7xl"],
-        fontSize: typography?.buttonLarge.fontSize,
-        fontWeight: typography?.buttonLarge.fontWeight,
-        lineHeight: typography?.buttonLarge.lineHeight,
-        gap: space?.xs,
+      sizeLarge: ({ ownerState }: { ownerState: ButtonProps }) => {
+        return {
+          padding:
+            ownerState.variant === "text"
+              ? 0
+              : ownerState.variant === "outlined"
+              ? `calc(${space?.md} - 1px) calc(${space?.xl} - 1px)`
+              : `${space?.md} ${space?.xl}`,
+          minWidth: ownerState.variant === "text" ? 0 : "120px",
+          minHeight: space?.["7xl"],
+          fontSize: typography?.buttonLarge.fontSize,
+          fontWeight: typography?.buttonLarge.fontWeight,
+          lineHeight: typography?.buttonLarge.lineHeight,
+          gap: space?.xs,
+        };
       },
       MuiOutlinedInput: {
         styleOverrides: {
@@ -149,14 +170,9 @@ const inputs = ({
                 : palette && palette[color as MuiColors].main,
           },
           "&.Mui-disabled": {
-            border:
-              variant === "outlined"
-                ? `1px solid ${palette?.grey[700]}`
-                : "none",
+            border: variant === "outlined" ? `1px solid ${palette?.grey[700]}` : "none",
             backgroundColor:
-              variant === "outlined" || variant === "ghost"
-                ? "transparent"
-                : palette?.grey[900],
+              variant === "outlined" || variant === "ghost" ? "transparent" : palette?.grey[900],
             "& .MuiSvgIcon-root": {
               color: palette?.grey[700],
             },
@@ -271,9 +287,7 @@ const inputs = ({
           borderRadius: radius?.floatingButton,
           border:
             ownerState.variant === "outlined"
-              ? `1px solid ${
-                  palette && palette[ownerState.color as MuiColors].main
-                }`
+              ? `1px solid ${palette && palette[ownerState.color as MuiColors].main}`
               : "none",
           color:
             ownerState.variant === "contained"
@@ -289,13 +303,9 @@ const inputs = ({
               : "transparent",
 
           "&.Mui-disabled": {
-            border:
-              ownerState.variant === "outlined"
-                ? `1px solid ${palette?.grey[700]}`
-                : "none",
+            border: ownerState.variant === "outlined" ? `1px solid ${palette?.grey[700]}` : "none",
             backgroundColor:
-              ownerState.variant === "outlined" ||
-              ownerState.variant === "ghost"
+              ownerState.variant === "outlined" || ownerState.variant === "ghost"
                 ? "transparent"
                 : palette?.grey[900],
             color: palette?.grey[700],
@@ -312,8 +322,7 @@ const inputs = ({
                 ? palette && palette[ownerState.color as MuiColors].light
                 : palette && palette[ownerState.color as MuiColors].xlight,
             color:
-              (ownerState.variant === "outlined" ||
-                ownerState.variant === "ghost") &&
+              (ownerState.variant === "outlined" || ownerState.variant === "ghost") &&
               palette &&
               palette[ownerState.color as MuiColors].xdark,
             boxShadow: "none",
@@ -422,43 +431,63 @@ const inputs = ({
   },
   MuiCheckbox: {
     styleOverrides: {
-      root: {
-        color: palette?.grey[500],
-        "& + .MuiTypography-root": {
-          color: palette?.grey[500],
-        },
-        "&.Mui-checked": {
-          color: palette?.primary.main,
+      root: ({ ownerState }: { ownerState: CheckboxProps }) => {
+        return {
+          marginRight: space?.["3xs"],
+          color:
+            ownerState.color === "neutralLight"
+              ? palette?.neutralLight.main
+              : palette?.neutralDark.main,
+          transition: "all 0.2s ease-in-out",
           "& + .MuiTypography-root": {
-            color: palette?.primary.main,
-          },
-        },
-        "&:hover": {
-          color: palette?.primary.main,
-        },
-      },
-    },
-  },
-  MuiFormControlLabel: {
-    styleOverrides: {
-      root: {
-        color: palette?.grey[500],
-        "& .MuiRadio-root": {
-          color: palette?.grey[500],
-          "&.Mui-disabled": {
-            "& + .MuiTypography-root": {
-              color: palette?.grey[600],
-            },
+            color:
+              ownerState.color === "neutralLight"
+                ? palette?.neutralLight.main
+                : palette?.neutralDark.main,
+            fontSize: typography?.subtitleMedium.fontSize,
+            fontWeight: typography?.subtitleMedium.fontWeight,
+            lineHeight: typography?.subtitleMedium.lineHeight,
           },
           "&.Mui-checked": {
-            color: palette?.primary.main,
+            color: palette && palette[ownerState.color as MuiColors].main,
+          },
+          "&:hover": {
+            color: palette && palette[ownerState.color as MuiColors].main,
+            backgroundColor: palette && palette[ownerState.color as MuiColors].A10,
+          },
+          "&.Mui-disabled": {
+            color: palette?.grey[700],
             "& + .MuiTypography-root": {
-              color: palette?.primary.main,
+              color: palette?.grey[700],
             },
           },
+        };
+      },
+      sizeSmall: {
+        padding: space?.md,
+        maxWidth: space?.["5xl"],
+        maxHeight: space?.["5xl"],
+        "& .MuiSvgIcon-root": {
+          width: space?.lg,
+          height: space?.lg,
         },
-        "& .MuiTypography-root": {
-          fontWeight: typography?.subtitleBold.fontWeight,
+      },
+      sizeMedium: {
+        padding: space?.md,
+        maxWidth: space?.["6xl"],
+        maxHeight: space?.["6xl"],
+        "& .MuiSvgIcon-root": {
+          width: space?.xl,
+          height: space?.xl,
+        },
+      },
+      sizeLarge: {
+        padding: space?.lg,
+        maxWidth: space?.["7xl"],
+        maxHeight: space?.["7xl"],
+        "& .MuiSvgIcon-root": {
+          width: space?.["2xl"],
+          height: space?.["2xl"],
         },
       },
     },
@@ -493,6 +522,121 @@ const inputs = ({
   //     },
   //   },
   // },
+  MuiRadio: {
+    styleOverrides: {
+      root: ({ ownerState }: { ownerState: CheckboxProps }) => {
+        return {
+          padding: space?.md,
+          maxWidth: space?.["6xl"],
+          maxHeight: space?.["6xl"],
+          "& .MuiSvgIcon-root": {
+            width: space?.xl,
+            height: space?.xl,
+          },
+          marginRight: space?.["3xs"],
+          color:
+            ownerState.color === "neutralLight"
+              ? palette?.neutralLight.main
+              : palette?.neutralDark.main,
+          transition: "all 0.2s ease-in-out",
+          "& + .MuiTypography-root": {
+            color:
+              ownerState.color === "neutralLight"
+                ? palette?.neutralLight.main
+                : palette?.neutralDark.main,
+            fontSize: typography?.subtitleMedium.fontSize,
+            fontWeight: typography?.subtitleMedium.fontWeight,
+            lineHeight: typography?.subtitleMedium.lineHeight,
+          },
+          "&.Mui-checked": {
+            color: palette && palette[ownerState.color as MuiColors].main,
+          },
+          "&:hover": {
+            color: palette && palette[ownerState.color as MuiColors].main,
+            backgroundColor: palette && palette[ownerState.color as MuiColors].A10,
+          },
+          "&.Mui-disabled": {
+            color: palette?.grey[700],
+            "& + .MuiTypography-root": {
+              color: palette?.grey[700],
+            },
+          },
+        };
+      },
+      sizeSmall: {
+        padding: space?.md,
+        maxWidth: space?.["5xl"],
+        maxHeight: space?.["5xl"],
+        "& .MuiSvgIcon-root": {
+          width: space?.lg,
+          height: space?.lg,
+        },
+      },
+      sizeLarge: {
+        padding: space?.lg,
+        maxWidth: space?.["7xl"],
+        maxHeight: space?.["7xl"],
+        "& .MuiSvgIcon-root": {
+          width: space?.["2xl"],
+          height: space?.["2xl"],
+        },
+      },
+    },
+  },
+  // MuiFormControlLabel: {
+  //   styleOverrides: {
+  //     root: {
+  //       color: palette?.grey[500],
+  //       "& .MuiRadio-root": {
+  //         color: palette?.grey[500],
+  //         "&.Mui-disabled": {
+  //           "& + .MuiTypography-root": {
+  //             color: palette?.grey[600],
+  //           },
+  //         },
+  //         "&.Mui-checked": {
+  //           color: palette?.primary.main,
+  //           "& + .MuiTypography-root": {
+  //             color: palette?.primary.main,
+  //           },
+  //         },
+  //       },
+  //       "& .MuiTypography-root": {
+  //         fontWeight: typography?.subtitleBold.fontWeight,
+  //       },
+  //     },
+  //   },
+  // },
+  MuiSelect: {
+    styleOverrides: {
+      root: {
+        // minHeight: 60,
+        "& .MuiSelect-root": {
+          color: palette?.grey[500],
+        },
+        "& .MuiSvgIcon-root": {
+          color: palette?.grey[500] + " !important",
+        },
+        "& .tabler-icon": {
+          color: palette?.grey[500] + " !important",
+        },
+        "& .MuiSelect-icon": {
+          color: palette?.grey[200],
+        },
+        "& .MuiInputBase-root": {
+          color: palette?.grey[500],
+        },
+        "& .MuiOutlinedInput-notchedOutline": {
+          borderColor: palette?.grey[500],
+        },
+        // "&.Mui-disabled": {
+        //   "& .MuiOutlinedInput-notchedOutline": {
+        //     borderColor: palette?.grey[800] + "!important",
+        //   },
+        // },
+      },
+    },
+  },
   MuiAutocomplete: {
     styleOverrides: {
       root: {
@@ -527,21 +671,18 @@ const inputs = ({
             },
           },
         },
-        "&:hover .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg":
-          {
-            color: palette?.primary.main,
-          },
-        "&:active .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg":
-          {
-            color: palette?.primary.main,
-          },
+        "&:hover .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg": {
+          color: palette?.primary.main,
+        },
+        "&:active .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg": {
+          color: palette?.primary.main,
+        },
         // "&:hover .MuiFormLabel-root": {
         //   color: palette?.primary.main,
         // },
-        "& .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg":
-          {
-            color: palette?.grey[400],
-          },
+        "& .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg": {
+          color: palette?.grey[400],
+        },
         "& .MuiAutocomplete-popupIndicatorOpen": {
           color: palette?.primary.main,
         },
