@@ -31,6 +31,12 @@ export type MuiOmits =
   | "edge"
   | "focusRipple"
   | "skipFocusWhenDisabled"
+  | "ref"
+  | "style"
+  | "component"
+  | "badgeContent"
+  | "invisible"
+  | "anchorOrigin"
   | "describeChild"
   | "disableFocusListener"
   | "disableHoverListener"
@@ -56,4 +62,5 @@ export type MuiOmits =
   | "readOnly"
   | "required"
   | "defaultChecked"
+  | "showZero"
   | "";

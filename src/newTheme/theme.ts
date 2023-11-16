@@ -143,6 +143,7 @@ declare module "@mui/material/IconButton" {
 
 declare module "@mui/material/Badge" {
   interface BadgePropsColorOverrides {
+    default: false;
     neutralDark: true;
     neutralLight: true;
     color1: true;
@@ -150,9 +151,6 @@ declare module "@mui/material/Badge" {
     color3: true;
     color4: true;
     color5: true;
-    actionable: true;
-    outlined: true;
-    delete: true;
   }
 }
 
