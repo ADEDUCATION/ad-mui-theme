@@ -7,18 +7,9 @@ export interface MuiBadgeProps extends Omit<BadgeProps, MuiOmits> {
   horizontal: "left" | "right";
 }
 
-const MuiBadge = ({
-  content,
-  vertical,
-  horizontal,
-  ...rest
-}: MuiBadgeProps) => {
+const MuiBadge = ({ content, vertical, horizontal, ...rest }: MuiBadgeProps) => {
   return (
-    <Badge
-      badgeContent={content}
-      anchorOrigin={{ vertical, horizontal }}
-      {...rest}
-    >
+    <Badge badgeContent={content} anchorOrigin={{ vertical, horizontal }} {...rest}>
       <div>Badge</div>
     </Badge>
   );

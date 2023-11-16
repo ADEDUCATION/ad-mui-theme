@@ -62,4 +62,5 @@ export type MuiOmits =
   | "readOnly"
   | "required"
   | "defaultChecked"
+  | "showZero"
   | "";

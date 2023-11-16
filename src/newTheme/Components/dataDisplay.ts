@@ -135,6 +135,9 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
     ],
   },
   MuiBadge: {
+    defaultProps: {
+      color: "primary",
+    },
     styleOverrides: {
       root: {
         "& .MuiBadge-badge": {
