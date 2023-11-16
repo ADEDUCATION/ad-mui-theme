@@ -11,7 +11,7 @@ export default {
     fullWidth: false,
     color: "primary",
     size: "medium",
-    variant: "contained",
+    // variant: "contained",
     disableElevation: false,
   },
 } as Meta<typeof MuiButton>;
