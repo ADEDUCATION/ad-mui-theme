@@ -8,6 +8,7 @@ export default {
   args: {
     size: "medium",
     color: "primary",
+    disabled: false,
   },
 } as Meta<typeof CustomRadioInput>;
 

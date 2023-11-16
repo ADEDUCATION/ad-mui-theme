@@ -4,14 +4,13 @@ import {
   FormLabel,
   Radio,
   RadioGroup,
-  RadioGroupProps,
   RadioProps,
 } from "@mui/material";
 
-import Label from "../Label";
 import { MuiOmits } from "../../utils";
+import Label from "../Label";
 
-const CustomRadioInput = ({ ...rest }: Omit<RadioProps, MuiOmits>) => {
+const CustomRadioInput = ({ ...rest }: Omit<RadioProps, MuiOmits | "checked" | "icon">) => {
   const field = {
     label: "Statut de l'employeur",
     id: "company_statut",
@@ -27,9 +26,9 @@ const CustomRadioInput = ({ ...rest }: Omit<RadioProps, MuiOmits>) => {
 
   return (
     <FormControl>
-      {/* <FormLabel id="radio-buttons-group-label">
+      <FormLabel id="radio-buttons-group-label">
         <Label field={field} />
-      </FormLabel> */}
+      </FormLabel>
       <RadioGroup>
         {field.options?.map((el) => {
           return (
