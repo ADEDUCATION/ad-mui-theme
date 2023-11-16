@@ -6,6 +6,11 @@ import { fields } from "../utils";
 export default {
   title: "CustomField/CustomBooleanInput",
   component: CustomBooleanInput,
+  args: {
+    size: "medium",
+    color: "primary",
+    disabled: false,
+  },
 } as Meta<typeof CustomBooleanInput>;
 
 export const Default = (props: any) => (

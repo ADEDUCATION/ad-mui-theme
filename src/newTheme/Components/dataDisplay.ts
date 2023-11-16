@@ -48,12 +48,7 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
             fontSize: typography?.bodyMedium.fontSize,
             margin: 0,
           },
-          "& .MuiSvgIcon-root": {
-            width: space?.lg,
-            height: space?.lg,
-            margin: 0,
-          },
-          "& .tabler-icon": {
+          "& .MuiChip-icon": {
             width: space?.lg,
             height: space?.lg,
             margin: 0,
@@ -85,12 +80,7 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
             fontSize: typography?.bodyMedium.fontSize,
             margin: 0,
           },
-          "& .MuiSvgIcon-root": {
-            width: space?.lg,
-            height: space?.lg,
-            margin: 0,
-          },
-          "& .tabler-icon": {
+          "& .MuiChip-icon": {
             width: space?.lg,
             height: space?.lg,
             margin: 0,
@@ -122,12 +112,7 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
             fontSize: typography?.bodyMedium.fontSize,
             margin: 0,
           },
-          "& .MuiSvgIcon-root": {
-            width: space?.xl,
-            height: space?.xl,
-            margin: 0,
-          },
-          "& .tabler-icon": {
+          "& .MuiChip-icon": {
             width: space?.xl,
             height: space?.xl,
             margin: 0,
