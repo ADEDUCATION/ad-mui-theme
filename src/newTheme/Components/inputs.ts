@@ -1,9 +1,4 @@
-import {
-  ButtonProps,
-  IconButtonProps,
-  FabProps,
-  CheckboxProps,
-} from "@mui/material";
+import { ButtonProps, IconButtonProps, FabProps, CheckboxProps } from "@mui/material";
 import { Props } from "./components";
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
 import { MuiColors } from "../Palette/utils";
@@ -458,8 +453,7 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
           },
           "&:hover": {
             color: palette && palette[ownerState.color as MuiColors].main,
-            backgroundColor:
-              palette && palette[ownerState.color as MuiColors].A10,
+            backgroundColor: palette && palette[ownerState.color as MuiColors].A10,
           },
           "&.Mui-disabled": {
             color: palette?.grey[700],
@@ -559,8 +553,7 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
           },
           "&:hover": {
             color: palette && palette[ownerState.color as MuiColors].main,
-            backgroundColor:
-              palette && palette[ownerState.color as MuiColors].A10,
+            backgroundColor: palette && palette[ownerState.color as MuiColors].A10,
           },
           "&.Mui-disabled": {
             color: palette?.grey[700],
