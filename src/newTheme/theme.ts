@@ -40,8 +40,9 @@ interface CustomThemeOptions extends ThemeOptions {
 
 declare module "@mui/material/Button" {
   interface ButtonPropsColorOverrides {
-    color1: true;
-    color3: true;
+    neutralDark: true;
+    neutralLight: true;
+    inherit: false;
   }
   interface ButtonPropsVariantOverrides {
     soft: true;
@@ -168,6 +169,36 @@ declare module "@mui/material/Fab" {
     soft: true;
     outlined: true;
     ghost: true;
+  }
+}
+
+declare module "@mui/material/Checkbox" {
+  interface CheckboxPropsColorOverrides {
+    warning: false;
+    error: false;
+    info: false;
+    success: false;
+    neutralDark: true;
+    neutralLight: true;
+    default: false;
+  }
+  interface CheckboxPropsSizeOverrides {
+    large: true;
+  }
+}
+
+declare module "@mui/material/Radio" {
+  interface RadioPropsColorOverrides {
+    warning: false;
+    error: false;
+    info: false;
+    success: false;
+    neutralDark: true;
+    neutralLight: true;
+    default: false;
+  }
+  interface RadioPropsSizeOverrides {
+    large: true;
   }
 }
 
