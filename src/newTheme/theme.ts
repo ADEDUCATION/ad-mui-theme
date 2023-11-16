@@ -172,6 +172,36 @@ declare module "@mui/material/Fab" {
   }
 }
 
+declare module "@mui/material/Checkbox" {
+  interface CheckboxPropsColorOverrides {
+    warning: false;
+    error: false;
+    info: false;
+    success: false;
+    neutralDark: true;
+    neutralLight: true;
+    default: false;
+  }
+  interface CheckboxPropsSizeOverrides {
+    large: true;
+  }
+}
+
+declare module "@mui/material/Radio" {
+  interface RadioPropsColorOverrides {
+    warning: false;
+    error: false;
+    info: false;
+    success: false;
+    neutralDark: true;
+    neutralLight: true;
+    default: false;
+  }
+  interface RadioPropsSizeOverrides {
+    large: true;
+  }
+}
+
 declare module "@mui/material/Alert" {
   interface AlertPropsColorOverrides {
     error: true;
