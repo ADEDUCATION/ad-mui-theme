@@ -1,22 +1,25 @@
-import { NumericFormat, NumericFormatProps } from "react-number-format";
+import { NumericFormat } from "react-number-format";
 
-import {
-  InputAdornment,
-  InputLabel,
-  TextField,
-  TextFieldProps,
-} from "@mui/material";
+import { InputAdornment, InputLabel, TextField } from "@mui/material";
 
 import Label from "../Label";
+import { CustomInputProps, IFieldStructure } from "../type";
+import CustomHelperText from "../CustomHelperText";
 
-const CustomDurationInput = ({ ...rest }: TextFieldProps) => {
+const CustomDurationInput = ({
+  disabled,
+  requiredValue,
+  helperTextValue,
+}: CustomInputProps) => {
   const field = {
     label: "Durée de la formation",
     id: "academic_hours",
     type: "duration",
     suffix: " heures",
-    mandatory: true,
+    mandatory: requiredValue as boolean,
     endAdornment: "heures",
+    helperText: helperTextValue,
+    disabled: disabled as boolean,
   } as IFieldStructure;
 
   return (
@@ -41,8 +44,11 @@ const CustomDurationInput = ({ ...rest }: TextFieldProps) => {
         // suffix={` ${field.suffix}`}
         name={field.id}
         thousandSeparator=" "
-        {...rest}
+        disabled={field.disabled}
       />
+      {field.helperText && field.helperText?.length > 0 && (
+        <CustomHelperText helperText={field.helperText} />
+      )}
     </>
   );
 };
