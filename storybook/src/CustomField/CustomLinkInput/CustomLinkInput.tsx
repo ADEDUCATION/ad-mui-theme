@@ -1,9 +1,19 @@
-import { Box, InputLabel, TextField, Typography } from "@mui/material";
+import {
+  IconButton,
+  InputLabel,
+  Stack,
+  TextField,
+  Typography,
+  useTheme,
+} from "@mui/material";
 
 import Label from "../Label";
 import { useState } from "react";
+import StyledIcon from "../../components/StyledIcon";
+import { IconCopy, IconExternalLink } from "@tabler/icons-react";
 
 const CustomLinkInput = () => {
+  const theme = useTheme();
   const [value, setValue] = useState("");
   const field = {
     startUrl: "https://",
@@ -28,32 +38,6 @@ const CustomLinkInput = () => {
         autoComplete="none"
         value={parseUrl(value as string)}
         onChange={(e) => {
-          const val = e.target.value;
-          const capitalize = (s: string) =>
-            s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
-          // ? This regexp targets spaces ' ' and '-' to handle compound names
-          const capitalizeWords = (s: string) =>
-            s
-              .split(/([\s-]+)/)
-              .map((word, index) => (index % 2 === 0 ? capitalize(word) : word))
-              .join("");
-          // if (field.modifier && val) {
-          //   switch (field.modifier) {
-          //     case "uppercase":
-          //       e.target.value = val.toUpperCase();
-          //       break;
-          //     case "first-uppercase":
-          //       e.target.value = capitalize(val);
-          //       break;
-          //     case "first-words-uppercase":
-          //       e.target.value = capitalizeWords(val);
-          //       break;
-
-          //     default:
-          //       break;
-          //   }
-          // }
-
           setValue(field.startUrl + e.target.value);
         }}
         fullWidth
@@ -61,27 +45,44 @@ const CustomLinkInput = () => {
         disabled={field.disabled}
         size="small"
         type="text"
-        InputProps={
-          field.startUrl
-            ? {
-                startAdornment: (
-                  <Box
-                    sx={{
-                      background: "#EFEFF1",
-                      height: "100%",
-                      padding: "0 12px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      mr: 1,
-                    }}
-                  >
-                    <Typography color="#817F94">{field.startUrl}</Typography>
-                  </Box>
-                ),
-              }
-            : {}
-        }
+        InputProps={{
+          endAdornment: (
+            <Stack
+              direction="row"
+              gap={theme.space.xs}
+              sx={{
+                marginRight: theme.space.md,
+              }}
+            >
+              <IconButton color="primary-ghost" size="medium">
+                <StyledIcon icon={<IconCopy />} size="md" color="primary" />
+              </IconButton>
+              <IconButton color="primary-ghost" size="medium">
+                <StyledIcon
+                  icon={<IconExternalLink />}
+                  size="md"
+                  color="primary"
+                />
+              </IconButton>
+            </Stack>
+          ),
+          startAdornment: field.startUrl && (
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+              sx={{
+                background: theme.palette.grey[900],
+                height: "100%",
+                padding: `0 ${theme.space.md}`,
+                borderRight: `1px solid ${theme.palette.grey[800]}`,
+                mr: 1,
+              }}
+            >
+              <Typography color="grey.500">{field.startUrl}</Typography>
+            </Stack>
+          ),
+        }}
         sx={{
           p: 0,
           "& .MuiInputBase-root": {
