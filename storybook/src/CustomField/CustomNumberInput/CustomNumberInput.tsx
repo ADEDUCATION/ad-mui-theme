@@ -1,16 +1,23 @@
-import { NumericFormat, NumericFormatProps } from "react-number-format";
+import { NumericFormat } from "react-number-format";
 
 import { InputAdornment, InputLabel, TextField } from "@mui/material";
 
 import Label from "../Label";
-import { IFieldStructure } from "../type";
+import { CustomInputProps, IFieldStructure } from "../type";
+import CustomHelperText from "../CustomHelperText";
 
-const CustomNumberInput = ({ ...rest }: NumericFormatProps) => {
+const CustomNumberInput = ({
+  requiredValue,
+  helperTextValue,
+  disabled,
+}: CustomInputProps) => {
   const field: IFieldStructure = {
     label: "Montant",
     id: "cfa_montant",
     type: "number",
-    mandatory: true,
+    mandatory: requiredValue as boolean,
+    helperText: helperTextValue,
+    disabled: disabled as boolean,
     endAdornment: "€",
   };
 
@@ -35,8 +42,11 @@ const CustomNumberInput = ({ ...rest }: NumericFormatProps) => {
         }
         variant="outlined"
         thousandSeparator=" "
-        {...rest}
+        disabled={field.disabled}
       />
+      {field.helperText && field.helperText?.length > 0 && (
+        <CustomHelperText helperText={field.helperText} />
+      )}
     </>
   );
 };

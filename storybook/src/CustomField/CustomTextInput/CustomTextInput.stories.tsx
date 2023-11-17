@@ -3,7 +3,7 @@ import type { Meta } from "@storybook/react";
 import CustomTextInput from "./CustomTextInput";
 // import { TextField, TextFieldProps } from "@mui/material";
 import { excludedControls } from "../utils";
-import { CustomTextInputProps } from "../type";
+import { CustomInputProps } from "../type";
 
 export default {
   title: "CustomField/CustomTextInput",
@@ -19,6 +19,6 @@ export default {
   },
 } as Meta<typeof CustomTextInput>;
 
-export const Default = (props: CustomTextInputProps) => (
+export const Default = (props: CustomInputProps) => (
   <CustomTextInput {...props} />
 );

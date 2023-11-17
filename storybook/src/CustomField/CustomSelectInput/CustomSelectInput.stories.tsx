@@ -2,7 +2,7 @@ import type { Meta } from "@storybook/react";
 
 import CustomSelectInput from "./CustomSelectInput";
 import { excludedControls } from "../utils";
-import { CustomTextInputProps } from "../type";
+import { CustomInputProps } from "../type";
 
 export default {
   title: "CustomField/CustomSelectInput",
@@ -18,6 +18,6 @@ export default {
   },
 } as Meta<typeof CustomSelectInput>;
 
-export const Default = (props: CustomTextInputProps) => (
+export const Default = (props: CustomInputProps) => (
   <CustomSelectInput {...props} />
 );

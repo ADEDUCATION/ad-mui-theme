@@ -2,15 +2,20 @@ import { PatternFormat, PatternFormatProps } from "react-number-format";
 
 import { InputLabel, TextField, TextFieldProps } from "@mui/material";
 import Label from "../Label";
+import { IFieldStructure } from "../type";
 
-const CustomCompanyCodeInput = ({ ...rest }: PatternFormatProps) => {
+export type CustomCompanyCodeInputProps = {
+  requiredValue?: boolean;
+};
+
+const CustomCompanyCodeInput = ({ ...rest }) => {
   const field = {
     label: "Numéro Siret",
     id: "cfa_siret",
     type: "siret",
     format: "### ### ### #####",
     mandatory: true,
-  };
+  } as IFieldStructure;
   return (
     <>
       <InputLabel>
@@ -20,7 +25,7 @@ const CustomCompanyCodeInput = ({ ...rest }: PatternFormatProps) => {
         customInput={TextField}
         variant="outlined"
         fullWidth
-        format={field.format}
+        format={field.format as string}
         type="text"
         name={field.id}
         valueIsNumericString

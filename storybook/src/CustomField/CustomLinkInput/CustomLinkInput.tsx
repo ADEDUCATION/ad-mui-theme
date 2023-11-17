@@ -11,8 +11,14 @@ import Label from "../Label";
 import { useState } from "react";
 import StyledIcon from "../../components/StyledIcon";
 import { IconCopy, IconExternalLink } from "@tabler/icons-react";
+import { CustomInputProps } from "../type";
+import CustomHelperText from "../CustomHelperText";
 
-const CustomLinkInput = () => {
+const CustomLinkInput = ({
+  requiredValue,
+  helperTextValue,
+  disabled,
+}: CustomInputProps) => {
   const theme = useTheme();
   const [value, setValue] = useState("");
   const field = {
@@ -20,8 +26,9 @@ const CustomLinkInput = () => {
     id: "cfa_website",
     label: "Site web",
     type: "text",
-    mandatory: true,
-    disabled: false,
+    mandatory: requiredValue as boolean,
+    disabled: disabled as boolean,
+    helperText: helperTextValue,
   };
   const parseUrl = (url: string | undefined) => {
     if (!field.startUrl || !url) return url;
@@ -54,10 +61,18 @@ const CustomLinkInput = () => {
                 marginRight: theme.space.md,
               }}
             >
-              <IconButton color="primary-ghost" size="medium">
+              <IconButton
+                color="primary-ghost"
+                size="medium"
+                disabled={field.disabled}
+              >
                 <StyledIcon icon={<IconCopy />} size="md" color="primary" />
               </IconButton>
-              <IconButton color="primary-ghost" size="medium">
+              <IconButton
+                color="primary-ghost"
+                size="medium"
+                disabled={field.disabled}
+              >
                 <StyledIcon
                   icon={<IconExternalLink />}
                   size="md"
@@ -91,6 +106,9 @@ const CustomLinkInput = () => {
           },
         }}
       />
+      {field.helperText && field.helperText?.length > 0 && (
+        <CustomHelperText helperText={field.helperText} />
+      )}
     </>
   );
 };

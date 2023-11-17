@@ -22,9 +22,10 @@ type CustomFieldTypes =
   | "autocompleteAddress"
   | "text";
 
-export type CustomTextInputProps = TextFieldProps & {
+export type CustomInputProps = TextFieldProps & {
   requiredValue?: boolean;
   helperTextValue?: string;
+  disabled?: boolean;
 };
 
 export type IFieldStructure = {

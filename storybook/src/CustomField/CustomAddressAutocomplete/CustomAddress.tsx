@@ -5,6 +5,7 @@ import {
   TextField,
 } from "@mui/material";
 import Label from "../Label";
+import { IFieldStructure } from "../type";
 
 const CustomAddress = ({ ...rest }: AutocompleteProps) => {
   const field = {
@@ -27,7 +28,7 @@ const CustomAddress = ({ ...rest }: AutocompleteProps) => {
             {...params}
             InputProps={{
               ...params.InputProps,
-              type: "search",
+              // type: "search",
               size: "small",
             }}
           />

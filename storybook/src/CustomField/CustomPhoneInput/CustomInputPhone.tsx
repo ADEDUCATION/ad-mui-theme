@@ -50,6 +50,7 @@ const CustomInputPhone = ({
           inputStyle={{}}
           {...rest}
           disabled={field.disabled}
+          containerClass={field.disabled ? "disabled" : ""}
         />
         {field.helperText && field.helperText?.length > 0 && (
           <CustomHelperText helperText={field.helperText} />

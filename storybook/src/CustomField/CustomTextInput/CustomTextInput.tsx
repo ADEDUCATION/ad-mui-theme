@@ -1,14 +1,14 @@
 import { InputLabel, TextField } from "@mui/material";
 
 import Label from "../Label";
-import { CustomTextInputProps, IFieldStructure } from "../type";
+import { CustomInputProps, IFieldStructure } from "../type";
 import CustomHelperText from "../CustomHelperText";
 
 const CustomTextInput = ({
   requiredValue,
   helperTextValue,
   ...rest
-}: CustomTextInputProps) => {
+}: CustomInputProps) => {
   const field = {
     label: "Titre(s) RNCP rattaché(s)",
     id: "cfa_rncp",
