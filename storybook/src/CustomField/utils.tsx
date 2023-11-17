@@ -37,6 +37,12 @@ export const excludedControls = [
   "minRows",
   "FormHelperTextProps",
   "id",
+  "multiline",
+  "required",
+  "focused",
+  "color",
+  "placeholder",
+  "margin",
 ];
 
 export const fields = [

@@ -1,15 +1,22 @@
-import { InputLabel, TextField, TextFieldProps } from "@mui/material";
+import { InputLabel, TextField } from "@mui/material";
 
 import Label from "../Label";
+import { CustomTextInputProps, IFieldStructure } from "../type";
+import CustomHelperText from "../CustomHelperText";
 
-const CustomTextInput = ({ ...rest }: TextFieldProps) => {
+const CustomTextInput = ({
+  requiredValue,
+  helperTextValue,
+  ...rest
+}: CustomTextInputProps) => {
   const field = {
     label: "Titre(s) RNCP rattaché(s)",
     id: "cfa_rncp",
     type: "multiselect",
     remote: "rncp",
     endpoint: "rncp_exact_title",
-    mandatory: true,
+    mandatory: requiredValue,
+    helperText: helperTextValue,
   } as IFieldStructure;
 
   return (
@@ -18,6 +25,9 @@ const CustomTextInput = ({ ...rest }: TextFieldProps) => {
         <Label field={field} />
       </InputLabel>
       <TextField {...rest} />
+      {field.helperText && field.helperText?.length > 0 && (
+        <CustomHelperText helperText={field.helperText} />
+      )}
     </>
   );
 };

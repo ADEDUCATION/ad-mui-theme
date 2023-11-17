@@ -1,3 +1,5 @@
+import { TextFieldProps } from "@mui/material";
+
 type CustomFieldTypes =
   | "upload"
   | "siren"
@@ -19,6 +21,11 @@ type CustomFieldTypes =
   | "subsection"
   | "autocompleteAddress"
   | "text";
+
+export type CustomTextInputProps = TextFieldProps & {
+  requiredValue?: boolean;
+  helperTextValue?: string;
+};
 
 export type IFieldStructure = {
   // label: string;
