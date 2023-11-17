@@ -1,27 +1,35 @@
 import {
   Autocomplete,
   Checkbox,
-  Chip,
-  FormHelperText,
   InputLabel,
-  MenuItem,
-  Select,
-  SelectProps,
   TextField,
   Typography,
 } from "@mui/material";
 
 import Label from "../Label";
-import { IconCactus } from "@tabler/icons-react";
+import { IFieldStructure } from "../type";
+import CustomHelperText from "../CustomHelperText";
 
-const CustomMultiselectInput = ({ ...rest }: SelectProps) => {
+export interface CustomMultiselectInputProps {
+  requiredValue?: boolean;
+  helperTextValue?: string;
+  disabled?: boolean;
+}
+
+const CustomMultiselectInput = ({
+  requiredValue,
+  helperTextValue,
+  disabled,
+}: CustomMultiselectInputProps) => {
   const field = {
     label: "Titre(s) RNCP rattaché(s)",
     id: "cfa_rncp",
     type: "multiselect",
     remote: "rncp",
     endpoint: "rncp_exact_title",
-    mandatory: true,
+    mandatory: requiredValue,
+    helperText: helperTextValue,
+    disabled: disabled,
     list: [
       { id: "1", label: "Titre 1" },
       { id: "2", label: "Titre 2" },
@@ -30,57 +38,14 @@ const CustomMultiselectInput = ({ ...rest }: SelectProps) => {
   } as IFieldStructure;
 
   return (
-    // <>
-    //   <InputLabel id={field.id}>
-    //     <Label field={field} />
-    //   </InputLabel>
-    //   <Select
-    //     autoWidth={true}
-    //     fullWidth
-    //     // multiple
-    //     renderValue={(selected) => {
-    //       return (
-    //         <div style={{ margin: 3 }}>
-    //           {/* {(selected as unknown as string[]).map((selectedValue) => ( */}
-    //           <Chip
-    //             key={`${field.id}`}
-    //             label={field.list?.find((el) => el.id === selected)?.label}
-    //             sx={{ m: 1 }}
-    //             color="primary"
-    //             onDelete={() => {
-    //               console.log("delete");
-    //             }}
-    //             variant="soft"
-    //             icon={<IconCactus />}
-    //             size="medium"
-    //           />
-    //           {/* ))} */}
-    //         </div>
-    //       );
-    //     }}
-    //     {...rest}
-    //   >
-    //     {field.list &&
-    //       field.list.map((el) => (
-    //         <MenuItem key={`${field.id}-${el.id}`} value={el.id}>
-    //           {el.label}
-    //         </MenuItem>
-    //       ))}
-    //   </Select>
-    //   {!!field.helperText && (
-    //     <FormHelperText>{field.helperText}</FormHelperText>
-    //   )}
-    // </>
     <>
       <InputLabel>
         <Label field={field} />
       </InputLabel>
       <Autocomplete
         multiple={true}
-        // value={inputValue}
         fullWidth
         disabled={field.disabled}
-        // isOptionEqualToValue={(option, value) => option.value === value.value}
         options={field.list || []}
         disableCloseOnSelect
         ChipProps={{
@@ -126,6 +91,9 @@ const CustomMultiselectInput = ({ ...rest }: SelectProps) => {
           },
         }}
       />
+      {field.helperText && field.helperText?.length > 0 && (
+        <CustomHelperText helperText={field.helperText} />
+      )}
     </>
   );
 };

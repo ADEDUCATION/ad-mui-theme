@@ -3,6 +3,7 @@ import { NumericFormat, NumericFormatProps } from "react-number-format";
 import { InputAdornment, InputLabel, TextField } from "@mui/material";
 
 import Label from "../Label";
+import { IFieldStructure } from "../type";
 
 const CustomNumberInput = ({ ...rest }: NumericFormatProps) => {
   const field: IFieldStructure = {
