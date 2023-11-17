@@ -4,15 +4,29 @@ import PhoneInput, { PhoneInputProps } from "react-phone-input-2";
 import fr from "react-phone-input-2/lang/fr.json";
 import "react-phone-input-2/lib/style.css";
 import { useState } from "react";
-import { PHONE_COUNTRIES } from "../utils";
+import { IFieldStructure } from "../type";
+import CustomHelperText from "../CustomHelperText";
 
-const CustomInputPhone = ({ ...rest }: PhoneInputProps) => {
+export interface CustomPhoneProps extends PhoneInputProps {
+  requiredValue?: boolean;
+  helperTextValue?: string;
+  disabled?: boolean;
+}
+
+const CustomInputPhone = ({
+  requiredValue,
+  helperTextValue,
+  disabled,
+  ...rest
+}: CustomPhoneProps) => {
   const field = {
     label: "Téléphone",
     id: "cfa_tel",
     type: "phone",
-    mandatory: true,
-  };
+    mandatory: requiredValue,
+    helperText: helperTextValue,
+    disabled: disabled,
+  } as IFieldStructure;
   const [value, setValue] = useState("");
 
   return (
@@ -35,7 +49,11 @@ const CustomInputPhone = ({ ...rest }: PhoneInputProps) => {
           placeholder="ex : +33 6 44 55 66 77"
           inputStyle={{}}
           {...rest}
+          disabled={field.disabled}
         />
+        {field.helperText && field.helperText?.length > 0 && (
+          <CustomHelperText helperText={field.helperText} />
+        )}
       </Grid>
     </>
   );
