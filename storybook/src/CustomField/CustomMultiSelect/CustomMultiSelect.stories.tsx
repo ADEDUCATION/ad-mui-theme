@@ -1,11 +1,19 @@
 import type { Meta } from "@storybook/react";
 
-import CustomMultiSelect from "./CustomMultiSelect";
-import { SelectProps } from "@mui/material";
+import CustomMultiSelect, {
+  CustomMultiselectInputProps,
+} from "./CustomMultiSelect";
 
 export default {
   title: "CustomField/CustomMultiSelect",
   component: CustomMultiSelect,
+  args: {
+    requiredValue: true,
+    helperTextValue: "HelperText",
+    disabled: false,
+  },
 } as Meta<typeof CustomMultiSelect>;
 
-export const Default = (props: SelectProps) => <CustomMultiSelect {...props} />;
+export const Default = (props: CustomMultiselectInputProps) => (
+  <CustomMultiSelect {...props} />
+);

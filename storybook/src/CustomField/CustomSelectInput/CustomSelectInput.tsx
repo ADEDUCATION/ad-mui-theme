@@ -1,15 +1,18 @@
-import { useContext, useEffect, useState } from "react";
-
-import { InputLabel, TextField, TextFieldProps } from "@mui/material";
+import { InputLabel, TextField } from "@mui/material";
 
 import Label from "../Label";
+import { CustomInputProps, IFieldStructure } from "../type";
+import CustomHelperText from "../CustomHelperText";
 
-const CustomSelectInput = ({ ...rest }: TextFieldProps) => {
+const CustomSelectInput = ({
+  requiredValue,
+  helperTextValue,
+  ...rest
+}: CustomInputProps) => {
   const field = {
     label: "Type d'employeur",
     id: "company_type",
     type: "select",
-    mandatory: true,
     options: [
       {
         value: 11,
@@ -28,6 +31,8 @@ const CustomSelectInput = ({ ...rest }: TextFieldProps) => {
       },
     ],
     fullWidth: true,
+    mandatory: requiredValue,
+    helperText: helperTextValue,
   } as IFieldStructure;
   return (
     <>
@@ -58,6 +63,9 @@ const CustomSelectInput = ({ ...rest }: TextFieldProps) => {
           );
         })}
       </TextField>
+      {field.helperText && field.helperText?.length > 0 && (
+        <CustomHelperText helperText={field.helperText} />
+      )}
     </>
   );
 };

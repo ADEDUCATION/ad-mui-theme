@@ -1,12 +1,11 @@
 import type { Meta } from "@storybook/react";
-
-import CustomNumberInput from "./CustomNumberInput";
+import CustomLinkInput from "./CustomLinkInput";
 import { CustomInputProps } from "../type";
 import { excludedControls } from "../utils";
 
 export default {
-  title: "CustomField/CustomNumberInput",
-  component: CustomNumberInput,
+  title: "CustomField/CustomLinkInput",
+  component: CustomLinkInput,
   args: {
     requiredValue: true,
     helperTextValue: "HelperText",
@@ -17,8 +16,8 @@ export default {
       exclude: excludedControls,
     },
   },
-} as Meta<typeof CustomNumberInput>;
+} as Meta<typeof CustomLinkInput>;
 
 export const Default = (props: CustomInputProps) => (
-  <CustomNumberInput {...props} />
+  <CustomLinkInput {...props} />
 );

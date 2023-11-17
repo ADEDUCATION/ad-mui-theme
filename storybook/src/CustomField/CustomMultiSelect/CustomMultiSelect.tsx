@@ -1,25 +1,35 @@
-import { useContext, useEffect, useState } from "react";
-
 import {
-  Chip,
-  FormControl,
-  FormHelperText,
+  Autocomplete,
+  Checkbox,
   InputLabel,
-  MenuItem,
-  Select,
-  SelectProps,
+  TextField,
+  Typography,
 } from "@mui/material";
 
 import Label from "../Label";
+import { IFieldStructure } from "../type";
+import CustomHelperText from "../CustomHelperText";
 
-const CustomMultiselectInput = ({ ...rest }: SelectProps) => {
+export interface CustomMultiselectInputProps {
+  requiredValue?: boolean;
+  helperTextValue?: string;
+  disabled?: boolean;
+}
+
+const CustomMultiselectInput = ({
+  requiredValue,
+  helperTextValue,
+  disabled,
+}: CustomMultiselectInputProps) => {
   const field = {
     label: "Titre(s) RNCP rattaché(s)",
     id: "cfa_rncp",
     type: "multiselect",
     remote: "rncp",
     endpoint: "rncp_exact_title",
-    mandatory: true,
+    mandatory: requiredValue,
+    helperText: helperTextValue,
+    disabled: disabled,
     list: [
       { id: "1", label: "Titre 1" },
       { id: "2", label: "Titre 2" },
@@ -29,37 +39,60 @@ const CustomMultiselectInput = ({ ...rest }: SelectProps) => {
 
   return (
     <>
-      <InputLabel id={field.id}>
+      <InputLabel>
         <Label field={field} />
       </InputLabel>
-      <Select
-        autoWidth={true}
+      <Autocomplete
+        multiple={true}
         fullWidth
-        // multiple
-        renderValue={(selected) => {
+        disabled={field.disabled}
+        options={field.list || []}
+        disableCloseOnSelect
+        ChipProps={{
+          color: "primary",
+          variant: "soft",
+          size: "medium",
+        }}
+        renderInput={(params) => (
+          <TextField {...params} variant="outlined" label="" />
+        )}
+        renderOption={(props, option, { selected }) => {
           return (
-            <div style={{ margin: 3 }}>
-              {/* {(selected as unknown as string[]).map((selectedValue) => ( */}
-              <Chip
-                key={`${field.id}`}
-                label={field.list?.find((el) => el.id === selected)?.label}
-                sx={{ m: 1 }}
+            <li
+              {...props}
+              key={`${field.id}` as string}
+              style={{
+                backgroundColor: selected ? "primary.main" : "white",
+              }}
+            >
+              <Checkbox
+                style={{ marginRight: 8 }}
+                checked={selected}
+                color="primary"
               />
-              {/* ))} */}
-            </div>
+              <Typography
+                variant="body2"
+                component="span"
+                sx={{
+                  color: selected ? "primary.main" : "grey.500",
+                }}
+              >
+                {option.label || "Information manquante"}
+              </Typography>
+            </li>
           );
         }}
-        {...rest}
-      >
-        {field.list &&
-          field.list.map((el) => (
-            <MenuItem key={`${field.id}-${el.id}`} value={el.id}>
-              {el.label}
-            </MenuItem>
-          ))}
-      </Select>
-      {!!field.helperText && (
-        <FormHelperText>{field.helperText}</FormHelperText>
+        sx={{
+          "& .MuiInputBase-root": {
+            py: 0.5,
+          },
+          "& .MuiFormLabel-root": {
+            marginTop: "-3px",
+          },
+        }}
+      />
+      {field.helperText && field.helperText?.length > 0 && (
+        <CustomHelperText helperText={field.helperText} />
       )}
     </>
   );

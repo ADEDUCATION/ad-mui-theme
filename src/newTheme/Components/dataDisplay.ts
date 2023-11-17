@@ -4,6 +4,9 @@ import { MuiColors } from "../Palette/utils";
 
 const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
   MuiChip: {
+    defaultProps: {
+      color: "primary",
+    },
     styleOverrides: {
       root: ({ ownerState }: { ownerState: ChipProps }) => {
         return {

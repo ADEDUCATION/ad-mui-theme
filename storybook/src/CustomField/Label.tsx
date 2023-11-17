@@ -1,50 +1,29 @@
-import { Box, Tooltip } from "@mui/material";
-
-const formColors: {
-  color: string;
-  id: "isCerfa" | "isConvention";
-  tooltip: string;
-}[] = [
-  {
-    color: "#f5b92a",
-    id: "isCerfa",
-    tooltip: "Champ nécessaire pour valider le formulaire Cerfa",
-  },
-  {
-    color: "#0795ff",
-    id: "isConvention",
-    tooltip: "Champ nécessaire pour valider le formulaire Convention",
-  },
-];
+import { Box, Stack, Typography, useTheme } from "@mui/material";
+import { IFieldStructure } from "./type";
 
 const Label = ({ field }: { field: IFieldStructure }) => {
+  const theme = useTheme();
   return (
-    <Box
-      alignContent={"flex-end"}
-      sx={{ pr: 1, fontSize: 12, fontWeight: "bold" }}
+    <Stack
+      direction="row"
+      alignItems="center"
+      gap={theme.space.xs}
+      mb={theme.space.xs}
     >
-      {field.label}
-      <span style={{ float: "right", display: "flex" }}>
-        {formColors.map((formColor) => {
-          if (field?.[formColor.id]) {
-            return (
-              <Tooltip title={formColor.tooltip} key={formColor.id}>
-                <div
-                  style={{
-                    width: 12,
-                    height: 12,
-                    backgroundColor: formColor.color,
-                    borderRadius: 12,
-                    marginLeft: 10,
-                    marginTop: 6,
-                  }}
-                ></div>
-              </Tooltip>
-            );
-          }
-        })}
-      </span>
-    </Box>
+      <Typography variant="bodyBold" color="grey.300">
+        {field.label}
+      </Typography>
+      {field.mandatory && (
+        <Box
+          sx={{
+            width: theme.space["2xs"],
+            height: theme.space["2xs"],
+            backgroundColor: "warning.main",
+            borderRadius: theme.radius.shapeFull,
+          }}
+        ></Box>
+      )}
+    </Stack>
   );
 };
 

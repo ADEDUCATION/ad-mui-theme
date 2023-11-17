@@ -1,3 +1,5 @@
+import { TextFieldProps } from "@mui/material";
+
 type CustomFieldTypes =
   | "upload"
   | "siren"
@@ -20,7 +22,13 @@ type CustomFieldTypes =
   | "autocompleteAddress"
   | "text";
 
-type IFieldStructure = {
+export type CustomInputProps = TextFieldProps & {
+  requiredValue?: boolean;
+  helperTextValue?: string;
+  disabled?: boolean;
+};
+
+export type IFieldStructure = {
   // label: string;
   // id: string;
   // type: CustomFieldTypes;
