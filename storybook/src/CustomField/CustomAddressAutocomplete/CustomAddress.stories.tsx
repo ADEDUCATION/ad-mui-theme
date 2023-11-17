@@ -2,6 +2,7 @@ import type { Meta } from "@storybook/react";
 
 import CustomAddress from "./CustomAddress";
 import { excludedControls } from "../utils";
+import { CustomInputProps } from "../type";
 
 export default {
   title: "CustomField/CustomAddressAutocomplete",
@@ -18,4 +19,6 @@ export default {
   },
 } as Meta<typeof CustomAddress>;
 
-export const Default = (props: any) => <CustomAddress {...props} />;
+export const Default = (props: CustomInputProps) => (
+  <CustomAddress {...props} />
+);
