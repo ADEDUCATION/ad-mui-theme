@@ -11,6 +11,7 @@ export default {
   args: {
     requiredValue: true,
     helperTextValue: "HelperText",
+    disabled: false,
   },
   parameters: {
     controls: {

@@ -1,20 +1,23 @@
-import { PatternFormat, PatternFormatProps } from "react-number-format";
+import { PatternFormat } from "react-number-format";
 
-import { InputLabel, TextField, TextFieldProps } from "@mui/material";
+import { InputLabel, TextField } from "@mui/material";
 import Label from "../Label";
-import { IFieldStructure } from "../type";
+import { CustomInputProps, IFieldStructure } from "../type";
+import CustomHelperText from "../CustomHelperText";
 
-export type CustomCompanyCodeInputProps = {
-  requiredValue?: boolean;
-};
-
-const CustomCompanyCodeInput = ({ ...rest }) => {
+const CustomCompanyCodeInput = ({
+  disabled,
+  requiredValue,
+  helperTextValue,
+}: CustomInputProps) => {
   const field = {
     label: "Numéro Siret",
     id: "cfa_siret",
     type: "siret",
     format: "### ### ### #####",
-    mandatory: true,
+    mandatory: requiredValue as boolean,
+    helperText: helperTextValue,
+    disabled: disabled as boolean,
   } as IFieldStructure;
   return (
     <>
@@ -38,8 +41,11 @@ const CustomCompanyCodeInput = ({ ...rest }) => {
         //     : error && error.ref?.name === field.id && field?.errorMessage
         // }
         // onValueChange={({ value: v }) => onChange({ target: { value: v } })}
-        {...rest}
+        disabled={field.disabled}
       />
+      {field.helperText && field.helperText?.length > 0 && (
+        <CustomHelperText helperText={field.helperText} />
+      )}
     </>
   );
 };

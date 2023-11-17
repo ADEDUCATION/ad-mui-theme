@@ -2,11 +2,16 @@ import type { Meta } from "@storybook/react";
 
 import CustomCompanyCodeInput from "./CustomCompanyCodeInput";
 import { excludedControls } from "../utils";
-import { PatternFormatProps } from "react-number-format";
+import { CustomInputProps } from "../type";
 
 export default {
   title: "CustomField/CustomCompanyCodeInput",
   component: CustomCompanyCodeInput,
+  args: {
+    requiredValue: true,
+    helperTextValue: "HelperText",
+    disabled: false,
+  },
   parameters: {
     controls: {
       exclude: excludedControls,
@@ -14,6 +19,6 @@ export default {
   },
 } as Meta<typeof CustomCompanyCodeInput>;
 
-export const Default = (props: PatternFormatProps) => (
+export const Default = (props: CustomInputProps) => (
   <CustomCompanyCodeInput {...props} />
 );

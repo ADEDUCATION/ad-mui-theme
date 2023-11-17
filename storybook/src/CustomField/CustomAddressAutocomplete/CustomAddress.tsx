@@ -1,18 +1,20 @@
-import {
-  Autocomplete,
-  AutocompleteProps,
-  InputLabel,
-  TextField,
-} from "@mui/material";
+import { Autocomplete, InputLabel, TextField } from "@mui/material";
 import Label from "../Label";
-import { IFieldStructure } from "../type";
+import { CustomInputProps, IFieldStructure } from "../type";
+import CustomHelperText from "../CustomHelperText";
 
-const CustomAddress = ({ ...rest }: AutocompleteProps) => {
+const CustomAddress = ({
+  disabled,
+  requiredValue,
+  helperTextValue,
+}: CustomInputProps) => {
   const field = {
     label: "Adresse",
     id: "address",
     type: "address",
-    mandatory: true,
+    mandatory: requiredValue as boolean,
+    helperText: helperTextValue,
+    disabled: disabled as boolean,
   } as IFieldStructure;
   return (
     <>
@@ -34,8 +36,11 @@ const CustomAddress = ({ ...rest }: AutocompleteProps) => {
           />
         )}
         options={[]}
-        {...rest}
+        disabled={field.disabled}
       />
+      {field.helperText && field.helperText?.length > 0 && (
+        <CustomHelperText helperText={field.helperText} />
+      )}
     </>
   );
 };
