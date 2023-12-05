@@ -3,12 +3,7 @@ import { OverridesStyleRules } from "@mui/material/styles/overrides";
 import { Props } from "./components";
 import { alpha } from "@mui/material";
 
-export const layout = ({
-  palette,
-  typography,
-  radius,
-  space,
-}: Props): OverridesStyleRules => ({
+export const layout = ({ palette, typography, radius, space }: Props): OverridesStyleRules => ({
   MuiDataGrid: {
     defaultProps: {
       disableColumnFilter: true,
@@ -35,6 +30,9 @@ export const layout = ({
         },
         "& .MuiDataGrid-iconButtonContainer": {
           "& .MuiButtonBase-root": {
+            "&:hover": {
+              backgroundColor: palette?.grey[900] + "!important",
+            },
             "&:focus": {
               "& .MuiSvgIcon-root": {
                 color: palette?.primary.main,
@@ -119,8 +117,11 @@ export const layout = ({
             "& .MuiDataGrid-columnHeaderDraggableContainer": {
               "& .MuiDataGrid-menuIcon": {
                 "& .MuiButtonBase-root": {
+                  "&:hover": {
+                    backgroundColor: palette?.grey[900] + "!important",
+                  },
                   "& .MuiSvgIcon-root": {
-                    color: palette?.grey[500],
+                    color: palette?.grey[400] + " !important",
                   },
                 },
               },
@@ -128,7 +129,7 @@ export const layout = ({
                 "& .MuiDataGrid-iconButtonContainer": {
                   "& .MuiButtonBase-root": {
                     "& .MuiSvgIcon-root": {
-                      color: palette?.grey[500],
+                      color: palette?.grey[400] + " !important",
                     },
                   },
                 },
@@ -144,7 +145,7 @@ export const layout = ({
             "& .MuiDataGrid-iconButtonContainer": {
               "& .MuiButtonBase-root": {
                 "& .MuiSvgIcon-root": {
-                  color: palette?.grey[500],
+                  color: palette?.grey[400] + " !important",
                 },
               },
             },
@@ -383,16 +384,12 @@ export const layout = ({
         },
         "& .MuiButton-root": {
           "&:hover": {
-            backgroundColor:
-              palette?.background.paper &&
-              alpha(palette?.background.paper, 0.2),
+            backgroundColor: palette?.background.paper && alpha(palette?.background.paper, 0.2),
           },
         },
         "& .MuiIconButton-root": {
           "&:hover": {
-            backgroundColor:
-              palette?.background.paper &&
-              alpha(palette?.background.paper, 0.2),
+            backgroundColor: palette?.background.paper && alpha(palette?.background.paper, 0.2),
           },
           "& .MuiSvgIcon-root": {
             width: "20px",
