@@ -210,6 +210,12 @@ declare module "@mui/material/Alert" {
   }
 }
 
+declare module "@mui/material/Switch" {
+  interface SwitchPropsColorOverrides {
+    default: false;
+  }
+}
+
 export const newTheme = (mode: SchoolThemes) => {
   const customPalette = createNewPalette(mode);
   const customTypography = createNewTypography({
