@@ -10,7 +10,7 @@ const MuiAccordion = () => {
   return (
     <Accordion>
       <AccordionSummary expandIcon={<GridExpandMoreIcon />}>
-        <Typography>Accordion 1</Typography>
+        <Typography variant="h6">Accordion 1</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>Le texte au sein de mon accordeon</Typography>
