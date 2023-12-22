@@ -7,10 +7,7 @@ export default {
   component: MuiAccordion,
   args: {
     disabled: false,
-    expanded: false,
   },
 } as Meta<typeof MuiAccordion>;
 
-export const Default = (props: MuiAccordionProps) => (
-  <MuiAccordion {...props} />
-);
+export const Default = (props: MuiAccordionProps) => <MuiAccordion {...props} />;
