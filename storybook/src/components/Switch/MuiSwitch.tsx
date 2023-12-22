@@ -1,8 +1,20 @@
-import { Switch } from "@mui/material";
-import { SwitchBaseProps } from "@mui/material/internal/SwitchBase";
+import { Switch, SwitchProps } from "@mui/material";
+import { MuiOmits } from "../../utils";
+import { useState } from "react";
 
-const MuiSwitch = ({ ...rest }: SwitchBaseProps) => {
-  return <Switch {...rest} />;
+export type MuiSwitchProps = Omit<SwitchProps, MuiOmits | "icon">;
+
+const MuiSwitch = ({ ...rest }: MuiSwitchProps) => {
+  const [checked, setChecked] = useState(false);
+  return (
+    <Switch
+      {...rest}
+      onChange={() => {
+        setChecked(!checked);
+      }}
+      checked={checked}
+    />
+  );
 };
 
 export default MuiSwitch;
