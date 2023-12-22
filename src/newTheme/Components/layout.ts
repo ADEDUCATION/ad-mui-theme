@@ -3,7 +3,12 @@ import { OverridesStyleRules } from "@mui/material/styles/overrides";
 import { Props } from "./components";
 import { alpha } from "@mui/material";
 
-export const layout = ({ palette, typography, radius, space }: Props): OverridesStyleRules => ({
+export const layout = ({
+  palette,
+  typography,
+  radius,
+  space,
+}: Props): OverridesStyleRules => ({
   MuiDataGrid: {
     defaultProps: {
       disableColumnFilter: true,
@@ -290,6 +295,25 @@ export const layout = ({ palette, typography, radius, space }: Props): Overrides
         "& .MuiDivider-root": {
           borderColor: palette?.grey[800],
         },
+        padding: `${space?.md} ${space?.xl}`,
+        borderRadius: radius?.shapeSm + " !important",
+        "& .MuiAccordionSummary-root": {
+          padding: 0,
+          "&.MuiButtonBase-root": {
+            minHeight: "auto",
+            "&:hover": {
+              backgroundColor: "transparent",
+            },
+          },
+          "& .MuiAccordionSummary-content": {
+            margin: 0,
+          },
+        },
+        "& .MuiAccordionDetails-root": {
+          padding: 0,
+          marginTop: space?.md,
+          marginBottom: space?.sm,
+        },
       },
     },
   },
@@ -384,12 +408,16 @@ export const layout = ({ palette, typography, radius, space }: Props): Overrides
         },
         "& .MuiButton-root": {
           "&:hover": {
-            backgroundColor: palette?.background.paper && alpha(palette?.background.paper, 0.2),
+            backgroundColor:
+              palette?.background.paper &&
+              alpha(palette?.background.paper, 0.2),
           },
         },
         "& .MuiIconButton-root": {
           "&:hover": {
-            backgroundColor: palette?.background.paper && alpha(palette?.background.paper, 0.2),
+            backgroundColor:
+              palette?.background.paper &&
+              alpha(palette?.background.paper, 0.2),
           },
           "& .MuiSvgIcon-root": {
             width: "20px",

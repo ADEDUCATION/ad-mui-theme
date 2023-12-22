@@ -210,6 +210,12 @@ declare module "@mui/material/Alert" {
   }
 }
 
+declare module "@mui/material/Paper" {
+  interface PaperPropsVariantOverrides {
+    innerCard: true;
+  }
+}
+
 export const newTheme = (mode: SchoolThemes) => {
   const customPalette = createNewPalette(mode);
   const customTypography = createNewTypography({

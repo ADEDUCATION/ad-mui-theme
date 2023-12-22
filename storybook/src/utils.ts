@@ -63,4 +63,8 @@ export type MuiOmits =
   | "required"
   | "defaultChecked"
   | "showZero"
+  | "defaultExpanded"
+  | "disableGutters"
+  | "square"
+  | "elevation"
   | "";

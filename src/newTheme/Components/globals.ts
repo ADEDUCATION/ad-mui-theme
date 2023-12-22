@@ -66,6 +66,23 @@ const globals = ({ palette, typography, space }: Props) => ({
       },
     },
   },
+
+  MuiPaper: {
+    styleOverrides: {
+      root: {
+        backgroundColor: palette?.background.paper,
+      },
+    },
+    variants: [
+      {
+        props: { variant: "innerCard" },
+        style: {
+          backgroundColor: "transparent",
+          padding: `${space?.md} 0 !important`,
+        },
+      },
+    ],
+  },
 });
 
 export default globals;

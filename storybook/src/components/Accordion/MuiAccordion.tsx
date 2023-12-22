@@ -1,21 +1,27 @@
 import {
   Accordion,
   AccordionDetails,
+  AccordionProps,
   AccordionSummary,
   Typography,
 } from "@mui/material";
 import { GridExpandMoreIcon } from "@mui/x-data-grid";
+import { MuiOmits } from "../../utils";
 
-const MuiAccordion = () => {
+export type MuiAccordionProps = Omit<AccordionProps, MuiOmits>;
+
+const MuiAccordion = ({ ...rest }: MuiAccordionProps) => {
   return (
-    <Accordion>
-      <AccordionSummary expandIcon={<GridExpandMoreIcon />}>
-        <Typography>Accordion 1</Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Typography>Le texte au sein de mon accordeon</Typography>
-      </AccordionDetails>
-    </Accordion>
+    <>
+      <Accordion {...rest}>
+        <AccordionSummary expandIcon={<GridExpandMoreIcon />}>
+          <Typography variant="h6">Accordion 1</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>Le texte au sein de mon accordeon</Typography>
+        </AccordionDetails>
+      </Accordion>
+    </>
   );
 };
 
