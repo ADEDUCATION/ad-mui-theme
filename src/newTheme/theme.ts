@@ -213,6 +213,7 @@ declare module "@mui/material/Alert" {
 declare module "@mui/material/Switch" {
   interface SwitchPropsColorOverrides {
     default: false;
+    innerCard: true;
   }
 }
 
