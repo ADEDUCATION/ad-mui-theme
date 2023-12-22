@@ -23,7 +23,7 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
               : ownerState.variant === "soft"
               ? palette && palette[ownerState.color as MuiColors].xlight
               : "transparent",
-          "&:hover": {
+          "&.MuiChip-clickable:hover": {
             backgroundColor:
               ownerState.variant === "filled" && ownerState.avatar
                 ? palette && palette[ownerState.color as MuiColors]
@@ -125,7 +125,7 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
             height: space?.xl,
             margin: 0,
           },
-          "& .MuiChip-labelMedium": {
+          "& .MuiChip-labelLarge": {
             fontSize: typography?.subtitleMedium.fontSize,
             fontWeight: typography?.subtitleMedium.fontWeight,
             lineHeight: typography?.subtitleMedium.lineHeight,
