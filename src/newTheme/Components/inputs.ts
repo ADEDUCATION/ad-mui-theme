@@ -142,9 +142,10 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
       root: ({ ownerState }: { ownerState: IconButtonProps }) => {
         const [color, variant] = ownerState.color?.split("-") as string[];
         return {
-          border:
+          border: "none",
+          boxShadow:
             variant === "outlined"
-              ? `1px solid ${palette && palette[color as MuiColors].main}`
+              ? `inset 0 0 0 1px ${palette && palette[color as MuiColors].main}`
               : "none",
           backgroundColor:
             variant === "contained"
@@ -157,6 +158,8 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
             color:
               variant === "contained"
                 ? palette && palette[color as MuiColors].contrastText
+                : variant === "outlined"
+                ? palette && palette[color as MuiColors].main
                 : variant === "soft"
                 ? palette && palette[color as MuiColors].xdark
                 : "inherit"
@@ -167,6 +170,8 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
             color:
               variant === "contained"
                 ? palette && palette[color as MuiColors].contrastText
+                : variant === "outlined"
+                ? palette && palette[color as MuiColors].main
                 : variant === "soft"
                 ? palette && palette[color as MuiColors].xdark
                 : "inherit"
@@ -280,7 +285,6 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
           position: "fixed",
           bottom: space?.lg,
           right: space?.lg,
-          boxShadow: "none",
           textTransform: "inherit",
           width: "inherit",
           height: "inherit",
@@ -295,9 +299,10 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
             height: space?.["3xl"],
           },
           borderRadius: radius?.floatingButton,
-          border:
+          border: "none",
+          boxShadow:
             ownerState.variant === "outlined"
-              ? `1px solid ${palette && palette[ownerState.color as MuiColors].main}`
+              ? `inset 0 0 0 1px ${palette && palette[ownerState.color as MuiColors].main}`
               : "none",
           color:
             ownerState.variant === "contained"
