@@ -1,4 +1,4 @@
-import { ButtonProps, IconButtonProps, FabProps, CheckboxProps } from "@mui/material";
+import { ButtonProps, IconButtonProps, FabProps, CheckboxProps, SwitchProps } from "@mui/material";
 import { Props } from "./components";
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
 import { MuiColors } from "../Palette/utils";
@@ -718,6 +718,21 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
   MuiButtonGroup: {
     defaultProps: {
       disableElevation: true,
+    },
+  },
+  MuiSwitch: {
+    styleOverrides: {
+      root: ({ ownerState }: { ownerState: SwitchProps }) => {
+        return {
+          "& .Mui-checked": {
+            "& .MuiSwitch-thumb": {
+              boxShadow: `0px 1.5px 2px 0px ${
+                palette && palette[ownerState.color as MuiColors].main
+              }60;`,
+            },
+          },
+        };
+      },
     },
   },
 });
