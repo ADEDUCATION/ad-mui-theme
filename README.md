@@ -2,16 +2,22 @@
 
 This new theme is designed to have different mode (ade, esd, esp, eac...)
 
-### tab Get started
+### Installation
 
-tab content Get started
+- [Installation](#installation)
+
+### How to start the project
+
+- [How to start](#how-to-start)
 
 ### How to use it
 
 - [Import theme in your app](#import-theme-in-your-app)
 - [Theme you can use with this package](#theme-you-can-use-with-this-package)
 
-### tab Deploy
+### How to deploy package to npm
+
+- [How to deploy](#how-to-deploy)
 
 ## Installation
 
@@ -26,6 +32,14 @@ $ yarn add ad-mui-theme-package @mui/material @emotion/react @emotion/styled
 ```bash
 $ npm install ad-mui-theme-package @mui/material @emotion/react @emotion/styled
 ```
+
+## How to start
+
+```bash
+$ make start-storybook
+```
+
+This command build package and install dependencies for storybook. Then it launch storybook on port 6006.
 
 ## How to use it
 
@@ -176,4 +190,20 @@ const MyComponent = () => {
     </IconButton>
   );
 };
+```
+
+## How to deploy
+
+Run the following commands to deploy the package to npm.
+
+These commands trigger a workflow that will build the package, publish it to npm, and create a new Github version.
+
+⚠️ The new version takes the version of the tag so be careful, the tag of the new version must be greater than the last published version. Otherwise, the workflow will fail. ⚠️
+
+```bash
+$ git add <files>
+$ git commit -m "<message>"
+$ git push
+$ git tag <newVersion>
+$ git push --tags
 ```
