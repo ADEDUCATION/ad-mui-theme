@@ -2,6 +2,17 @@
 
 This new theme is designed to have different mode (ade, esd, esp, eac...)
 
+### tab Get started
+
+tab content Get started
+
+### How to use it
+
+- [Import theme in your app](#import-theme-in-your-app)
+- [Theme you can use with this package](#theme-you-can-use-with-this-package)
+
+### tab Deploy
+
 ## Installation
 
 ### With `yarn`
@@ -48,7 +59,7 @@ import { Button } from "@mui/material";
 
 const MyComponent = () => {
   // use theme here
-  return <Button color="color1">My component</Button>;
+  return <Button color="primary">My component</Button>;
 };
 ```
 
@@ -65,7 +76,7 @@ const MyComponent = () => {
     <Button
       sx={{
         // use theme here
-        color: "color1",
+        color: "primary",
       }}
     >
       My component
@@ -152,14 +163,15 @@ export default CustomInputPhone;
 
 ## Custom IconButton
 
-If you want to use custom IconButton you need to import `IconButton` from `@mui/material` and add `className` to the component. You can use `action`, `delete`, `grey`, `error`, `success`, `outlined`, `secondary` and `primary` className.
+If you want to use custom IconButton you need to import `IconButton` from `@mui/material` and add `variant` props.
+You can use all color from the theme but you need to add `-contained`, `-outlined`, `-soft` or `-ghost` at the end of the color.
 
 ```tsx
 import { IconButton } from "@mui/material";
 
 const MyComponent = () => {
   return (
-    <IconButton className="action">
+    <IconButton variant="primary-contained">
       <Icon />
     </IconButton>
   );
