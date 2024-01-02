@@ -26,6 +26,7 @@ export type CustomInputProps = TextFieldProps & {
   requiredValue?: boolean;
   helperTextValue?: string;
   disabled?: boolean;
+  variant?: "filled" | "outlined";
 };
 
 export type IFieldStructure = {

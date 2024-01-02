@@ -403,6 +403,7 @@ const inputs = ({
           marginBottom: space?.["2xs"],
         },
         "&.MuiFilledInput-root": {
+          paddingRight: 0,
           backgroundColor: palette?.background.default,
           borderRadius: radius?.shapeXs,
           border: "1px solid transparent",
@@ -417,6 +418,9 @@ const inputs = ({
             "&:hover": {
               border: `1px solid ${palette?.color5.main}`,
             },
+          },
+          "& .MuiInputAdornment-root": {
+            marginTop: 0 + " !important",
           },
           "&::before": {
             display: "none",

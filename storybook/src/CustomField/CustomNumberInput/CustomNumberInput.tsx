@@ -10,6 +10,7 @@ const CustomNumberInput = ({
   requiredValue,
   helperTextValue,
   disabled,
+  variant,
 }: CustomInputProps) => {
   const field: IFieldStructure = {
     label: "Montant",
@@ -40,7 +41,7 @@ const CustomNumberInput = ({
               }
             : undefined
         }
-        variant="outlined"
+        variant={variant}
         thousandSeparator=" "
         disabled={field.disabled}
       />
