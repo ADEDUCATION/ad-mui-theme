@@ -405,6 +405,9 @@ const inputs = ({
         "&.MuiFilledInput-root": {
           "&.MuiAutocomplete-inputRoot": {
             padding: 0,
+            "&.Mui-disabled": {
+              backgroundColor: palette?.background.default,
+            },
           },
           paddingRight: 0,
           backgroundColor: palette?.background.default,
@@ -746,12 +749,27 @@ const inputs = ({
           },
           "& .MuiAutocomplete-endAdornment": {
             "& .MuiIconButton-root": {
+              "&.MuiAutocomplete-popupIndicator": {
+                "&:hover": {
+                  backgroundColor: "transparent",
+                  "& .MuiSvgIcon-root": {
+                    color: palette?.grey[400],
+                  },
+                },
+              },
+
+              "&.MuiAutocomplete-clearIndicator": {
+                "&:hover": {
+                  backgroundColor: "transparent",
+                  "& .MuiSvgIcon-root": {
+                    color: palette?.primary.main,
+                  },
+                },
+              },
+
               padding: 0,
               width: space?.xl,
               height: space?.xl,
-              "&:hover": {
-                backgroundColor: "transparent",
-              },
               "& .MuiSvgIcon-root": {
                 width: space?.xl,
                 height: space?.xl,
@@ -768,27 +786,30 @@ const inputs = ({
             },
           },
         },
-        "&:hover .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg":
-          {
-            color: palette?.primary.main,
-          },
-        "&:active .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg":
-          {
-            color: palette?.primary.main,
-          },
+        // "&:hover .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg":
+        //   {
+        //     color: palette?.primary.main,
+        //   },
+        // "&:active .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg":
+        //   {
+        //     color: palette?.primary.main,
+        //   },
         // "&:hover .MuiFormLabel-root": {
         //   color: palette?.primary.main,
         // },
-        "& .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg":
-          {
-            color: palette?.grey[400],
-          },
-        "& .MuiAutocomplete-popupIndicatorOpen": {
-          color: palette?.primary.main,
-        },
-        "& .MuiAutocomplete-clearIndicator": {
-          color: palette?.primary.main,
-        },
+        // "& .MuiInputBase-root .MuiAutocomplete-endAdornment .MuiIconButton-root svg":
+        //   {
+        //     color: palette?.grey[400],
+        //     "&:hover": {
+        //       color: palette?.primary.main,
+        //     },
+        //   },
+        // "& .MuiAutocomplete-popupIndicator": {
+        //   color: palette?.primary.main,
+        // },
+        // "& .MuiAutocomplete-clearIndicator": {
+        //   color: palette?.primary.main,
+        // },
         "& .MuiChip-root": {
           "& .MuiChip-deleteIcon": {
             color: palette?.primary.xdark,
