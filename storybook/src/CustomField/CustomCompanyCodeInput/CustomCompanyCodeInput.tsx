@@ -9,6 +9,7 @@ const CustomCompanyCodeInput = ({
   disabled,
   requiredValue,
   helperTextValue,
+  variant,
 }: CustomInputProps) => {
   const field = {
     label: "Numéro Siret",
@@ -26,7 +27,7 @@ const CustomCompanyCodeInput = ({
       </InputLabel>
       <PatternFormat
         customInput={TextField}
-        variant="outlined"
+        variant={variant}
         fullWidth
         format={field.format as string}
         type="text"
