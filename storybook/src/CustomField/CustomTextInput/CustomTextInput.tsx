@@ -24,7 +24,7 @@ const CustomTextInput = ({
       <InputLabel>
         <Label field={field} />
       </InputLabel>
-      <TextField {...rest} />
+      <TextField {...rest} placeholder="Value" />
       {field.helperText && field.helperText?.length > 0 && (
         <CustomHelperText helperText={field.helperText} />
       )}
