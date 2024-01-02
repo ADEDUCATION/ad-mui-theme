@@ -9,6 +9,7 @@ export default {
     requiredValue: true,
     helperTextValue: "HelperText",
     disabled: false,
+    variant: "outlined",
   },
 } as Meta<typeof CustomInputPhone>;
 
