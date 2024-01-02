@@ -28,7 +28,7 @@ const inputs = ({
   },
   MuiButton: {
     defaultProps: {
-      disableElevation: true,
+      disableelevation: true,
       variant: "contained",
     },
     styleOverrides: {
@@ -148,7 +148,7 @@ const inputs = ({
   },
   MuiIconButton: {
     defaultProps: {
-      disableElevation: true,
+      disableelevation: true,
       color: "primary-ghost",
     },
     styleOverrides: {
@@ -405,19 +405,17 @@ const inputs = ({
         "&.MuiFilledInput-root": {
           backgroundColor: palette?.background.default,
           borderRadius: radius?.shapeXs,
-          border: "2px solid transparent",
+          border: "1px solid transparent",
           transition: "all 0.2s ease-in-out",
           "&:hover": {
-            padding: "1px !important",
-            border: `1px solid ${palette?.grey[600]}`,
+            border: `1px solid ${palette?.grey[800]}`,
             backgroundColor: palette?.background.default,
           },
           "&.Mui-focused": {
             backgroundColor: palette?.background.default,
-            border: `2px solid ${palette?.color5.main}`,
+            border: `1px solid ${palette?.color5.main}`,
             "&:hover": {
-              border: `2px solid ${palette?.color5.main}`,
-              padding: 0 + " !important",
+              border: `1px solid ${palette?.color5.main}`,
             },
           },
           "&::before": {
@@ -464,6 +462,7 @@ const inputs = ({
         },
         "&.Mui-focused": {
           "& .MuiOutlinedInput-notchedOutline": {
+            border: "1px solid !important",
             borderColor: palette?.color5.main + " !important",
           },
           // "& .MuiSvgIcon-root": {
@@ -796,7 +795,7 @@ const inputs = ({
   },
   MuiButtonGroup: {
     defaultProps: {
-      disableElevation: true,
+      disableelevation: true,
     },
   },
   MuiSwitch: {
