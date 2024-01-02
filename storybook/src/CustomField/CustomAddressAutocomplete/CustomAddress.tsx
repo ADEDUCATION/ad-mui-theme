@@ -7,6 +7,7 @@ const CustomAddress = ({
   disabled,
   requiredValue,
   helperTextValue,
+  variant,
 }: CustomInputProps) => {
   const field = {
     label: "Adresse",
@@ -33,6 +34,7 @@ const CustomAddress = ({
               // type: "search",
               size: "small",
             }}
+            variant={variant}
           />
         )}
         options={[]}

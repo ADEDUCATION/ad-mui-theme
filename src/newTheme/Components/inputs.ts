@@ -403,6 +403,9 @@ const inputs = ({
           marginBottom: space?.["2xs"],
         },
         "&.MuiFilledInput-root": {
+          "&.MuiAutocomplete-inputRoot": {
+            padding: 0,
+          },
           paddingRight: 0,
           backgroundColor: palette?.background.default,
           borderRadius: radius?.shapeXs,
