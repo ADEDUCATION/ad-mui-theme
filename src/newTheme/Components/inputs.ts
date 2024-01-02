@@ -166,7 +166,6 @@ const inputs = ({
               : variant === "soft"
               ? palette && palette[color as MuiColors].xlight
               : "transparent",
-
           "& .MuiSvgIcon-root": {
             color:
               variant === "contained"
@@ -208,19 +207,27 @@ const inputs = ({
             },
           },
           "&:hover": {
+            boxShadow:
+              variant === "outlined"
+                ? `inset 0 0 0 1px ${
+                    palette && palette[color as MuiColors].xdark
+                  }`
+                : "none",
             backgroundColor:
               variant === "contained"
                 ? palette && palette[color as MuiColors].dark
-                : variant === "soft" || variant === "ghost"
+                : variant === "soft"
                 ? palette && palette[color as MuiColors].light
-                : "inherit"
-                ? "inherit"
-                : palette && palette[color as MuiColors].xlight,
+                : variant === "ghost" || variant === "outlined"
+                ? palette && palette[color as MuiColors].xlight
+                : "inherit",
             "& .MuiSvgIcon-root": {
               color:
                 variant === "contained"
                   ? palette && palette[color as MuiColors].contrastText
-                  : variant === "soft" || variant === "ghost"
+                  : variant === "soft" ||
+                    variant === "ghost" ||
+                    variant === "outlined"
                   ? palette && palette[color as MuiColors].xdark
                   : "inherit"
                   ? "inherit"
@@ -230,7 +237,9 @@ const inputs = ({
               color:
                 variant === "contained"
                   ? palette && palette[color as MuiColors].contrastText
-                  : variant === "soft" || variant === "ghost"
+                  : variant === "soft" ||
+                    variant === "ghost" ||
+                    variant === "outlined"
                   ? palette && palette[color as MuiColors].xdark
                   : "inherit"
                   ? "inherit"
