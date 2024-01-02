@@ -29,6 +29,7 @@ const CustomInputPhone = ({
   } as IFieldStructure;
   const [value, setValue] = useState("");
 
+  const inputVariant = "filled";
   return (
     <>
       <Grid container spacing={2}>
@@ -50,7 +51,13 @@ const CustomInputPhone = ({
           inputStyle={{}}
           {...rest}
           disabled={field.disabled}
-          containerClass={field.disabled ? "disabled" : ""}
+          containerClass={
+            inputVariant === "filled" && field.disabled
+              ? "filled disabled"
+              : inputVariant === "filled"
+              ? "filled"
+              : ""
+          }
         />
         {field.helperText && field.helperText?.length > 0 && (
           <CustomHelperText helperText={field.helperText} />

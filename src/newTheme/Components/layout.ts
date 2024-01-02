@@ -248,12 +248,33 @@ export const layout = ({
             },
           },
           "&:hover:not(.disabled)": {
-            borderColor: palette?.primary.main + " !important",
+            borderColor: palette?.grey[600] + " !important",
           },
           "&:focus-within": {
             margin: 0,
             border: "2px solid",
-            borderColor: palette?.primary.main + " !important",
+            borderColor: palette?.color5.main + " !important",
+          },
+
+          "&.filled": {
+            border: "none",
+            margin: "2px",
+            "&:hover": {
+              border: "1px solid",
+              margin: "1px",
+              borderColor: palette?.grey[600] + " !important",
+            },
+            "&:focus-within": {
+              margin: 0,
+              border: "2px solid",
+              borderColor: palette?.color5.main + " !important",
+            },
+            "&.disabled": {
+              "&:hover": {
+                margin: "2px",
+                border: "none",
+              },
+            },
           },
           "& .form-control": {
             width: "100% !important",
