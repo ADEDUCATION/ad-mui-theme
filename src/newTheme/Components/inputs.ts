@@ -409,6 +409,9 @@ const inputs = ({
               backgroundColor: palette?.background.default,
             },
           },
+          "&.Mui-disabled": {
+            backgroundColor: palette?.background.default,
+          },
           paddingRight: 0,
           backgroundColor: palette?.background.default,
           borderRadius: radius?.shapeXs,
@@ -439,9 +442,6 @@ const inputs = ({
           fontSize: typography?.subtitleMedium.fontSize,
           "&.MuiFilledInput-input": {
             padding: space?.md + " !important",
-            "&::placeholder": {
-              color: palette?.grey[400] + " !important",
-            },
           },
         },
         "& select": {
@@ -460,7 +460,11 @@ const inputs = ({
           },
         },
         "&.Mui-disabled input": {
-          WebkitTextFillColor: palette?.grey[700],
+          WebkitTextFillColor: palette?.grey[300] + " !important",
+          "&::placeholder": {
+            WebkitTextFillColor: palette?.grey[600] + " !important",
+            opacity: 1,
+          },
         },
         "&.Mui-disabled select": {
           WebkitTextFillColor: palette?.grey[700],
