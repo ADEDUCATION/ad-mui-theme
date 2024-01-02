@@ -240,7 +240,6 @@ export const layout = ({
           border: "1px solid",
           borderColor: palette?.grey[700],
           borderRadius: radius?.input,
-          margin: "1px",
           "&.disabled": {
             borderColor: palette?.grey[800],
             "&:hover": {
@@ -252,30 +251,13 @@ export const layout = ({
           },
           "&:focus-within": {
             margin: 0,
-            border: "2px solid",
+            border: "1px solid",
             borderColor: palette?.color5.main + " !important",
-          },
-
-          "&.filled": {
-            border: "none",
-            margin: "2px",
             "&:hover": {
-              border: "1px solid",
-              margin: "1px",
-              borderColor: palette?.grey[600] + " !important",
-            },
-            "&:focus-within": {
-              margin: 0,
-              border: "2px solid",
               borderColor: palette?.color5.main + " !important",
             },
-            "&.disabled": {
-              "&:hover": {
-                margin: "2px",
-                border: "none",
-              },
-            },
           },
+
           "& .form-control": {
             width: "100% !important",
             minHeight: "44px",
@@ -285,16 +267,47 @@ export const layout = ({
             border: "none",
             "&.invalid-number": {
               border: "none !important",
-              background: "none !important",
+              background: "none",
               "&:focus": {
                 border: "none !important",
-                background: "none !important",
+                background: "none",
               },
             },
             "&:disabled": {
               color: palette?.grey[700],
             },
           },
+
+          "&.filled": {
+            border: "none",
+            margin: "1px",
+            "& input": {
+              backgroundColor: palette?.background.default + " !important",
+            },
+            "&.invalid-number": {
+              border: "none !important",
+              "&:focus": {
+                border: "none !important",
+              },
+            },
+            "&:hover": {
+              border: "1px solid",
+              margin: 0,
+              borderColor: palette?.grey[600] + " !important",
+            },
+            "&:focus-within": {
+              margin: 0,
+              border: "1px solid",
+              borderColor: palette?.color5.main + " !important",
+            },
+            "&.disabled": {
+              "&:hover": {
+                margin: "2px",
+                border: "none",
+              },
+            },
+          },
+
           "& .flag-dropdown": {
             border: "none",
             borderRadius: radius?.input + " 0 0 " + radius?.input,
