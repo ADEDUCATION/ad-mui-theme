@@ -11,7 +11,6 @@ export default {
     requiredValue: true,
     helperTextValue: "HelperText",
     disabled: false,
-    variant: "outlined",
   },
   parameters: {
     controls: {

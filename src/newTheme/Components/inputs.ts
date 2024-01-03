@@ -889,6 +889,11 @@ const inputs = ({
       },
     },
   },
+  MuiTextField: {
+    defaultProps: {
+      variant: "filled",
+    },
+  },
 });
 
 export default inputs;
