@@ -1,9 +1,20 @@
-import { ButtonProps, IconButtonProps, FabProps, CheckboxProps, SwitchProps } from "@mui/material";
+import {
+  ButtonProps,
+  IconButtonProps,
+  FabProps,
+  CheckboxProps,
+  SwitchProps,
+} from "@mui/material";
 import { Props } from "./components";
 import { OverridesStyleRules } from "@mui/material/styles/overrides";
 import { MuiColors } from "../Palette/utils";
 
-const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRules => ({
+const inputs = ({
+  palette,
+  typography,
+  radius,
+  space,
+}: Props): OverridesStyleRules => ({
   MuiFormLabel: {
     styleOverrides: {
       root: {
@@ -32,7 +43,8 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
               ? palette && palette[ownerState.color as MuiColors].contrastText
               : ownerState.variant === "soft"
               ? palette && palette[ownerState.color as MuiColors].xdark
-              : ownerState.variant === "text" && ownerState.color === "neutralLight"
+              : ownerState.variant === "text" &&
+                ownerState.color === "neutralLight"
               ? palette && palette[ownerState.color as MuiColors].dark
               : palette && palette[ownerState.color as MuiColors].main,
           backgroundColor:
@@ -51,7 +63,8 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
                 ? "transparent"
                 : palette && palette[ownerState.color as MuiColors].xlight,
             color:
-              (ownerState.variant === "text" || ownerState.variant === "outlined") &&
+              (ownerState.variant === "text" ||
+                ownerState.variant === "outlined") &&
               palette &&
               palette[ownerState.color as MuiColors].xdark,
             boxShadow: "none",
@@ -178,9 +191,14 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
                 : palette && palette[color as MuiColors].main,
           },
           "&.Mui-disabled": {
-            border: variant === "outlined" ? `1px solid ${palette?.grey[700]}` : "none",
+            border:
+              variant === "outlined"
+                ? `1px solid ${palette?.grey[700]}`
+                : "none",
             backgroundColor:
-              variant === "outlined" || variant === "ghost" ? "transparent" : palette?.grey[900],
+              variant === "outlined" || variant === "ghost"
+                ? "transparent"
+                : palette?.grey[900],
             "& .MuiSvgIcon-root": {
               color: palette?.grey[700],
             },
@@ -191,7 +209,9 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
           "&:hover": {
             boxShadow:
               variant === "outlined"
-                ? `inset 0 0 0 1px ${palette && palette[color as MuiColors].xdark}`
+                ? `inset 0 0 0 1px ${
+                    palette && palette[color as MuiColors].xdark
+                  }`
                 : "none",
             backgroundColor:
               variant === "contained"
@@ -205,7 +225,9 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
               color:
                 variant === "contained"
                   ? palette && palette[color as MuiColors].contrastText
-                  : variant === "soft" || variant === "ghost" || variant === "outlined"
+                  : variant === "soft" ||
+                    variant === "ghost" ||
+                    variant === "outlined"
                   ? palette && palette[color as MuiColors].xdark
                   : "inherit"
                   ? "inherit"
@@ -215,7 +237,9 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
               color:
                 variant === "contained"
                   ? palette && palette[color as MuiColors].contrastText
-                  : variant === "soft" || variant === "ghost" || variant === "outlined"
+                  : variant === "soft" ||
+                    variant === "ghost" ||
+                    variant === "outlined"
                   ? palette && palette[color as MuiColors].xdark
                   : "inherit"
                   ? "inherit"
@@ -305,7 +329,9 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
           border: "none",
           boxShadow:
             ownerState.variant === "outlined"
-              ? `inset 0 0 0 1px ${palette && palette[ownerState.color as MuiColors].main}`
+              ? `inset 0 0 0 1px ${
+                  palette && palette[ownerState.color as MuiColors].main
+                }`
               : "none",
           color:
             ownerState.variant === "contained"
@@ -321,9 +347,13 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
               : "transparent",
 
           "&.Mui-disabled": {
-            border: ownerState.variant === "outlined" ? `1px solid ${palette?.grey[700]}` : "none",
+            border:
+              ownerState.variant === "outlined"
+                ? `1px solid ${palette?.grey[700]}`
+                : "none",
             backgroundColor:
-              ownerState.variant === "outlined" || ownerState.variant === "ghost"
+              ownerState.variant === "outlined" ||
+              ownerState.variant === "ghost"
                 ? "transparent"
                 : palette?.grey[900],
             color: palette?.grey[700],
@@ -340,7 +370,8 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
                 ? palette && palette[ownerState.color as MuiColors].light
                 : palette && palette[ownerState.color as MuiColors].xlight,
             color:
-              (ownerState.variant === "outlined" || ownerState.variant === "ghost") &&
+              (ownerState.variant === "outlined" ||
+                ownerState.variant === "ghost") &&
               palette &&
               palette[ownerState.color as MuiColors].xdark,
             boxShadow: "none",
@@ -368,6 +399,21 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
         "&.MuiOutlinedInput-root": {
           paddingRight: 0,
           border: palette?.grey[700] + " 1px solid !important",
+          "&:hover": {
+            borderColor: palette?.grey[600] + " !important",
+          },
+          "&.Mui-disabled": {
+            borderColor: palette?.grey[700] + "!important",
+            "&:hover": {
+              borderColor: palette?.grey[700] + "!important",
+            },
+          },
+          "&.Mui-focused": {
+            borderColor: palette?.color5.main + " !important",
+            "& .MuiOutlinedInput-notchedOutline": {
+              border: "unset !important",
+            },
+          },
         },
         "& .MuiNativeSelect-select": {
           marginBottom: space?.["2xs"],
@@ -410,6 +456,10 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
         "& input": {
           fontSize: typography?.subtitleMedium.fontSize,
           padding: space?.md + " !important",
+          "&::placeholder": {
+            opacity: 1,
+            transition: "unset !important",
+          },
         },
         "& select": {
           fontSize: typography?.subtitleMedium.fontSize,
@@ -419,7 +469,7 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
           },
         },
         "& .MuiOutlinedInput-notchedOutline": {
-          border: "unset",
+          border: "none !important",
         },
         "&:hover": {
           // "& .MuiOutlinedInput-notchedOutline": {
@@ -428,6 +478,9 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
           "&.Mui-disabled": {
             "&.MuiFilledInput-root": {
               borderColor: "transparent !important",
+            },
+            "&.MuiOutlinedInput-root": {
+              boderColor: palette?.grey[800] + "!important",
             },
           },
         },
@@ -442,8 +495,27 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
           WebkitTextFillColor: palette?.grey[700],
         },
         "&.Mui-disabled": {
-          "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: palette?.grey[800] + "!important",
+          // "& .MuiOutlinedInput-notchedOutline": {
+          //   borderColor: palette?.grey[800] + "!important",
+          // },
+          // "&:hover": {
+          //   boderColor: palette?.grey[700] + "!important",
+          // },
+          "& .MuiInputAdornment-root": {
+            "& .MuiTypography-root": {
+              color: palette?.grey[700],
+            },
+            "& .MuiButtonBase-root": {
+              padding: space?.sm,
+              "& .MuiSvgIcon-root": {
+                color: palette?.grey[700],
+                marginRight: "-1px",
+              },
+              "& .tabler-icon": {
+                color: palette?.grey[700],
+                marginRight: "-1px",
+              },
+            },
           },
         },
         "&.Mui-focused": {
@@ -516,7 +588,8 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
           },
           "&:hover": {
             color: palette && palette[ownerState.color as MuiColors].main,
-            backgroundColor: palette && palette[ownerState.color as MuiColors].A10,
+            backgroundColor:
+              palette && palette[ownerState.color as MuiColors].A10,
           },
           "&.Mui-disabled": {
             color: palette?.grey[700],
@@ -616,7 +689,8 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
           },
           "&:hover": {
             color: palette && palette[ownerState.color as MuiColors].main,
-            backgroundColor: palette && palette[ownerState.color as MuiColors].A10,
+            backgroundColor:
+              palette && palette[ownerState.color as MuiColors].A10,
           },
           "&.Mui-disabled": {
             color: palette?.grey[700],
@@ -707,6 +781,12 @@ const inputs = ({ palette, typography, radius, space }: Props): OverridesStyleRu
           // WebkitAppearance: "none",
           color: palette?.grey[500] + " !important",
           backgroundColor: "transparent",
+        },
+        "& .MuiInputBase-root": {
+          paddingLeft: space?.md + " !important",
+          "& input": {
+            padding: 0 + " !important",
+          },
         },
         "&.MuiAutocomplete-hasPopupIcon": {
           "& .MuiFormControl-root": {

@@ -302,7 +302,7 @@ export const layout = ({
             },
             "&.disabled": {
               "&:hover": {
-                margin: "2px",
+                margin: "1px",
                 border: "none",
               },
             },

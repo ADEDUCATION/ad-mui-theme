@@ -96,7 +96,6 @@ const CustomLinkInput = ({
                   variant !== "filled"
                     ? `1px solid ${theme.palette.grey[800]}`
                     : "none",
-                mr: 1,
               }}
             >
               <Typography color="grey.500">{field.startUrl}</Typography>

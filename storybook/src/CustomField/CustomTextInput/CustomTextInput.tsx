@@ -3,6 +3,7 @@ import { InputLabel, TextField } from "@mui/material";
 import Label from "../Label";
 import { CustomInputProps, IFieldStructure } from "../type";
 import CustomHelperText from "../CustomHelperText";
+import { CheckBox } from "@mui/icons-material";
 
 const CustomTextInput = ({
   requiredValue,
