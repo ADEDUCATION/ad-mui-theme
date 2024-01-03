@@ -18,6 +18,7 @@ const CustomLinkInput = ({
   requiredValue,
   helperTextValue,
   disabled,
+  variant,
 }: CustomInputProps) => {
   const theme = useTheme();
   const [value, setValue] = useState("");
@@ -52,6 +53,7 @@ const CustomLinkInput = ({
         disabled={field.disabled}
         size="small"
         type="text"
+        variant={variant}
         InputProps={{
           endAdornment: (
             <Stack
@@ -62,21 +64,21 @@ const CustomLinkInput = ({
               }}
             >
               <IconButton
-                color="primary-ghost"
+                color="neutralDark-ghost"
                 size="medium"
                 disabled={field.disabled}
               >
-                <StyledIcon icon={<IconCopy />} size="md" color="primary" />
+                <StyledIcon icon={<IconCopy />} size="md" color="neutralDark" />
               </IconButton>
               <IconButton
-                color="primary-ghost"
+                color="neutralDark-ghost"
                 size="medium"
                 disabled={field.disabled}
               >
                 <StyledIcon
                   icon={<IconExternalLink />}
                   size="md"
-                  color="primary"
+                  color="neutralDark"
                 />
               </IconButton>
             </Stack>
@@ -90,8 +92,10 @@ const CustomLinkInput = ({
                 background: theme.palette.grey[900],
                 height: "100%",
                 padding: `0 ${theme.space.md}`,
-                borderRight: `1px solid ${theme.palette.grey[800]}`,
-                mr: 1,
+                borderRight:
+                  variant !== "filled"
+                    ? `1px solid ${theme.palette.grey[800]}`
+                    : "none",
               }}
             >
               <Typography color="grey.500">{field.startUrl}</Typography>

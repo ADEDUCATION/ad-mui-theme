@@ -11,6 +11,7 @@ export default {
     requiredValue: true,
     helperTextValue: "HelperText",
     disabled: false,
+    variant: "filled",
   },
 } as Meta<typeof CustomMultiSelect>;
 

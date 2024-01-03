@@ -57,6 +57,23 @@ export const globalTypes = {
 };
 
 export const parameters = {
+  backgrounds: {
+    default: "light",
+    values: [
+      {
+        name: "light",
+        value: "#fff",
+      },
+      {
+        name: "grey",
+        value: "#f5f7fa",
+      },
+      {
+        name: "primary",
+        value: "#0dad8d",
+      },
+    ],
+  },
   actions: { argTypesRegex: "^on[A-Z].*", disable: true },
   controls: {
     expanded: true, // Adds the description and default columns

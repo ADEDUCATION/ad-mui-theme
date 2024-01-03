@@ -4,7 +4,6 @@ const companyStatusOptions = [
 ];
 
 export const excludedControls = [
-  "variant",
   "size",
   "fullWidth",
   "label",

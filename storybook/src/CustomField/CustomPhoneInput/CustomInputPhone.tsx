@@ -11,12 +11,14 @@ export interface CustomPhoneProps extends PhoneInputProps {
   requiredValue?: boolean;
   helperTextValue?: string;
   disabled?: boolean;
+  variant?: "filled" | "outlined";
 }
 
 const CustomInputPhone = ({
   requiredValue,
   helperTextValue,
   disabled,
+  variant,
   ...rest
 }: CustomPhoneProps) => {
   const field = {
@@ -27,8 +29,7 @@ const CustomInputPhone = ({
     helperText: helperTextValue,
     disabled: disabled,
   } as IFieldStructure;
-  const [value, setValue] = useState("");
-
+  const [value] = useState("");
   return (
     <>
       <Grid container spacing={2}>
@@ -50,7 +51,15 @@ const CustomInputPhone = ({
           inputStyle={{}}
           {...rest}
           disabled={field.disabled}
-          containerClass={field.disabled ? "disabled" : ""}
+          containerClass={
+            variant === "filled" && field.disabled
+              ? "filled disabled"
+              : variant === "filled" && !field.disabled
+              ? "filled"
+              : field.disabled
+              ? "disabled"
+              : ""
+          }
         />
         {field.helperText && field.helperText?.length > 0 && (
           <CustomHelperText helperText={field.helperText} />

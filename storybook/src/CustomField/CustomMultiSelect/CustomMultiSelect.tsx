@@ -1,25 +1,22 @@
-import {
-  Autocomplete,
-  Checkbox,
-  InputLabel,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Autocomplete, InputLabel, TextField, Typography } from "@mui/material";
 
 import Label from "../Label";
 import { IFieldStructure } from "../type";
 import CustomHelperText from "../CustomHelperText";
+import { IconSquare, IconSquareCheckFilled } from "@tabler/icons-react";
 
 export interface CustomMultiselectInputProps {
   requiredValue?: boolean;
   helperTextValue?: string;
   disabled?: boolean;
+  variant?: "filled" | "outlined";
 }
 
 const CustomMultiselectInput = ({
   requiredValue,
   helperTextValue,
   disabled,
+  variant,
 }: CustomMultiselectInputProps) => {
   const field = {
     label: "Titre(s) RNCP rattaché(s)",
@@ -54,7 +51,7 @@ const CustomMultiselectInput = ({
           size: "medium",
         }}
         renderInput={(params) => (
-          <TextField {...params} variant="outlined" label="" />
+          <TextField {...params} variant={variant} label="" />
         )}
         renderOption={(props, option, { selected }) => {
           return (
@@ -65,13 +62,9 @@ const CustomMultiselectInput = ({
                 backgroundColor: selected ? "primary.main" : "white",
               }}
             >
-              <Checkbox
-                style={{ marginRight: 8 }}
-                checked={selected}
-                color="primary"
-              />
+              {selected ? <IconSquareCheckFilled /> : <IconSquare />}
               <Typography
-                variant="body2"
+                variant="subtitleMedium"
                 component="span"
                 sx={{
                   color: selected ? "primary.main" : "grey.500",

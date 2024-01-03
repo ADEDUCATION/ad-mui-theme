@@ -10,6 +10,7 @@ const CustomDurationInput = ({
   disabled,
   requiredValue,
   helperTextValue,
+  variant,
 }: CustomInputProps) => {
   const field = {
     label: "Durée de la formation",
@@ -40,7 +41,7 @@ const CustomDurationInput = ({
               }
             : undefined
         }
-        variant="outlined"
+        variant={variant}
         // suffix={` ${field.suffix}`}
         name={field.id}
         thousandSeparator=" "

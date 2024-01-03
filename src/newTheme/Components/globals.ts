@@ -25,25 +25,32 @@ const globals = ({ palette, typography, space }: Props) => ({
               backgroundColor: "transparent",
               // color: palette.grey[900],
               transition: "background-color 0.2s ease-in-out",
-              padding: 0,
+              padding: `${space?.sm} ${space?.md}`,
+              display: "flex",
+              gap: space?.xs,
+              alignItems: "center",
+              "& .MuiSvgIcon-root": {
+                width: space?.lg,
+                height: space?.lg,
+                color: palette?.grey[500],
+              },
+              "& .tabler-icon": {
+                width: space?.xl,
+                height: space?.xl,
+                color: palette?.grey[500],
+              },
               '&[aria-selected="true"]': {
                 backgroundColor: "transparent",
                 color: palette?.primary.main,
-                "& .MuiTypography-root": {
-                  fontWeight: typography?.bodyBold.fontWeight,
-                },
                 "& .MuiSvgIcon-root": {
+                  color: palette?.primary.main,
+                },
+                "& .tabler-icon": {
                   color: palette?.primary.main,
                 },
               },
               "&:hover": {
-                backgroundColor: palette?.primary.xlight + " !important",
-                "& .MuiTypography-root": {
-                  color: palette?.primary.main + " !important",
-                },
-                "& .MuiSvgIcon-root": {
-                  color: palette?.primary.main + " !important",
-                },
+                backgroundColor: palette?.grey[900] + " !important",
               },
             },
           },
