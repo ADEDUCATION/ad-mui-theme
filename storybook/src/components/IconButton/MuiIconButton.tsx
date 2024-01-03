@@ -14,6 +14,7 @@ export const MuiIconButton = ({ icon, ...rest }: MuiIconButtonProps) => (
       sx={{
         width: "fit-content",
         padding: "30px",
+        backgroundColor: "transparent",
       }}
     >
       <IconButton {...rest}>{getIcon(icon)}</IconButton>
