@@ -56,6 +56,16 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
             height: space?.lg,
             margin: 0,
           },
+          "& .MuiSvgIcon-root": {
+            width: space?.lg,
+            height: space?.lg,
+            margin: 0,
+          },
+          "& .tabler-icon": {
+            width: space?.lg,
+            height: space?.lg,
+            margin: 0,
+          },
           "& .MuiChip-deleteIcon": {
             width: space?.lg,
             height: space?.lg,
@@ -88,6 +98,16 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
             height: space?.lg,
             margin: 0,
           },
+          "& .MuiSvgIcon-root": {
+            width: space?.lg,
+            height: space?.lg,
+            margin: 0,
+          },
+          "& .tabler-icon": {
+            width: space?.lg,
+            height: space?.lg,
+            margin: 0,
+          },
           "& .MuiChip-deleteIcon": {
             width: space?.lg,
             height: space?.lg,
@@ -116,6 +136,16 @@ const dataDisplay = ({ palette, typography, radius, space }: Props) => ({
             margin: 0,
           },
           "& .MuiChip-icon": {
+            width: space?.xl,
+            height: space?.xl,
+            margin: 0,
+          },
+          "& .MuiSvgIcon-root": {
+            width: space?.xl,
+            height: space?.xl,
+            margin: 0,
+          },
+          "& .tabler-icon": {
             width: space?.xl,
             height: space?.xl,
             margin: 0,
