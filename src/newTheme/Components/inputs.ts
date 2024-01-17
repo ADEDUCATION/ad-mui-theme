@@ -70,6 +70,14 @@ const inputs = ({
             boxShadow: "none",
           },
 
+          "&.Mui-disabled": {
+            color: palette?.grey[700],
+            backgroundColor:
+              ownerState.variant === "outlined" || ownerState.variant === "text"
+                ? "transparent"
+                : palette?.grey[900],
+          },
+
           "& .MuiButton-startIcon": {
             margin: 0,
           },
