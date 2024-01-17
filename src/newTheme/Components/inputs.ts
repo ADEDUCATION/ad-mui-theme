@@ -28,7 +28,7 @@ const inputs = ({
   },
   MuiButton: {
     defaultProps: {
-      disableelevation: true,
+      disableelevation: +true,
       variant: "contained",
     },
     styleOverrides: {
@@ -148,7 +148,7 @@ const inputs = ({
   },
   MuiIconButton: {
     defaultProps: {
-      disableelevation: true,
+      disableelevation: +true,
       color: "primary-ghost",
     },
     styleOverrides: {
@@ -875,7 +875,7 @@ const inputs = ({
   },
   MuiButtonGroup: {
     defaultProps: {
-      disableelevation: true,
+      disableelevation: +true,
     },
   },
   MuiSwitch: {
