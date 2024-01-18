@@ -28,7 +28,7 @@ const inputs = ({
   },
   MuiButton: {
     defaultProps: {
-      disableelevation: true,
+      disableelevation: +true,
       variant: "contained",
     },
     styleOverrides: {
@@ -148,7 +148,7 @@ const inputs = ({
   },
   MuiIconButton: {
     defaultProps: {
-      disableelevation: true,
+      disableelevation: +true,
       color: "primary-ghost",
     },
     styleOverrides: {
@@ -426,22 +426,22 @@ const inputs = ({
           "&.MuiAutocomplete-inputRoot": {
             padding: 0,
             "&.Mui-disabled": {
-              backgroundColor: palette?.background.default,
+              backgroundColor: palette?.info.A05,
             },
           },
           "&.Mui-disabled": {
-            backgroundColor: palette?.background.default,
+            backgroundColor: palette?.info.A05,
           },
           paddingRight: 0,
-          backgroundColor: palette?.background.default,
+          backgroundColor: palette?.info.A05,
           borderRadius: radius?.shapeXs,
           border: "1px solid transparent",
           "&:hover": {
             border: `1px solid ${palette?.grey[800]}`,
-            backgroundColor: palette?.background.default,
+            backgroundColor: palette?.info.A05,
           },
           "&.Mui-focused": {
-            backgroundColor: palette?.background.default,
+            backgroundColor: palette?.info.A05,
             border: `1px solid ${palette?.color5.main}`,
             "&:hover": {
               border: `1px solid ${palette?.color5.main}`,
@@ -875,7 +875,7 @@ const inputs = ({
   },
   MuiButtonGroup: {
     defaultProps: {
-      disableelevation: true,
+      disableelevation: +true,
     },
   },
   MuiSwitch: {

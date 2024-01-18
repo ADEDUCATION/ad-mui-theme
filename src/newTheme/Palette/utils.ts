@@ -14,6 +14,7 @@ type TonalColors = keyof PaletteOffset[SchoolThemes];
 type AllColor = MuiColors | TonalColors;
 
 type ColorStructure = {
+  A05?: string;
   A10?: string;
   A20?: string;
   xlight?: string;
