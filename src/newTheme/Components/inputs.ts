@@ -182,6 +182,8 @@ const inputs = ({
                 ? palette && palette[color as MuiColors].main
                 : variant === "soft"
                 ? palette && palette[color as MuiColors].xdark
+                : variant === "ghost"
+                ? palette && palette[color as MuiColors].main
                 : ownerState.color === "neutralLight-ghost"
                 ? palette && palette[color as MuiColors].main
                 : "inherit"
@@ -196,6 +198,8 @@ const inputs = ({
                 ? palette && palette[color as MuiColors].main
                 : variant === "soft"
                 ? palette && palette[color as MuiColors].xdark
+                : variant === "ghost"
+                ? palette && palette[color as MuiColors].main
                 : ownerState.color === "neutralLight-ghost"
                 ? palette && palette[color as MuiColors].main
                 : "inherit"
